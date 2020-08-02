@@ -1,0 +1,88 @@
+.contactUs{
+    position: relative;
+    background-color: #141414;
+    height: auto;
+    z-index: 1;
+    height: 30%;
+}
+.contactusContainer{
+    text-align: center;
+    justify-content: flex-start;
+    display: flex;
+    height: auto;
+    position: relative;
+}
+.contacusP > ul >li {
+  
+    color: white;
+    margin: 0;
+}
+.ulstyleying {
+    top: 10%;
+    color: white;
+    margin: 0;
+    position: relative;
+    transform:none
+}
+.ahahha{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 7;
+}
+.iconsConTainer{
+    position: relative;
+    height: 50%;
+    width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+.contacusP{
+    top: 20px;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+.nameclasing{
+    text-align: center;
+    color: white;
+}
+@media only screen and (max-width: 600px){
+    .contactUs{
+        position: relative;
+        /*252525*/
+        background-color: #141414;
+        height: auto;
+        z-index: 1;
+    }
+    .contactusContainer{
+        height: auto;
+    display: flex;
+    flex-direction:column
+    }
+    .contacusP > p {
+        color: white;
+        margin: 0;
+    }
+    .contacusP{
+        top: 20px;
+        position: relative;
+      
+    }
+    .ahahha{
+        height: 120px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 2;
+    }
+}
+
+

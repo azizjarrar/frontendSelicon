@@ -1,0 +1,77 @@
+.button {
+
+    position: absolute;
+    height: 60px;
+    width: 30%;
+    left: 50%;
+    top: 50%;
+    cursor: pointer;
+    transform: translate(-50%,-50%);
+    background: #212121;
+    border: NONE;
+    border-color:#81c4ed ;
+    z-index: 5;
+  }
+  .button >p{
+    font: 1.4em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .button:hover {
+    background: none;
+
+    background: #3cb0fd;
+
+    text-decoration: none;
+  }
+
+@media only screen and (max-width: 850px)   {
+    .button {
+        position: absolute;
+        height: 60px;
+        width: 30%;
+        top: auto;
+        bottom: 4%;
+        left: 37%;
+        transform: translate(-0%,-50%);
+        cursor: pointer;
+        background: #252525;
+        border-color:#81c4ed ;
+        z-index: 5;
+    
+      }
+      .button >p{
+        font: 1.4em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: white;
+        margin: 0;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+}
+@media only screen and (min-width: 200px) and (max-width: 360px) {
+    .button {
+        position: absolute;
+        height: 60px;
+        width: 30%;
+        top: auto;
+        bottom: -7%;
+        left: 37%;
+        transform: translate(-0%,-50%);
+        cursor: pointer;
+        background: #252525;
+        border-color:#81c4ed ;
+        z-index: 5;
+    
+      }
+      .button >p{
+        font: 1.4em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: white;
+        margin: 0;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+}

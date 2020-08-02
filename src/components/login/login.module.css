@@ -1,0 +1,163 @@
+.loginbody{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+
+}
+.inputcontainer{
+    height: 500px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index: 3;
+
+}
+.inputcontainer:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .button{
+      flex-grow: 1;
+  }
+.form{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.inputdiv{
+    height: 50px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+.inputdiv > input{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+.inputdiv  label{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+.inputdiv  label::after{
+content: "";
+position: absolute;
+left: 0;
+bottom:  -1px;
+height: 100%;
+width: 100%;
+border-bottom: 3px solid #5fa8d3;
+transform: translateX(-100%);
+transition:  all 0.3s ease;
+}
+.contentName{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.inputdiv  input:focus + .labelname .contentName,
+.inputdiv input:valid + .labelname .contentName{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #5fa8d3;
+}
+.inputdiv  input:focus + .labelname::after,
+ .inputdiv input:valid +.labelname::after{
+    transform: translateX(0%);
+}
+
+
+.buttoncss{
+        top: 20px;
+        position: relative;
+        height: 60px;
+        width: 80%;
+        left: 50%;
+        cursor: pointer;
+        transform: translate(-50%,-0%);
+        background: #212121;
+        border: NONE;
+        border-color:#81c4ed ;
+        z-index: 5;
+}     
+.buttoncss  p{
+    font: 1.4em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+.buttoncss:hover {
+    background: none;
+
+    background: #3cb0fd;
+
+    text-decoration: none;
+  }
+  .blackfilter{
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+.backgroundphoto{
+    position: absolute;
+    background-image: url('../home/image/002.jpg');
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+
+}
+.logo{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    left: 47%;
+    transform: translate(-50%,0%);
+}
+.logoStyle{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+@media only screen and (min-width: 700px)and (max-width: 1100px) {
+    .inputcontainer{
+        height: 80%;
+        width: 80%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        z-index: 3;
+    }
+    .form{
+        position: relative;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+    }
+}
