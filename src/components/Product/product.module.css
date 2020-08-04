@@ -15,6 +15,7 @@
     position: relative;
     overflow: hidden;
     bottom: 7px;
+    z-index: 5;
 
 }
 .search{
@@ -38,6 +39,7 @@
     position: relative;
 }
 .searchCss{
+    width: 20%;
     flex-grow: 1;
 }
 .itemsContainer{
@@ -93,12 +95,13 @@
     position: relative;
     height: 30%;
     width: 100%;
-    margin-bottom: 2%;
     display: flex;
    /* background-color: rgba(251, 244, 237);*/
    background: #141e30; /* fallback for old browsers */
    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   margin-top: 1%;
+   margin-bottom: 3%;
 }
 .containerHeader{
     flex-grow: 1;
@@ -148,4 +151,14 @@
     width: 100vw;
     height: 100vh;
     
+}
+.radiobox{
+    display: flex;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 15px;
 }

@@ -17,34 +17,21 @@ const Product = (props) => {
   const [windowWidth, setwindowWidth] = useState(window.innerWidth);
   const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
+
   const navbarReducer = useSelector(state=>state.navbarReducer.navbar)
   useEffect(()=>{
     if(navbarReducer==="ProduitPlastique"){
       setsection('plastic')
-        getTier1()
         setItemDisplay([])
     }else{
       setsection('silicon')
-        getTier1()
         setItemDisplay([])
     }
   },[navbarReducer])
 
   
   useEffect(() => {
-
-    if(props.routerProps.match.params.choice==="ProduitPlastique"){
-      setsection("plastic")
       getTier1()
-
-    }else{
-      setsection("silicon")
-      getTier1()
-
-    }
-
-
-
     window.addEventListener("resize", handleResize);
   },[sectionSP]);
   const handleResize = () => {
@@ -88,6 +75,14 @@ const Product = (props) => {
     getTier2()
 
   },[selectedSelect,selectedSelect1])
+
+    useEffect(()=>{
+      if(windowWidth<700){
+        document.getElementById("silicon").checked = true;
+      }
+    },[])
+  
+
   const goAdminDashbord = () => {
     props.routerProps.history.push("/admin/ProduitPlastique");
   };
@@ -127,14 +122,49 @@ const Product = (props) => {
       setItemDisplay([])
     }
   }
- 
+  const radioboxHandler=(e)=>{
+    setsection(e.target.value)
+
+  }
+  const radiobox=()=>{
+ return (
+  <div className={style.radiobox}>
+  <label class="container">
+    silicon
+    <input
+      id="silicon"
+      type="radio"
+      name="radio"
+      value="silicon"
+      onChange={radioboxHandler}
+    />
+    <span class="checkmark"></span>
+  </label>
+  <label class="container">
+    plastic
+    <input
+      type="radio"
+      name="radio"
+      value="plastic"
+      onChange={radioboxHandler}
+    />
+    <span class="checkmark"></span>
+  </label>
+</div>
+ )
+  }
+  const goToHome =()=>{
+    props.routerProps.history.push("/");
+
+  }
   return (
     <div className={style.productBody}>
-      <Navbar {...props}></Navbar>
+      
+      {windowWidth>700&&<Navbar {...props}></Navbar>}
       <div className={style.HeaderTop}>
         <div className={style.khat1}><div className={style.khatwe7ed}></div></div>
         <div className={style.containerHeader}>
-          <h1>
+          <h1 onClick={goToHome}>
             <span>Measilicone</span>
           </h1>
           <h3>{sectionSP}</h3>
@@ -142,8 +172,10 @@ const Product = (props) => {
         <div className={style.khat2}><div className={style.khatwe7ed}></div></div>
       </div>
       <div className={style.producContainer}>
-    
+      {windowWidth<700&&radiobox()}
+
         <div className={style.search}>
+
           <select className={style.searchCss}  onChange={getSelectselect}>
             <option value="None">None</option>
             {tier1Display}

@@ -16,7 +16,6 @@ function OurHistory(){
             l4HeaderDescription4:differntlang.OurHistory.OurHistory4.description.fr
         }
 
-        console.log(language)
     if(lang==="ang"){
         language={
                 l1Header:differntlang.OurHistory.OurHistory1.title.eng,

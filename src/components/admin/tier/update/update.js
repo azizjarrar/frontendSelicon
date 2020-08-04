@@ -49,7 +49,6 @@ const Update = () => {
     const data1 = await axios.post(`${url}tier/getTier2`, {
       id: selectedSelect1,
     });
-    console.log(data1.data.data);
     settier2Display(
       data1.data.data[0].tier2.map((e) => (
         <option value={e._id} key={e._id}>
@@ -66,7 +65,6 @@ const Update = () => {
 
   }
   const changetier2Title1=async ()=>{
-    console.log("tier2="+tier2+"              "+"selectedSelect0="+selectedSelect1)
     const data1 = await axios.post(`${url}tier/MaddTier2`, {
       id:selectedSelect2,newname:tier2
     });
@@ -77,11 +75,14 @@ const Update = () => {
     getTier1()
   },[sectionSP])
   useEffect(() => {
-  
-    getTier1();
+    console.log("tbadel")
     getTier2();
-  }, [selectedSelect1,selectedSelect0]);
+  }, [selectedSelect1]);
+
+ 
   useEffect(()=>{
+    getTier1()
+
     document.getElementById("silicon").checked = true;
   },[])
   return (
@@ -112,7 +113,7 @@ const Update = () => {
           </label>
         </div>
         <select className={style.selectcss} onChange={getSelectselect0}>
-          <option>gezgze</option>
+          <option>choisire un element</option>
           {tier1Display}
         </select>
         <div className={style.inputContainer}>
@@ -123,11 +124,11 @@ const Update = () => {
         </div>
         <h1>Tier 2</h1>
         <select className={style.selectcss} onChange={getSelectselect1}>
-          <option>gezgze</option>
+          <option>choisire un element</option>
           {tier1Display}
         </select>
         <select className={style.selectcss} onChange={getSelectselect2}>
-          <option>gezgze</option>
+          <option>choisire un element</option>
           {tier2Display}
         </select>
         <div className={style.inputContainer}>

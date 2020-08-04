@@ -62,8 +62,8 @@ width: 100%;
 .photostyle{
     margin: 0 auto;
     position: absolute;
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    max-width: 70%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -155,6 +155,8 @@ li{
         
     }
 }
+
+
 @media only screen and (max-width: 800px) {
     .whiteul  > li{
         color: #333333;
@@ -187,4 +189,18 @@ li{
           line-height: normal;
           font-size: 27px;
     }
+}
+
+@media only screen and (max-width : 361px){
+    .ProduitPlastique{
+        position: relative;
+        height: 300px!important;
+    }
+    .ProduitSilicone{
+        position: relative;
+        height: 300px!important;
+    }
+.ourProducts{
+    height: auto;
+}
 }

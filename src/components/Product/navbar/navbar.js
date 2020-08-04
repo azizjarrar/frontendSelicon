@@ -36,7 +36,7 @@ function Navbar(props){
         }else{
            return( 
             <div className={style.navbartel}>
-                <div className={style.logophone}><h1 className={style.logoStyling}>Measilicone</h1></div>
+                <div className={style.logophone}><h1 className={style.logoStyling }onClick={goHome}>Measilicone</h1></div>
  {        /*       <div className={style.pStyleDivphone}><p className={style.paraStyling}>Produit plastique</p></div>
                 <div className={style.pStyleDivphone}><p className={style.paraStyling}>Produit Selicon</p></div>
            <div className={style.pStyleDivphone}><p className={style.paraStyling}>Home</p></div> */}

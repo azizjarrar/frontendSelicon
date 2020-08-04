@@ -28,6 +28,26 @@ flex-grow: 2;
     margin-bottom: 10px;
     color: white;
 }
+@media only screen and (max-width: 1300px) {
+
+    .h2center{
+        text-align: center;
+        color: white;
+        line-height: 1;
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+@media only screen and (max-width: 1000px) {
+
+    .h2center{
+        text-align: center;
+        color: white;
+        line-height: 1;
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
 @media only screen and (max-width: 700px) {
     .ourHistoryContainer{
         position: relative;

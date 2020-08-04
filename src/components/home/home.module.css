@@ -68,8 +68,8 @@
 }
 .textContainer{
     position: relative;
-    top: 30%;
-    left: 28%;
+    top: 25%;
+    left: 20%;
     height: 500px;
     width: 600px;
     
@@ -81,7 +81,6 @@
     font-size: 1.5rem;
     line-height: 1.875rem;
     top: 0;
-
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 
 }
@@ -93,6 +92,7 @@
     line-height: 1;
     font-size: 40px;
     font-weight: 700;
+    text-transform: capitalize;
 }
 .logoHomeContainer{
     position: absolute;
@@ -109,7 +109,50 @@
     z-index: 2;
     /****/
 }
-@media only screen and (max-width: 1300px) {
+.voirNosarticle{
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnhome{
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+border: none;
+font-family: "Archivo Black", Sans-serif;
+font-weight: bold;
+text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+background-color: #038fcc;
+height: auto;
+width: 300px;
+cursor: pointer;
+z-index: 3;
+outline:none;
+border-radius: 8px;
+}
+.btnhome:hover{
+    background-color: #00b2ff;
+
+}
+.btnhome:hover p{
+    background-color: #00b2ff;
+
+}
+.btnhome p {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-family: "Archivo Black", Sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    background-color: #038fcc;
+
+}
+@media only screen and (max-width: 1400px) {
         .textContainer{
                 position: relative;
                 top: 30%;
@@ -119,8 +162,16 @@
                 
             }
     }
-    
+
+
 @media only screen and (max-width: 600px) {
+    .btnhome{
+        width: 200px;
+
+        }
+    .translatelogocssContainer{
+        top: 7vh!important;
+    }
     .homeContainer{
         position: relative;
         height: 100%;
@@ -155,11 +206,11 @@
 
     }
     .beginningH1{
+        font-size: 30px;
         margin: 0;
         color: white;
         font-family: "Gilroy","Muli","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
         text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-
     }
     .logoHomeContainer{
         position: absolute;
@@ -225,4 +276,17 @@ margin-top: -4%;
 .langDisplaying >ul >li {
     color: white;
     margin-top: 20%;
+}
+@media only screen and (max-width: 361px) {
+    .translatelogocssContainer{
+        top: 10vh!important;
+    }
+    .beginningH1{
+
+        font-size: 23px;
+        margin: 0;
+        color: white;
+        font-family: "Gilroy","Muli","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    }
 }

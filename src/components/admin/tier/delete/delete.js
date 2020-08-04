@@ -97,13 +97,13 @@ const Delete=()=>{
             <span class="checkmark"></span>
           </label>
         </div>
-        <select className={style.selectcss} onChange={getSelectselect0}><option>None</option>{tier1Display}</select>
+        <select className={style.selectcss} onChange={getSelectselect0}><option>choisire un elemnet</option>{tier1Display}</select>
 
         <div className={style.inputContainer}><Input name="tier1" value={input1} ></Input></div>
         <div className={style.btncontainer}><button className={style.btn}>efface</button></div>
         <h1>Tier 2</h1>
-        <select className={style.selectcss} onChange={getSelectselect1}><option>None</option>{tier1Display}</select>
-        <select className={style.selectcss} onChange={getSelectselect2}><option>None</option>{tier2Display}</select>
+        <select className={style.selectcss} onChange={getSelectselect1}><option>choisire un elemnet</option>{tier1Display}</select>
+        <select className={style.selectcss} onChange={getSelectselect2}><option>choisire un elemnet</option>{tier2Display}</select>
         <div className={style.inputContainer}><Input name="tier2" value={input2} ></Input></div>
         <div className={style.btncontainer}><button className={style.btn}>efface</button></div>
 

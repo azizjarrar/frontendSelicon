@@ -16,7 +16,10 @@ function Navbar(props){
     props.routerProps.history.push("/");
 
   }
-    
+  const gotoProduct=()=>{
+    props.routerProps.history.push("/product/ProduitSilicone");
+
+  }
   /*************navbar change lang*************** */
   
   /********************************************** */
@@ -24,6 +27,7 @@ function Navbar(props){
             return (
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
                 <div className={style.logo}><h1 onClick={goHome}>Measilicone</h1></div>
+                <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={gotoProduct}>les Produit</p></div>
                 {productType==="ProduitSilicone"&&<div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitPlastique")}>Produit plastique</p></div>}
                 {productType==="ProduitPlastique"&&<div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitSilicone")}>Produit Selicon</p></div>}
                 <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >Home</p></div>

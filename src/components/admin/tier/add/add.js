@@ -62,7 +62,6 @@ const Add = () => {
       },[sectionSP])
   useEffect(()=>{
     getTier1()
-    getTier2()
   },[selectedSelect])
   useEffect(()=>{
     document.getElementById("silicon").checked = true;

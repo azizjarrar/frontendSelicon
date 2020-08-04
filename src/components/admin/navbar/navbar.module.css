@@ -1,15 +1,15 @@
 .navbarContainer{
     max-width: 100%;
-    background-color: #252525 ;
+    background-color: #141414 ;
     top:0px;
-    height: 7%;
+    height: 60px;
     position: relative;
     margin: 0 auto;
     z-index: 15;
     width: 100%;
     display: flex;
     justify-content: center;
-
+    
    
 }
 .pStyleDiv{

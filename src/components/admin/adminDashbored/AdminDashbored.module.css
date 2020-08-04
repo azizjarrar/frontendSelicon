@@ -1,5 +1,12 @@
 
 /****************************************************/
+.leftandrightsideContainer{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
 .h2cssadminContainer{
     position: relative;
     top: 40px;
@@ -85,6 +92,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
 }
 
 .title{
@@ -313,6 +321,7 @@
     border-color: #aaa;
 }
 .radiobox{
+    gap: 10px;
     display: flex;
     position: relative;
     height: 50px;

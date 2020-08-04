@@ -95,10 +95,12 @@
     position: relative;
     height: 30%;
     width: 100%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-bottom: 3%;
     display: flex;
-    background-color: rgba(251, 244, 237);
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .containerHeader{
     flex-grow: 1;
@@ -112,7 +114,8 @@
     font-size: 48px;
     font-family: "PlayfairDisplay-Bold";
     border: 0 solid;
-    color: rgb(77,34,27);
+    /*color: rgb(77,34,27);*/
+    color: white;
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
@@ -132,11 +135,10 @@
     align-items: center;
 }
 .khatwe7ed{
-    background-color: #a10661;
+    background-color: white;
     height: 3px;
     width: 100%;
 }
-
 
 /*********NavBar********/
 .NavBar{

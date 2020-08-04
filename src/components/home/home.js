@@ -59,7 +59,7 @@ function Home(props) {
       }
     if (
       document.getElementById("homeContainer").scrollTop >
-      document.getElementById("description").offsetTop
+      document.getElementById("ourproductQality").offsetTop
     ) {
       b.classList.add("changecolorBackground");
     } else {
@@ -86,7 +86,10 @@ function Home(props) {
 
   }
   /***** */
+  const gotoporoduct=()=>{
+    props.routerProps.history.push("/product/ProduitSilicone");
 
+  }
   /********* */
   return (
     <div
@@ -114,7 +117,7 @@ function Home(props) {
             style={{ backgroundImage: `url(${slideImages[image].imageUrl})` }}
             className={`picture${image}`}
           ></div>
-          <div style={{zIndex:15,position:'absolute',height:'100%',width:'100%',backgroundColor:`rgba(7.8%,7.8%,7.8%,${opacity})`}}></div>
+          <div style={{zIndex:15,position:'absolute',height:'100%',width:'100%',backgroundColor:`rgba(7.8%,7.8%,7.8%,${opacity})`,pointerEvents:"none"}}></div>
           <div className={style.blackfilter} ></div>
           <div className={style.textContainer}>
             <h1 className={style.beginningH1} id="h11">
@@ -124,6 +127,7 @@ function Home(props) {
             {langgg.disc2}
             </p>
           </div>
+          <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>voir nos article</p></button></div>
         </div>
         <OurProductsQuality></OurProductsQuality>
         <Description></Description>

@@ -27,7 +27,7 @@ function OurProductsQuality() {
         </p>
         </div>
         <div className={style.chya3mlouDiscrption}>
-          <div className={style.card}>
+          <div className={`${style.card} ${style.card1fitel}`}>
             <div className={style.h2Container}><h2 className={style.h2insideDsicprtion}>Extrusion</h2></div>
             <div className={style.centringp1}>
               <ul>
@@ -38,7 +38,7 @@ function OurProductsQuality() {
           </div>
           <div className={style.card}>
             
-          <div><h2 className={style.h2insideDsicprtion}>Compression </h2></div>
+          <div className={style.h2Container}><h2 className={style.h2insideDsicprtion}>Compression </h2></div>
           <div className={style.centringp}>
             <ul>
           <li><p className={style.pstyling}>Joints en Silicone ou Caoutchouc pour différent industries et surtoutpour l’industrie des filtres automobile.</p></li>
@@ -46,7 +46,7 @@ function OurProductsQuality() {
           </div>
           </div>
           <div className={style.card}>
-          <div><h2 className={style.h2insideDsicprtion}>Découpage </h2></div>
+          <div className={style.h2Container}><h2 className={style.h2insideDsicprtion}>Découpage </h2></div>
           <div className={style.centringp}>
             <ul>
           <li><p className={style.pstyling}>Des pièces en Silicone ou en caoutchouc pour diverses industries et surtout pour l’industrie automobile.</p></li>
