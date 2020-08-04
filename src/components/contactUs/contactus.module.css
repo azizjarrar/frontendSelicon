@@ -6,10 +6,11 @@
     height: 30%;
 }
 .contactusContainer{
+    
     text-align: center;
     justify-content: flex-start;
     display: flex;
-    height: auto;
+    height: 100%;
     position: relative;
 }
 .contacusP > ul >li {

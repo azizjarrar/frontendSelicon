@@ -1,7 +1,57 @@
 import React from 'react'
 import style from './table.module.css'
-const Table=(props)=>{   
+const Table=(props)=>{  
+  //tabledata 
+  if(props.view==="true"){
+
     return(<div>
+      <table className={style.customers}>
+<tr className={style.trr}>
+ <th className={style.thh}>Nom</th>
+ <th className={style.thh}>Referance</th>
+ <th className={style.thh}>**********</th>
+ <th className={style.thh}>**********</th>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R1tier1}</td>
+<td className={style.tdd}> {props.tabledata.R1tier2}</td>
+<td className={style.tdd}> {props.tabledata.R1tier3}</td>
+<td className={style.tdd}> {props.tabledata.R1tier4}</td>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R2tier1}</td>
+<td className={style.tdd}> {props.tabledata.R2tier2}</td>
+<td className={style.tdd}> {props.tabledata.R2tier3}</td>
+<td className={style.tdd}> {props.tabledata.R2tier4}</td>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R3tier1}</td>
+<td className={style.tdd}> {props.tabledata.R3tier2}</td>
+<td className={style.tdd}> {props.tabledata.R3tier3}</td>
+<td className={style.tdd}> {props.tabledata.R3tier4}</td>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R4tier1}</td>
+<td className={style.tdd}> {props.tabledata.R4tier2}</td>
+<td className={style.tdd}> {props.tabledata.R4tier3}</td>
+<td className={style.tdd}> {props.tabledata.R4tier4}</td>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R5tier1}</td>
+<td className={style.tdd}> {props.tabledata.R5tier2}</td>
+<td className={style.tdd}> {props.tabledata.R5tier3}</td>
+<td className={style.tdd}> {props.tabledata.R5tier4}</td>
+</tr>
+<tr className={style.trr}>
+<td className={style.tdd}> {props.tabledata.R6tier1}</td>
+<td className={style.tdd}> {props.tabledata.R6tier2}</td>
+<td className={style.tdd}> {props.tabledata.R6tier3}</td>
+<td className={style.tdd}> {props.tabledata.R6tier4}</td>
+</tr>
+</table>
+</div>)
+  }else{
+return(<div>
              <table className={style.customers}>
       <tr className={style.trr}>
         <th className={style.thh}>Nom</th>
@@ -47,5 +97,7 @@ const Table=(props)=>{
     </tr>
       </table>
     </div>)
+  }
+    
 }
 export default Table

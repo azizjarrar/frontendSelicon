@@ -82,6 +82,7 @@
     align-items: center;
 }
 .OneproductImageContainer{
+    pointer-events: none;
     position: relative;
     height: 40%;
     width: 100%;
@@ -127,3 +128,31 @@
 
 
 }
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 2px;
+    width: 2px;
+    height: 32px;
+    opacity: 0.3;
+    z-index: 30;
+
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: red;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }

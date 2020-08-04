@@ -29,9 +29,18 @@ const Product = (props) => {
   
    }
  const closeModel=()=>{
-  setModal((e)=>!e)
+  setModal((e)=>{
+    return {...Modal,state:!e.state}  
+  })
 
  }
+ const deleteOn=async(id)=>{
+  const data1 = await axios.post(`${url}items/deleteOneItem`, {
+    id: id,
+  })
+  document.getElementById(id).remove();
+}
+
   const navbarReducer = useSelector(state=>state.navbarReducer.navbar)
   useEffect(()=>{
     if(navbarReducer==="ProduitPlastique"){
@@ -52,19 +61,24 @@ const Product = (props) => {
     setwindowWidth(window.innerWidth);
   };
   /**********************get tier 1 and 2*********************/
+  
   const getTier2 = async () => {
     
     const data1 = await axios.post(`${url}tier/getTier2`, {
       id: selectedSelect,
     });
-    settier2Display(
-      data1.data.data[0].tier2.map((e) => (
-        <option value={e._id} key={e._id}>
-          {e.name}
-        </option>
-      ))
-    );
+    if(Array.isArray(data1.data.data)){
+      settier2Display(
+        data1.data.data[0].tier2.map((e) => (
+          <option value={e._id} key={e._id}>
+            {e.name}
+          </option>
+        ))
+      );
+    }
+
   }
+  
     const getTier1 = async () => {
 
       const data = await axios.post(`${url}tier/getTier1`, {
@@ -79,6 +93,7 @@ const Product = (props) => {
       );
     }
   /*********************************************/
+  
   const getSelectselect=(e)=>{
     setselectedSelect(e.target.value)
     
@@ -87,13 +102,15 @@ const Product = (props) => {
   useEffect(() => {
     getNewItems()
     getTier2()
-
+  
   },[selectedSelect,selectedSelect1])
 
     useEffect(()=>{
       if(windowWidth<700){
         document.getElementById("silicon").checked = true;
       }
+      getTier1()
+
     },[])
   
 
@@ -104,6 +121,7 @@ const Product = (props) => {
     setselectedSelect1(e.target.value)
   }
  /**************************fetech getItemsSelection***************************************/
+ 
   const getNewItems=async ()=>{
 
     var  data
@@ -112,7 +130,7 @@ const Product = (props) => {
         tier1id:selectedSelect,
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
 
     }else{
@@ -121,7 +139,7 @@ const Product = (props) => {
         tier2id:selectedSelect1
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
     }
     //setItemDisplay()
@@ -131,7 +149,7 @@ const Product = (props) => {
       word:e.target.value,
     });
     if(Array.isArray(data.data.data)){
-      setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
+      setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
     }else{
       setItemDisplay([])
     }
@@ -140,6 +158,7 @@ const Product = (props) => {
     setsection(e.target.value)
 
   }
+  
   const radiobox=()=>{
  return (
   <div className={style.radiobox}>
@@ -171,6 +190,7 @@ const Product = (props) => {
     props.routerProps.history.push("/");
 
   }
+  
   return (
     <div className={style.productBody}>
       {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
@@ -199,12 +219,12 @@ const Product = (props) => {
             {tier2Display}
 
           </select>
-          {windowWidth > 700 && (
+          {windowWidth > 700 &&(
             <div className={style.searchContainer}>
               <Inputc name="seach"  fn1={searchbyword}></Inputc>
             </div>
           )}
-          {windowWidth > 700 && (
+          {(windowWidth > 700 && localStorage.getItem('role')==='admin') && (
             <div>
               <button className={style.buttonadd} onClick={goAdminDashbord}>
                 <p>+</p>

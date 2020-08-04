@@ -49,13 +49,16 @@ const Update = () => {
     const data1 = await axios.post(`${url}tier/getTier2`, {
       id: selectedSelect1,
     });
-    settier2Display(
-      data1.data.data[0].tier2.map((e) => (
-        <option value={e._id} key={e._id}>
-          {e.name}
-        </option>
-      ))
-    );
+    if(Array.isArray(data1.data.data)){
+      settier2Display(
+        data1.data.data[0].tier2.map((e) => (
+          <option value={e._id} key={e._id}>
+            {e.name}
+          </option>
+        ))
+      );
+    }
+
   };
   const changetier1Title0= async()=>{
     const data1 = await axios.post(`${url}tier/MaddTier1`, {
@@ -81,9 +84,8 @@ const Update = () => {
 
  
   useEffect(()=>{
-    getTier1()
-
     document.getElementById("silicon").checked = true;
+    getTier1()
   },[])
   return (
     <div className={style.deletContainer}>

@@ -65,6 +65,7 @@ const Add = () => {
   },[selectedSelect])
   useEffect(()=>{
     document.getElementById("silicon").checked = true;
+    getTier1()
   },[])
   return (
     <div className={style.addContainer}>

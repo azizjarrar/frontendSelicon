@@ -8,7 +8,7 @@ import Delete from "./tier/delete/delete";
 import AdminDashbored from "./adminDashbored/AdminDashbored"
 const Admin = (props) => {
   const [page, setPage] = useState("AjouterArticle");
-
+  
   const changepage = (data) => {
     if (data === "Ajouter") {
       setPage("Ajouter");

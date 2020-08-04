@@ -39,6 +39,7 @@
     position: relative;
 }
 .searchCss{
+    
     width: 20%;
     flex-grow: 1;
 }

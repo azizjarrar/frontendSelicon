@@ -14,15 +14,15 @@ let store = createStore(combineReducers({reducerlang,navbarReducer}),window.__RE
 
 /***************************/
 axios.interceptors.request.use(request=>{
-  request.headers={'Content-Type': 'application/json'}
-  //console.log(request)
+  request.headers={'Content-Type': 'application/json','authorization':`Bearer ${localStorage.getItem('token')}`}
+  
   return request
 },error=>{
-  //console.log(error)
   return Promise.reject(error)
 })
 /************************************* */
 axios.interceptors.response.use(response=>{
+
   return response
 },error=>{
   return Promise.reject(error)

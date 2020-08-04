@@ -4,7 +4,6 @@
     transform: translate(-50%,-50%);
     position:fixed ;
     z-index: 150;
-
     height: 100%;
     width: 100%;
     background-color:rgba(0, 0, 0, 0.8);
@@ -15,7 +14,6 @@
 .display{
     overflow: hidden;
     position: absolute;
-
     height: 0%;
     width: 0%;
     background-color: white;
@@ -29,10 +27,149 @@
 }
 @keyframes showwhite{
     from {width:  0%;height:0%;}
-    to {width:  50%;height:50%;}
+    to {width:  70%;height:70%;}
 }
 @keyframes showw {
     from {width:  0%;height:0%;}
     to {width:  100%;height:100%;}
   }
+  .close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  .leftandright{
+    pointer-events: none;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+  }
+  .left{
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+ 
+  }
+  .right{
+width: 60%;
+display: flex;
+align-items: center;
+justify-content: center;
+  }
+  .Header{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Header h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: "Raleway";
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    color: #333333;
+  }
+  .Image{
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  }
+  .Description{
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  }
+  .imageContainer{
+      border: 3px solid black;
+      position: relative;
+      height: 80%;
+      width: 80%;
+  }
+  .imageResize{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+  }
+  .Description p {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    color: #333333;
+    font-family: "Raleway";
+    font-weight: 400;
+    margin-top: 8px;
+    line-height: 26px;
+    /*font: inherit;*/
+  }
+ .Descriptionspan{
+    font-weight: bold;
+    font-size: 26px;
+
+    /*font: inherit;*/
+  }
   
+  @media only screen and (max-width: 700px)   {
+    .leftandright{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    .display{
+    
+    }
+    @keyframes showwhite{
+      from {width:  0%;height:0%;}
+      to {width:  80%;height:60%;}
+      }
+      .left{
+        height: 85%;
+        width: 100%;
+    }
+    .right{
+      display: none;
+      height: 40%;
+      width: 100%;
+
+      
+    }
+    .close {
+      right: 4px;
+      top: 4px;
+    }
+      }
+      @media only screen and (max-width: 361px)   {
+
+        @keyframes showwhite{
+          from {width:  0%;height:0%;}
+          to {width:  80%;height:80%;}
+          }
+
+          }

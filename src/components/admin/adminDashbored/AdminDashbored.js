@@ -67,13 +67,16 @@ const AdminDashbored = () => {
     const data1 = await axios.post(`${url}tier/getTier2`, {
       id: selectedSelect,
     });
-    settier2Display(
-      data1.data.data[0].tier2.map((e) => (
-        <option value={e._id} key={e._id}>
-          {e.name}
-        </option>
-      ))
-    );
+    if(Array.isArray(data1.data.data)){
+      settier2Display(
+        data1.data.data[0].tier2.map((e) => (
+          <option value={e._id} key={e._id}>
+            {e.name}
+          </option>
+        ))
+      );
+    }
+
   };
   function photoDisplay(e) {
     setPhoto(URL.createObjectURL(e.target.files[0]));

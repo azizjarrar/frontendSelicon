@@ -2,15 +2,17 @@
 .customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 800px;
+    width: 650px;
+    height: 250px;
   }
-  
+ 
   .customers td, .customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-family: sans-serif;
   }
   
-  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  .customers tr:nth-child(even){background-color: #f2f2f2;font-family: sans-serif;}
   
   .customers tr:hover {background-color: #ddd;}
   
@@ -18,6 +20,14 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #333333;
     color: white;
+  }
+  @media only screen and (max-width: 1500px)   {
+    .customers {
+      width: 500px;
+    }
+  }
+  @media only screen and (max-width: 700px)   {
+
   }
