@@ -3,6 +3,8 @@ import style from "./product.module.css";
 import Navbar from "./navbar/navbar";
 import Inputc from "../elements/input/input";
 import table from "./test.js";
+import View from '../view/view'
+
 import Oneproduct from "./oneProduct/oneproduct";
 import Contact from "../contactUs/contactUs";
 import { url } from "../globalVar/var";
@@ -10,6 +12,7 @@ import axios from "axios";
 import {useSelector} from 'react-redux'
 
 const Product = (props) => {
+  
   const [selectedSelect, setselectedSelect] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [itemDisplay,setItemDisplay]=useState([])
@@ -17,7 +20,18 @@ const Product = (props) => {
   const [windowWidth, setwindowWidth] = useState(window.innerWidth);
   const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
+  const [Modal,setModal]=useState({state:false,id:''})
+  const [id,setid]=useState('')
+  const displayModal=(id)=>{
+    setModal((e)=>{
+      return {state:!e.state,id:id}
+    })
+  
+   }
+ const closeModel=()=>{
+  setModal((e)=>!e)
 
+ }
   const navbarReducer = useSelector(state=>state.navbarReducer.navbar)
   useEffect(()=>{
     if(navbarReducer==="ProduitPlastique"){
@@ -98,7 +112,7 @@ const Product = (props) => {
         tier1id:selectedSelect,
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
       }
 
     }else{
@@ -107,7 +121,7 @@ const Product = (props) => {
         tier2id:selectedSelect1
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
       }
     }
     //setItemDisplay()
@@ -117,7 +131,7 @@ const Product = (props) => {
       word:e.target.value,
     });
     if(Array.isArray(data.data.data)){
-      setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description}></Oneproduct>))    
+      setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} fn1={()=>displayModal(e._id)} key={e._id}></Oneproduct>))    
     }else{
       setItemDisplay([])
     }
@@ -159,7 +173,7 @@ const Product = (props) => {
   }
   return (
     <div className={style.productBody}>
-      
+      {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
       {windowWidth>700&&<Navbar {...props}></Navbar>}
       <div className={style.HeaderTop}>
         <div className={style.khat1}><div className={style.khatwe7ed}></div></div>

@@ -1,0 +1,38 @@
+.viewContainer{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position:fixed ;
+    z-index: 150;
+
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    animation-name: showw ;
+    animation-duration: 1s ;
+    animation-fill-mode: forwards;
+}
+.display{
+    overflow: hidden;
+    position: absolute;
+
+    height: 0%;
+    width: 0%;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation-name: showwhite ;
+    animation-delay: 1s;
+    animation-duration: 1s ; 
+    animation-fill-mode: forwards;
+}
+@keyframes showwhite{
+    from {width:  0%;height:0%;}
+    to {width:  50%;height:50%;}
+}
+@keyframes showw {
+    from {width:  0%;height:0%;}
+    to {width:  100%;height:100%;}
+  }
+  

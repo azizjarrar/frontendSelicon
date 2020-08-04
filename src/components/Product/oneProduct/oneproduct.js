@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./oneproduct.module.css";
 import {url} from '../../globalVar/var'
 {/*const ArrayofPhoto = [
@@ -12,9 +12,12 @@ import {url} from '../../globalVar/var'
   { imgurl: require(`../8.jpg`) },
   { imgurl: require(`../9.jpg`) },
 ];*/}
+
 const Oneproduct = (props) => {
+
   return (
-    <div className={style.boxStyle}>
+    <div className={style.boxStyle} >
+      
       <div className={style.OneproductImageContainer}>
         <img
           className={style.imageStyle}
@@ -27,7 +30,7 @@ const Oneproduct = (props) => {
       <div className={style.khatContainer}><div className={style.khat}></div></div>
       <div className={style.descriptionContaienrProduct}><h5 className={style.h5style}>{props.Description}</h5></div>
       <div className={style.buttonContainer}>
-        <button className={style.buttononeProduct}>
+        <button className={style.buttononeProduct}  onClick={props.fn1}>
           <p>View</p>
         </button>
       </div>

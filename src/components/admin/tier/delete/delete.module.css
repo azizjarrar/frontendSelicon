@@ -1,6 +1,6 @@
 .deletContainer{
     position: relative;
-    height: 100%;
+    height: 1000px;
     width: 100%;
     display: flex;
     justify-content: center;

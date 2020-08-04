@@ -2,7 +2,6 @@
 /****************************************************/
 .leftandrightsideContainer{
     position: relative;
-    height: 100%;
     width: 100%;
     display: flex;
 }
@@ -37,7 +36,6 @@
 .labelfile{
     z-index: 2;
     position: absolute;
-    height: 100%;
     width: 100%;
     pointer-events: none;
     display: flex;
@@ -86,12 +84,12 @@
     position: relative;
     flex-grow: 1;
     width: 80%;
-    height: 100%;
+    height: 1500px;
     gap: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
    
 }
 
@@ -123,6 +121,7 @@
     position: relative;
     height: 300px;
     width: 300px;
+    border: 3px solid #333333;
 }
 .imageCss{
     position: absolute;
@@ -347,4 +346,20 @@
     width: 100%;
     position: relative;
     margin-top: 15px;
+}
+.imageandtableContainer{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.uploadImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 50%;
+
 }

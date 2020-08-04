@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../elements/input/input";
+import Table from '../../elements/table/table'
 import pp from ".././g5-patin-silicone-demi-sphere.jpg";
 import style from "./AdminDashbored.module.css";
 import { url } from "../../globalVar/var";
@@ -14,6 +15,14 @@ const AdminDashbored = () => {
   const [PhotoDataAppend,setPhotoDataAppend]= useState('')
   const [Discription,setDiscription]=useState('default')
   const [Titre,setTitre]=useState('default')
+  const [state,setState]=useState({})
+  const changeHandler=(e)=>{
+    const {name,value}=e.target
+    setState((oldstate)=>{
+      return {...oldstate,[name]:value}
+    })
+    console.log(state)
+  }
   useEffect(() => {
     document.getElementById("silicon").checked = true;
   }, []);
@@ -38,6 +47,7 @@ const AdminDashbored = () => {
     formData.append('tier1id', selectedSelect)
     formData.append('tier2id', selectedSelect1)
     formData.append('Description', Discription)
+    formData.append('table', JSON.stringify(state))
     const data = await axios.post(`${url}items/Itemadd`, formData);
     
   }
@@ -126,6 +136,10 @@ const AdminDashbored = () => {
           {tier2Display}
         </select>
       </div>
+      <div className={style.tableData}>
+      <Table fn1={changeHandler}></Table>
+      </div>
+
       <div className={style.displayimageBTNContainer}>
         <div className={style.filebuttoncss}>
           <label for="file" className={style.labelfile}>
