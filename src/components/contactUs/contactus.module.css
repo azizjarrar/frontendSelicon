@@ -3,7 +3,7 @@
     background-color: #141414;
     height: auto;
     z-index: 1;
-    height: 30%;
+    height: 300px;
 }
 .contactusContainer{
     
@@ -41,7 +41,7 @@
         justify-content: center;
 }
 .contacusP{
-    top: 20px;
+
     flex-direction: column;
     flex-grow: 1;
     height: 100%;

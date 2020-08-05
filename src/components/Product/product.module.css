@@ -11,12 +11,11 @@
     transform: translate(-50%,0%);
     height: auto;
     width: 80%;
-    min-height: 80%;
     position: relative;
     overflow: hidden;
     bottom: 7px;
     z-index: 5;
-
+    min-height: 775px;
 }
 .search{
     box-sizing: border-box;
@@ -96,6 +95,7 @@
     position: relative;
     height: 30%;
     width: 100%;
+    min-height: 290px;
     display: flex;
    /* background-color: rgba(251, 244, 237);*/
    background: #141e30; /* fallback for old browsers */

@@ -16,7 +16,7 @@ const Login = (props) => {
     if(data.data.message=='login succeeded'){
       localStorage.setItem('token',data.data.token)
       localStorage.setItem('role',data.data.role)
-      props.routerProps.history.push('/product/ProduitSilicone')
+      props.routerProps.history.push('/admin')
     }else{
       alert('mot de passe incorrect')
     }

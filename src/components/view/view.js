@@ -28,7 +28,7 @@ const View = (props) => {
             <div className={style.Description}><p><span className={style.Descriptionspan}>Description:</span>{state.Description}</p></div>
           </div>
          
-          <div className={style.right}><Table tabledata={state.table} view="true"></Table></div>
+          <div className={style.right}><div className={style.tabletitleHeader}><h2 >La fiche Technique </h2></div ><div className={style.tableContainer}><Table tabledata={state.table} view="true"></Table></div></div>
         </div>
       </div>
     </div>

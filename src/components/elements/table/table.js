@@ -54,8 +54,8 @@ const Table=(props)=>{
 return(<div>
              <table className={style.customers}>
       <tr className={style.trr}>
-        <th className={style.thh}>Nom</th>
-        <th className={style.thh}>Referance</th>
+        <th className={style.thh}>**********</th>
+        <th className={style.thh}>**********</th>
         <th className={style.thh}>**********</th>
         <th className={style.thh}>**********</th>
       </tr>

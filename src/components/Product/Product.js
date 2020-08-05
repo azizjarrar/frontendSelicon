@@ -21,7 +21,8 @@ const Product = (props) => {
   const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
   const [Modal,setModal]=useState({state:false,id:''})
-  const [id,setid]=useState('')
+  const [itemdelete,setitemdeleted]=useState(false)
+ 
   const displayModal=(id)=>{
     setModal((e)=>{
       return {state:!e.state,id:id}
@@ -32,14 +33,16 @@ const Product = (props) => {
   setModal((e)=>{
     return {...Modal,state:!e.state}  
   })
-
  }
  const deleteOn=async(id)=>{
   const data1 = await axios.post(`${url}items/deleteOneItem`, {
     id: id,
   })
-  document.getElementById(id).remove();
+  setitemdeleted(id)
 }
+useEffect(()=>{
+  setItemDisplay(itemDisplay.filter((element)=>element.key!=itemdelete))
+},[itemdelete])
 
   const navbarReducer = useSelector(state=>state.navbarReducer.navbar)
   useEffect(()=>{
@@ -55,7 +58,11 @@ const Product = (props) => {
   
   useEffect(() => {
       getTier1()
+      console.log(sectionSP)
     window.addEventListener("resize", handleResize);
+    return ()=>{
+      window.removeEventListener("resize", handleResize)
+    }
   },[sectionSP]);
   const handleResize = () => {
     setwindowWidth(window.innerWidth);
@@ -106,16 +113,29 @@ const Product = (props) => {
   },[selectedSelect,selectedSelect1])
 
     useEffect(()=>{
+
       if(windowWidth<700){
-        document.getElementById("silicon").checked = true;
+
+        if(props.routerProps.match.params.choice==="ProduitSilicone"){
+          document.getElementById("silicon").checked = true;
+          setsection('silicon')
+        }else{
+          document.getElementById("plastic").checked = true;
+          setsection('plastic')
+        }
       }
-      getTier1()
+      if(props.routerProps.match.params.choice==="ProduitSilicone"){
+        setsection('silicon')
+      }else{
+        setsection('plastic')
+      }
+  
 
     },[])
   
 
   const goAdminDashbord = () => {
-    props.routerProps.history.push("/admin/ProduitPlastique");
+    props.routerProps.history.push("/admin");
   };
   function getSelectselect1(e){
     setselectedSelect1(e.target.value)
@@ -176,6 +196,7 @@ const Product = (props) => {
   <label class="container">
     plastic
     <input
+    id="plastic"
       type="radio"
       name="radio"
       value="plastic"

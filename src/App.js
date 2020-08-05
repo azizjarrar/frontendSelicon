@@ -12,7 +12,7 @@ function App() {
        <Route exact path='/product/:choice' render={(props)=><Product routerProps={props} />}/>
        <Route exact path='/login' render={(props)=><Login routerProps={props} />}/>
        <Route exact path='/'      render={(props)=><Home routerProps={props} />}/>
-       {(localStorage.getItem('role')==='admin')&&<Route exact path='/admin/:choice'      render={(props)=><Admin routerProps={props} />}/>}
+       {(localStorage.getItem('role')==='admin')&&<Route exact path='/admin'      render={(props)=><Admin routerProps={props} />}/>}
       </Switch>
   );
 }

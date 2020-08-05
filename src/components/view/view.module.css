@@ -75,8 +75,7 @@
   .right{
 width: 60%;
 display: flex;
-align-items: center;
-justify-content: center;
+flex-direction: column;
   }
   .Header{
     height: 20%;
@@ -172,4 +171,29 @@ justify-content: center;
           to {width:  80%;height:80%;}
           }
 
+          }
+
+
+          .tabletitleHeader{
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .tableContainer{
+  
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .tabletitleHeader h2{
+            text-align: center;
+            font-size: 30px;
+            font-family: "Raleway";
+            text-transform: uppercase;
+            line-height: 1.25;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+            color: #333333;
           }

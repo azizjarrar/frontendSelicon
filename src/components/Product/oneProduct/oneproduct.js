@@ -14,7 +14,7 @@ import {url} from '../../globalVar/var'
 ];*/}
 
 const Oneproduct = (props) => {
-  console.log(props)
+
   return (
     <div className={style.boxStyle} id={props.id}>
       {localStorage.getItem('role')==="admin"&&<div className={style.close} onClick={props.deleteOn}></div>}

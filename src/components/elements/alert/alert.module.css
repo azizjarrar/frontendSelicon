@@ -1,0 +1,36 @@
+.alert{
+    padding: 20px;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    z-index: 3000;
+    animation-name: showwalert ;
+    animation-duration: 1.5s ; 
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes showwalert{
+    from {height:   0px;}
+    to {height:  60px;}
+}
+.info{
+
+}
+.closebtn{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

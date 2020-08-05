@@ -2,16 +2,13 @@ import React,{useState,useEffect} from 'react';
 import style from "./navbar.module.css";
 function Navbar(props){
  const [windowWidth,setwindowWidth] = useState(window.innerWidth)
- const [productType,settype] = useState(props.routerProps.match.params.choice)
   const handleResize=()=>{
     setwindowWidth(window.innerWidth)
   }
   useEffect(()=>{
       window.addEventListener('resize',handleResize)
   },[])
-  function changeNavbar(a){
-    settype(a)
-  }
+
   const goHome=()=>{
     props.routerProps.history.push("/");
 
@@ -20,16 +17,19 @@ function Navbar(props){
     props.routerProps.history.push("/product/ProduitSilicone");
 
   }
-  /*************navbar change lang*************** */
+  const Deconnexion=()=>{
+    localStorage.setItem('role','user')
+    localStorage.setItem('token','')
+    window.location.reload()
+  }
   
   /********************************************** */
         if(windowWidth>700){
             return (
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
                 <div className={style.logo}><h1 onClick={goHome}>Measilicone</h1></div>
+                { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
                 <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={gotoProduct}>les Produit</p></div>
-                {productType==="ProduitSilicone"&&<div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitPlastique")}>Produit plastique</p></div>}
-                {productType==="ProduitPlastique"&&<div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitSilicone")}>Produit Selicon</p></div>}
                 <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >Home</p></div>
              </div>
          )

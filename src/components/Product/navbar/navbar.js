@@ -12,6 +12,9 @@ function Navbar(props){
   }
   useEffect(()=>{
       window.addEventListener('resize',handleResize)
+      return ()=>{
+        window.removeEventListener("resize", handleResize)
+      }
   },[])
   function changeNavbar(a){
 
@@ -23,11 +26,16 @@ function Navbar(props){
     props.routerProps.history.push("/");
 
   }
-    
+    const Deconnexion=()=>{
+      localStorage.setItem('role','user')
+      localStorage.setItem('token','')
+      window.location.reload()
+    }
         if(windowWidth>700){
             return (
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
                 <div className={style.logo}><h1 onClick={goHome}>Measilicone</h1></div>
+                { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
                 {productType==="ProduitSilicone"&&<div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitPlastique")}>Produit plastique</p></div>}
                 {productType==="ProduitPlastique"&&<div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitSilicone")}>Produit Selicon</p></div>}
                 <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >Home</p></div>

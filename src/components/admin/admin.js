@@ -47,8 +47,6 @@ const Admin = (props) => {
             <button className={style.buttonstyle0} onClick={e=>changepage("Ajouter")}>Ajouter un Tier</button>
             <button className={style.buttonstyle2} onClick={e=>changepage("Modifier")}>Modifier un Tier</button>
             <button className={style.buttonstyle3} onClick={e=>changepage("Supprime")}>Supprime un Tier</button>
-
-
           </div>
         </div>
           <div className={style.DashboredContent}>

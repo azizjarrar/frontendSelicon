@@ -1,6 +1,7 @@
 .ourProducts{
     position: relative;
     height: 70%;
+    min-height: 600px;
     width: 100%;
     z-index: 1;
     display: flex;
@@ -133,7 +134,7 @@ li{
       -webkit-font-smoothing: antialiased;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1200px) {
     .ProduitSilicone{
         position: relative;
         display: flex;

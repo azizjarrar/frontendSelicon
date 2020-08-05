@@ -56,6 +56,7 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    min-height: 888px;
 }
 
 
@@ -152,18 +153,20 @@ border-radius: 8px;
     background-color: #038fcc;
 
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1300px) {
         .textContainer{
                 position: relative;
-                top: 30%;
-                left: 10%;
+                top: 23%;
+                left: 7%;
                 height: 500px;
                 width: 600px;
                 
             }
+
+   
     }
 
-
+ 
 @media only screen and (max-width: 600px) {
     .btnhome{
         width: 200px;
@@ -232,7 +235,7 @@ border-radius: 8px;
     min-height: 50px;
     height: auto;
     width: auto;
-    top: 7vh;
+    top: 20vh;
     right:  0%;
     align-items: flex-end;
     justify-content: flex-start;

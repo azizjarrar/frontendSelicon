@@ -5,6 +5,7 @@ import pp from ".././g5-patin-silicone-demi-sphere.jpg";
 import style from "./AdminDashbored.module.css";
 import { url } from "../../globalVar/var";
 import axios from "axios";
+import Alert from '../../elements/alert/alert'
 const AdminDashbored = () => {
   const [photo, setPhoto] = useState(pp);
   const [sectionSP, setsection] = useState("silicon");
@@ -15,7 +16,8 @@ const AdminDashbored = () => {
   const [PhotoDataAppend,setPhotoDataAppend]= useState('')
   const [Discription,setDiscription]=useState('default')
   const [Titre,setTitre]=useState('default')
-  const [state,setState]=useState({})
+  const [state,setState]=useState({'R4tier2':''})
+  const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#2196F3'})
   const changeHandler=(e)=>{
     const {name,value}=e.target
     setState((oldstate)=>{
@@ -41,6 +43,31 @@ const AdminDashbored = () => {
     setselectedSelect(e.target.value);
   };
   const addTier = async () =>{
+   if(PhotoDataAppend.length===0){
+    setalertstate({state:true,msg:'saisie un images',color:'#ff9800'})
+    setTimeout(() => {
+      setalertstate({state:false,msg:''})
+    }, 4000);
+    return
+   }else if(Discription==="default"){
+    setalertstate({state:true,msg:'saisie une Discription',color:'#ff9800'})
+    setTimeout(() => {
+      setalertstate({state:false,msg:''})
+    }, 4000);
+    return
+   }else if(Titre==="default"){
+    setalertstate({state:true,msg:'saisie un Titre',color:'#ff9800'})
+    setTimeout(() => {
+      setalertstate({state:false,msg:''})
+    }, 4000);
+    return
+   }else if(selectedSelect.length===0){
+    setalertstate({state:true,msg:'Select un Tier',color:'#ff9800'})
+    setTimeout(() => {
+      setalertstate({state:false,msg:''})
+    }, 4000);
+    return
+   }else{
     let formData = new FormData();  
     formData.append('file',PhotoDataAppend)
     formData.append('name', Titre)
@@ -49,7 +76,13 @@ const AdminDashbored = () => {
     formData.append('Description', Discription)
     formData.append('table', JSON.stringify(state))
     const data = await axios.post(`${url}items/Itemadd`, formData);
-    
+    setalertstate({state:true,msg:'Article a été enregistrée',color:'#4CAF50'})
+    setTimeout(() => {
+      setalertstate({state:false,msg:''})
+    }, 4000);
+   }
+
+
   }
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
@@ -95,6 +128,7 @@ const AdminDashbored = () => {
   }
   return (
     <div className={style.leftside}>
+      {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
       <div className={style.h2cssadminContainer}>
         <h2 className={style.h2cssadmin}>Ajoute un article</h2>
       </div>

@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    min-height: 440px;
 }
 .pstylying2{
     height: auto;
@@ -106,6 +107,9 @@ li{
         font-size: 18px;
         font-weight: 400;
         color: white;
+    }
+    .pstylying2{
+        font-size: 15px;
     }
 }
 @media only screen and (max-width: 700px) {

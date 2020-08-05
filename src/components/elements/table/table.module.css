@@ -23,6 +23,12 @@
     background-color: #333333;
     color: white;
   }
+  .customers input{
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+  }
   @media only screen and (max-width: 1500px)   {
     .customers {
       width: 500px;
