@@ -42,9 +42,9 @@ function OurProductsQuality() {
             <h1 className={style.h1Header}>Extrusion</h1>
             <div className={style.pContainer1}><div className={style.gzegzg1}>
               <p className={style.leftp}>
-            	-Joint en Caoutchouc Spongieux et compact pour l’industrie Automobile et industrie divers
+            	Joint en Caoutchouc Spongieux et compact pour l’industrie Automobile et industrie divers
             </p>
-            <p className={style.leftp}>-Joint, Tuyau et Profilé en Silicone pour le secteur Industriel, Médical, Electrique, et Electronique.</p>
+            <p className={style.leftp}>Joint, Tuyau et Profilé en Silicone pour le secteur Industriel, Médical, Electrique, et Electronique.</p>
             </div>
             </div>
           </div>

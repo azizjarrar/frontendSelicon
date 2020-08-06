@@ -15,6 +15,7 @@ function Home(props) {
   const [image, setimage] = useState(0);
   const [langstate, setLangeState] = useState(false);
   const [opacity,setOpacity]= useState(0)
+  const [windoww,setwindow]=useState(701)
 
   const lang = useSelector(state=>state.reducerlang.lang)
   const dispatchlang = useDispatch();
@@ -68,7 +69,20 @@ function Home(props) {
     props.routerProps.history.push("/product/ProduitSilicone");
 
   }
-  /********* */
+  const handleResize=()=>{
+    console.log(windoww)
+    setwindow(window.innerWidth)
+  }
+  useEffect(() => {
+    document.querySelector('#homeContainer').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  window.addEventListener("resize", handleResize);
+  return ()=>{
+    window.removeEventListener("resize", handleResize)
+  }
+
+},[]);
   return (
     <div
       id="homeContainer"
@@ -108,7 +122,7 @@ function Home(props) {
         <OurProductsQuality></OurProductsQuality>
         <Description></Description>
         <OurHistory></OurHistory>
-        {window.width>700&&<OurProducts {...props}></OurProducts>}
+        {windoww>700&&<OurProducts {...props}></OurProducts>}
         <ContactUs></ContactUs>
       </div>
     </div>

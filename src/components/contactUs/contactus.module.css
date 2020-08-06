@@ -1,91 +1,178 @@
 .contactUs{
     position: relative;
-    background-color: #c4c4c4;
     height: auto;
     z-index: 1;
-    height: 300px;
+    height:600px;
+    background-size:cover;
+    background: #d3cce3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #d3cce3, #e9e4f0); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #d3cce3, #e9e4f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.conctactusModule{
+    z-index: 1;
+    height: 100%;
+    position: relative;
+    width: 80%;
+  
+
+}
+.cardContainer{
+    position: relative;
+    background-color: white;
+    height: 80%;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+}
+.NomPrenom{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.email{
+    z-index: 50;
+    width: 100%;
+}
+.phoneNumber{
+    width: 100%;
+}
+.textArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 .contactusContainer{
     
-    text-align: center;
-    justify-content: flex-start;
     display: flex;
+
     height: 100%;
     position: relative;
 }
-.contacusP > ul >li {
-  
-    color: white;
-    
+.widthnp{
+    width: 40%;
 }
-.ulstyleying {
-    top: 10%;
-    color: white;
-    margin: 0;
-    position: relative;
-    transform:none
-}
+
 .ahahha{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 7;
 }
 .iconsConTainer{
     position: relative;
     height: 50%;
     width: 50%;
+    flex-direction: column;
+    gap: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
 }
-.contacusP{
 
-    flex-direction: column;
-    flex-grow: 1;
-    height: 100%;
-    position: relative;
+
+.sendEmail{
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-direction: column;
-
-}
-.nameclasing{
-    text-align: center;
-    color: white;
-}
-.contactusContainer li{
-    margin-top: 15px;
-}
+    align-items: center;
+    justify-content: center;
+    }
+.btnContact{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border: none;
+        font-family: "Archivo Black", Sans-serif;
+        font-weight: bold;
+        text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+        background-color: #038fcc;
+        height: auto;
+        width: 300px;
+        cursor: pointer;
+        z-index: 3;
+        outline:none;
+        border-radius: 8px;
+        }
+        .btnContact p {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-family: "Archivo Black", Sans-serif;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+            background-color: #038fcc;
+        }
+        .btnContact:hover{
+        background-color: #00b2ff;
+        
+        }
+        .btnContact:hover p{
+        background-color: #00b2ff;
+        
+        }
 @media only screen and (max-width: 600px){
-    .contactUs{
+    .sendEmail{
         position: relative;
-        /*252525*/
-        background-color: #c4c4c4;
+        bottom: 5%;
+        width: 100%;
         height: auto;
-        z-index: 1;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
     .contactusContainer{
+    
+        display: flex;
         height: auto;
-    display: flex;
-    flex-direction:column
-    }
-    .contacusP > p {
-        color: white;
-        margin: 0;
-    }
-    .contacusP{
-        top: 20px;
+        flex-direction: column;
         position: relative;
-      
+    }
+    .contactUs{
+    
+        z-index: 1;
+        height:auto;
+
+    }
+    .cardContainer{
+        background-color: transparent;
+        height: 70%;
+        width: 80%;
+        box-shadow:none;
+    }
+    .cardContainer input{
+        background-color: transparent;
+ 
+    }
+    .conctactusModule{
+        z-index: 1;
+        height: 500px;
+        position: relative;
+        width: 100%;
+    
+    }
+    .iconsConTainer{
+        height: 50%;
+        width: 50%;
+        flex-direction: row;
+        gap: 15px;
+
     }
     .ahahha{
-        height: 120px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 2;
+        height: 100px!important;
+        flex-grow: none;
     }
 }
 

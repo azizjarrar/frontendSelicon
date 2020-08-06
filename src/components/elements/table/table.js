@@ -7,10 +7,10 @@ const Table=(props)=>{
     return(<div>
       <table className={style.customers}>
 <tr className={style.trr}>
- <th className={style.thh}>Nom</th>
- <th className={style.thh}>Referance</th>
- <th className={style.thh}>**********</th>
- <th className={style.thh}>**********</th>
+ <th className={style.thh}></th>
+ <th className={style.thh}></th>
+ <th className={style.thh}></th>
+ <th className={style.thh}></th>
 </tr>
 <tr className={style.trr}>
 <td className={style.tdd}> {props.tabledata.R1tier1}</td>
@@ -54,10 +54,10 @@ const Table=(props)=>{
 return(<div>
              <table className={style.customers}>
       <tr className={style.trr}>
-        <th className={style.thh}>**********</th>
-        <th className={style.thh}>**********</th>
-        <th className={style.thh}>**********</th>
-        <th className={style.thh}>**********</th>
+        <th className={style.thh}></th>
+        <th className={style.thh}></th>
+        <th className={style.thh}></th>
+        <th className={style.thh}></th>
       </tr>
       <tr className={style.trr}>
     <td className={style.tdd}><input name="R1tier1" onChange={e=>props.fn1(e)}></input></td>

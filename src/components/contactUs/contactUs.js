@@ -1,38 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./contactus.module.css";
+import Input from '../elements/input/input'
+import axios from 'axios'
+import {url} from '../globalVar/var'
+import Alert from '../elements/alert/alert'
+
 function ContactUs() {
+  const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#4CAF50'})
+
+  const [state,setState]=useState('')
+  const ochangeHandler =(e)=>{
+    
+    const {name,value}=e.target
+    setState((e)=>{
+      return {...e,[name]:value}
+    })
+    console.log(state)
+  }
+  const sendEmail=()=>{
+    setalertstate({state:true,msg:'Email sent',color:'#4CAF50'})
+setTimeout(() => {
+  setalertstate({state:false,msg:''})
+}, 4000);
+    axios.post(`${url}sendEmail`,state).then((result)=>{
+      console.log(result)
+    })
+  }
   return (
     <div id="contactUs" className={style.contactUs}>
+            {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
+
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div className={style.contactusContainer}>
-        <div className={style.contacusP}>
-          <h2 className={style.nameclasing}>CONTACT</h2>
-          <ul className={style.ulstyleying}>
-            <li>Contactez Nous ( 216 71 390 304 )</li>
-            <li>commercial-mea@measilicone.com</li>
-            <li>77 Rue Montagne Atlas Jbel Jloud, Sidi Fathallah 2023 Tunis</li>
-          </ul>
-        </div>
-        <div className={style.contacusP}>
-        <h2 className={style.nameclasing}>NAVIGATION</h2>
+        <div className={style.conctactusModule}>
+          <div className={style.cardContainer}>
+            <div className={style.NomPrenom}><div className={style.widthnp}><Input name="Nom" fn1={ochangeHandler}></Input></div><div className={style.widthnp}><Input name="prenom" fn1={ochangeHandler}></Input></div></div>
+            <div className={style.email}><Input name="Email" fn1={ochangeHandler}></Input></div>
+            <div className={style.phoneNumber}><Input name="Telephone" fn1={ochangeHandler}></Input></div>
+            <div className={style.textArea}><textarea placeholder="Remember, be nice!" cols="50" rows="10" onChange={ochangeHandler} name="textArea"></textarea></div>
+            <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}><p>Enovyer un Email</p></button></div>
 
-          <ul className={style.ulstyleying}>
-            <li>Home</li>
-            <li>Presentation</li>
-            <li>nos product</li>
-            <li>Contact</li>
-          </ul>
+          </div>
         </div>
-{       /* <div className={style.contacusP}>
-        <h2 className={style.nameclasing}>ADRESSE DE LIVRAISON</h2>
-          <ul className={style.ulstyleying}>
-            <li>gezg</li>
-            <li>gzeg</li>
-            <li>gzeg</li>
-            <li>gzeg</li>
-            <li>gzeg</li>
-          </ul>
-  </div>*/}
         <div className={style.ahahha}>
         <div className={style.iconsConTainer}>
         <div><a href="#her" class="fa fa-facebook">{``}</a></div>

@@ -58,7 +58,6 @@ useEffect(()=>{
   
   useEffect(() => {
       getTier1()
-      console.log(sectionSP)
     window.addEventListener("resize", handleResize);
     return ()=>{
       window.removeEventListener("resize", handleResize)
