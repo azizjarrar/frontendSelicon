@@ -9,15 +9,7 @@ import OurProductsQuality from "../OurProductsQuality/OurProductsQuality";
 import translate from './image/subject.png'
 import {useSelector,useDispatch} from 'react-redux'
 import actionlang from '../../redux/action/changelang'
-import backgroundColor from './image/office-1209640_1920.jpg'
-const slideImages = [
-  { imageUrl: require("./image/002.jpg") },
-  { imageUrl: require("./image/021.jpg") },
-  { imageUrl: require("./image/022.jpg") },
-  {
-    imageUrl: require("./image/251916-window-office-building-and-skyscraper-hd.jpg"),
-  },
-];
+
 
 function Home(props) {
   const [image, setimage] = useState(0);
@@ -116,7 +108,7 @@ function Home(props) {
         <OurProductsQuality></OurProductsQuality>
         <Description></Description>
         <OurHistory></OurHistory>
-        <OurProducts {...props}></OurProducts>
+        {window.width>700&&<OurProducts {...props}></OurProducts>}
         <ContactUs></ContactUs>
       </div>
     </div>

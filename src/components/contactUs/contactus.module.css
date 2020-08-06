@@ -1,6 +1,6 @@
 .contactUs{
     position: relative;
-    background-color: #141414;
+    background-color: #c4c4c4;
     height: auto;
     z-index: 1;
     height: 300px;
@@ -16,7 +16,7 @@
 .contacusP > ul >li {
   
     color: white;
-    margin: 0;
+    
 }
 .ulstyleying {
     top: 10%;
@@ -54,11 +54,14 @@
     text-align: center;
     color: white;
 }
+.contactusContainer li{
+    margin-top: 15px;
+}
 @media only screen and (max-width: 600px){
     .contactUs{
         position: relative;
         /*252525*/
-        background-color: #141414;
+        background-color: #c4c4c4;
         height: auto;
         z-index: 1;
     }

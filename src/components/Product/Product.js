@@ -220,7 +220,7 @@ useEffect(()=>{
         <div className={style.khat1}><div className={style.khatwe7ed}></div></div>
         <div className={style.containerHeader}>
           <h1 onClick={goToHome}>
-            <span>Measilicone</span>
+            <span className={style.Measilicone}>Measilicone</span>
           </h1>
           <h3>{sectionSP}</h3>
         </div>

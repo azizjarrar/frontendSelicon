@@ -80,10 +80,6 @@
 
 
 
-.boxValues:hover{
-
-
-}
 
 
 
@@ -104,7 +100,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto ;
-    justify-content: space-between;
+  
     grid-gap: 50px;
     padding-bottom: 30px;
 
@@ -123,6 +119,17 @@
 }
 }
 @media only screen and (max-width: 700px) {
+  .outValuesContainer{
+
+    grid-template-columns: auto  ;
+
+  }
+  .boxValues{
+    width: 100%;
+  }
+  .slideleftDescription{
+    width: 90%;
+  }
   .description{
     position: relative;
     height: auto;
@@ -133,23 +140,15 @@
   }
   .outValuesContainer{
     position: relative;
-    left: 44%;
-    transform: translate(-50%,0);
+    width: 100%;
     display: grid;
-    grid-template-columns: 90%;
     height: auto;
     padding-bottom: 30px;
    
     grid-gap: 50px;
 }
 
-.boxValues:hover{
-  transition: all .2s ease-in-out; 
-  transform: scale(1.1);
-  z-index: 50;
-  /*background-color: #2791D8;*/
-  background-color: #1C1A1D;
-}
+
 .titleContainer{
 
   top: 5%;
@@ -169,8 +168,6 @@
   animation-fill-mode: forwards;
 }
 
-
-
 @keyframes slideleft{
 from{
   left: 100%;
@@ -181,29 +178,7 @@ to{
   left:0;
 }
 }
-@media only screen and (max-width: 700px) {
-  .slideleftDescription{
 
-    visibility: visible;
-    animation-name:slideleft;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
-  
-  
-  
-  @keyframes slideleft{
-  from{
-    left: 100%;
-    width: -0%
-  }
-  to{
-    width: 80%;
-    left:45%;
-  }
-  }
-
-}
 
 /***************************backimage**************imagecssbackground**************/
 .imagecssbackground{

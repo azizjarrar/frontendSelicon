@@ -7,9 +7,7 @@
 
 
 .adminDashboredContainer{
-
     position: relative;
-    
     height: auto;
     width: 90%;
     margin: 0 auto;
@@ -17,7 +15,6 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: flex;
     margin-bottom: 15px;
-
 }
 
 
@@ -29,7 +26,6 @@
 
 /*********************buttons********************/
 .Header{
-    
     top: 0px;
     position: relative;
     width: 100%;
@@ -95,12 +91,9 @@
     position: relative;
     height: 30%;
     width: 100%;
-    margin-top: 1%;
     margin-bottom: 3%;
     display: flex;
-    background: #141e30; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url('../home/image/background-1747786_1280.jpg');
     min-height: 290px;
 }
 .containerHeader{
@@ -116,7 +109,7 @@
     font-family: "PlayfairDisplay-Bold";
     border: 0 solid;
     /*color: rgb(77,34,27);*/
-    color: white;
+    color: rgb(77,34,27);;
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
@@ -136,7 +129,7 @@
     align-items: center;
 }
 .khatwe7ed{
-    background-color: white;
+    background-color: rgb(77,34,27);
     height: 3px;
     width: 100%;
 }

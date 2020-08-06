@@ -1,8 +1,8 @@
 .navbarContainer{
     max-width: 100%;
-    background-color: #141414 ;
+    background-color: white ;
     top:0px;
-    height: 60px;
+    height: 100px;
     position: sticky;
     margin: 0 auto;
     z-index: 15;
@@ -28,14 +28,14 @@ justify-content: center;
     left: 30px;
     transform: translate(0, -50%);
     margin: 0;
-    color: white; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
+    color: black; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
 }
 .aStylehref{
 
     margin: 0;
     position: relative;
     margin: 0 auto;
-    color:white;
+    color:black;
     text-decoration: none;
     text-rendering: optimizeSpeed;
     font-weight: 600;

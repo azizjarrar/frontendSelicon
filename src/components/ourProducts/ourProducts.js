@@ -43,18 +43,30 @@ function OurProducts(props) {
   return (
     <div id="ourProducts" className={style.ourProducts}>
       <div className={style.cssulli}>
-      <h2>gezgzeg</h2>
+        <div className={style.tier1}>
+        <div className={style.h2tsawer}><h2 className={style.titlecssulli}>Produit Plastique</h2></div>
+        <div className={style.ulstyle}>
+        <div style={{position:'relative',margin:'0 auto'}}>
         <ul>
-          <li>gze</li>
-          <li>g</li>
-          <li>ee</li>
+          <li>Informatique</li>
+          <li>Electronique</li>
+          <li>Divers</li>
         </ul>
-        <h2>gzegezg</h2>
+        </div>
+        </div>
+        </div>
+        <div className={style.tier2}>
+        <div className={style.h2tsawer}><h2 className={style.titlecssulli}>Produit Silicone</h2></div>
+        <div className={style.ulstyle}>
+        <div style={{position:'relative',margin:'0 auto'}}>
         <ul>
-          <li>gggg</li>
-          <li>hh</li>
-          <li>gg</li>
+          <li>Produits Compressés</li>
+          <li>Produits Extrudés</li>
+          <li>Produits Injectés</li>
         </ul>
+        </div>
+        </div>
+        </div>
       </div>
       <div className={style.galery}>
         <div className={style.image1}><img src={p1} className={style.imagemax}/></div>
@@ -65,6 +77,7 @@ function OurProducts(props) {
         <div className={style.image6}><img src={p6} className={style.imagemax}/></div>
         <div className={style.image7}><img src={p7} className={style.imagemax}/></div>
         <div className={style.image8}><img src={p8} className={style.imagemax}/></div>
+
       </div>
     </div>
   );
