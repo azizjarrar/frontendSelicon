@@ -9,6 +9,7 @@ import OurProductsQuality from "../OurProductsQuality/OurProductsQuality";
 import translate from './image/subject.png'
 import {useSelector,useDispatch} from 'react-redux'
 import actionlang from '../../redux/action/changelang'
+import backgroundColor from './image/office-1209640_1920.jpg'
 const slideImages = [
   { imageUrl: require("./image/002.jpg") },
   { imageUrl: require("./image/021.jpg") },
@@ -26,7 +27,7 @@ function Home(props) {
   const lang = useSelector(state=>state.reducerlang.lang)
   const dispatchlang = useDispatch();
   var langgg={
-    disc1:"Notre entreprise sera votre meilleur choix. Nous veillerons à vous livrer un travail impeccable",
+    disc1:"Notre entreprise sera votre meilleur choix.",
     disc2:"Aujourd'hui MEA est une entreprise industrielle innovante qui n'a cessé de développer ses ressources de production, de diversifier et d'améliorer la qualité de ses produits."
   }
   if(lang==="ang"){
@@ -36,27 +37,12 @@ function Home(props) {
     }
   }
  // const [picture, setclasname] = useState("changephotohola");
-  useEffect(() => {
-    setTimeout(() => {
-      /*hne kenet fama ken kemet picture + image */
-     // setclasname((picture)=>picture + image);
-      if (image >= slideImages.length - 1) {
-        setimage(0);
-      } else {
-        setimage(image + 1);
-      }
-    }, 6000);
-  }, [image]);
+
   function onscrollfunction() {
     const home = document.querySelector('#home')
     const b = document.querySelector("#navbarBackgroundColor");
 
-      setOpacity(((document.getElementById("homeContainer").scrollTop/document.getElementById("ourproductQality").offsetTop))+0.2)
-      if((document.getElementById("homeContainer").scrollTop/document.getElementById("ourproductQality").offsetTop)<0.2)
-      setOpacity(((document.getElementById("homeContainer").scrollTop/document.getElementById("ourproductQality").offsetTop))-0.2)
 
-      if(window.scrollY){
-      }
     if (
       document.getElementById("homeContainer").scrollTop >
       document.getElementById("ourproductQality").offsetTop
@@ -100,7 +86,6 @@ function Home(props) {
 
       {testifcrhome() && <div className={style.welcomeleft}></div>}
       {testifcrhome() && <div className={style.welcomeright}></div>}
-      <Navbar className={style.Navbar}></Navbar>
       <div className={style.translatelogocssContainer}>
       <div className={style.changelange} onClick={displayLang}><img src={translate} className={style.translatelogocss}></img></div>
       {langstate&&<div className={style.langDisplaying}>
@@ -111,12 +96,11 @@ function Home(props) {
         </div>}
       </div>
       <div className={style.componentsRaper}>
+      <Navbar className={style.Navbar}></Navbar>
+
       {/*style={{backgroundColor:('255','70','0',opacity)}}*/}
         <div id="home" className={style.beginning} >
-          <div
-            style={{ backgroundImage: `url(${slideImages[image].imageUrl})` }}
-            className={`picture${image}`}
-          ></div>
+          <div className={style.backgroundphotoUrl}></div>
           <div style={{zIndex:15,position:'absolute',height:'100%',width:'100%',backgroundColor:`rgba(7.8%,7.8%,7.8%,${opacity})`,pointerEvents:"none"}}></div>
           <div className={style.blackfilter} ></div>
           <div className={style.textContainer}>

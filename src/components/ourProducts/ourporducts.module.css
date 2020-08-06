@@ -1,207 +1,38 @@
 .ourProducts{
     position: relative;
-    height: 70%;
-    min-height: 600px;
+    min-height: 900px;
+    height: auto;
     width: 100%;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-}
-.ProduitSilicone{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    flex-direction: row-reverse;
-
-}
-.ProduitPlastique{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-    background-color: #F0F0F0;
-    
-}
-.description{
-position: relative;
-height: 100%;
-width: 100%;
-
-}
-.photochange{
-    position: relative;
-    height: 100%;
-    width: 100%;
     display: grid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}.first{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background-color: white;
-    grid-area: 1 / 1/ 3 / 2;
-}
-.seconphoto2{
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    position: relative;
-}
-.seconphoto1{
-    height: 100%;
-    width: 100%;
-    position: relative;
+    grid-template-columns: 30% 70%;
     background-color: white;
 }
-.photostyle{
-    margin: 0 auto;
-    position: absolute;
-    height: 80%;
-    max-width: 70%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
- 
-}
-
-
-.slideleftDescription{
-    animation-name:animation;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes animation{
-    from{width: 0%;}
-    to{width: 90%;}
-    100%{border:none;}
-}
-
-
-.descriptionContainer{
-    position: absolute;
-    height: 90%;
-    width: 90%;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%,-50%);    
-}
-.h1OurProuduct{
-    text-align: center;
-    margin: 0;
-    font: 1.125em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-      color: #3e3b3e;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      /*************lil fou9 kol 5at ay ktiba*****************/
-      font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-      font-weight: 700;
-      line-height: normal;
-      font-size: 46px;
-}
-ul{
-    position: absolute;
-    top:50%;
-    transform: translate(-0%,-50%);    
-
-}
-li{
-    
+.cssulli{
     position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-    font: 1.2em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #333333;     
-     -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-}
+    width: 100%;
+    height: 100%;
 
-.whiteul  > li{
+}
+.galery{
     position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-    font: 1.2em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #333333;     
-     -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-}
-
-@media only screen and (max-width: 1200px) {
-    .ProduitSilicone{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        background-color: white;
-    }
-    .photochange{
-        display: none;
-    }
-    .ProduitPlastique{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        background-color: #F0F0F0;
-        
-    }
-}
-
-
-@media only screen and (max-width: 800px) {
-    .whiteul  > li{
-        color: #333333;
-    }
-    .h1OurProuduct{
-        text-align: center;
-        margin: 0;
-        font: 1.125em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-          color: #81C4ED;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          /*************lil fou9 kol 5at ay ktiba*****************/
-          font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-          font-weight: 700;
-          line-height: normal;
-          font-size: 46px;
-    }
-}
-@media only screen and (max-width: 700px) {
-    .h1OurProuduct{
-        text-align: center;
-        margin: 0;
-        font: 1em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-          color: #81C4ED;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          /*************lil fou9 kol 5at ay ktiba*****************/
-          font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-          font-weight: 700;
-          line-height: normal;
-          font-size: 27px;
-    }
-}
-
-@media only screen and (max-width : 361px){
-    .ProduitPlastique{
-        position: relative;
-        height: 300px!important;
-    }
-    .ProduitSilicone{
-        position: relative;
-        height: 300px!important;
-    }
-.ourProducts{
+    width: 100%;
     height: auto;
+    display: grid;
+    grid-template-columns: 25% 20% 30%;
+    grid-gap: 30px;
+
 }
+.imagemax{
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
+.image1{position: relative;box-sizing: border-box;}
+.image2{position: relative;box-sizing: border-box;}
+.image3{position: relative;box-sizing: border-box;}
+.image4{position: relative;box-sizing: border-box;}
+.image5{position: relative;box-sizing: border-box;}
+.image6{position: relative;box-sizing: border-box;}
+.image7{position: relative;box-sizing: border-box;}
+.image8{position: relative;box-sizing: border-box;}

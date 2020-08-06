@@ -22,7 +22,7 @@ var differntlang={
     },
     Home:{
         discption1:{
-            fr:"Notre entreprise sera votre meilleur choix. Nous veillerons à vous livrer un travail impeccable",
+            fr:"Notre entreprise sera votre meilleur choix",
             eng:"Our company will be your best choice. We will ensure to deliver impeccable work to you"
         },
         discption2:{

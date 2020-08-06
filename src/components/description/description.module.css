@@ -2,6 +2,7 @@
   position: relative;
   height: 100%;
   width: 100%;
+  min-height: 1000px;
   z-index: 1;
   background-color: white;
 }
@@ -38,24 +39,27 @@
 .outValuesContainer{
   z-index: 0;
   visibility: hidden;
-  top: 10%;
+  top: 5%;
   position: relative;
   height: 70%;
   width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-between;
+  grid-template-columns: auto auto ;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
 }
 .boxValues{
   position: relative;
-  width: 350px;
-  height: 200px;
+  width: 450px;
+  height: 350px;
   display: flex;
   flex-direction:column;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   
 }
+
 .bar{
   width: 8em;
   background-color: #2791D8;
@@ -64,86 +68,25 @@
   border: 0;
   margin-top: 1px;
 }
-.valus{
-  position: absolute;
-  left: 10%;
-  top: 22%;
-  margin: 0;
-  font: 1.8em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #333333;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-.valusHover{
-  position: relative;
-  margin: 0;
-  font: 1.8em "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #333333;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-.valuesHeader{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  z-index: 2;
-}
-.valuesDescriptionContainer{
-  
-  position: relative;
-  left: 2px;
-  flex-grow: 4;
-  word-break:break-word;
-/***/
-  
-}
-.valuesDescription{
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: 14px;
-}
+
+
+
+
+
 
 .spanValues{
   color:#81c4ed ;
 }
 
-.display{
-  display: block;
-  color: white;
-}
-.hiden{
-  display: none;
-  color: white;
-}
+
+
 .boxValues:hover{
-  transition: all .2s ease-in-out; 
-  transform: scale(1.5);
-  z-index: 50;
-  background-color: #141414;
+
 
 }
-.boxValues:hover > .valuesHeader{
-  flex-direction: column;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-}
-.boxValues:hover > .valuesHeader > p{
-  position: relative;
-  font-size: 34;
-  color: white;
-}
-.boxValues:hover > .valuesHeader > .valus > .spanValues{
-  font-size: 34;
-  color: white;
-}
 
-.hiddenmothaleth{
-  display: none;
-}
+
+
 
 @media only screen and (max-width: 1300px) {
   .description{
@@ -183,6 +126,7 @@
   .description{
     position: relative;
     height: auto;
+   
     width: 100%;
     z-index: 1;
     background-color: #F0F0F0;
@@ -198,16 +142,7 @@
    
     grid-gap: 50px;
 }
-.boxValues{
-  position: relative;
-  width: 100%;
-  height: 230px;
-  display: flex;
-  flex-direction:column;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
- 
-  
-}
+
 .boxValues:hover{
   transition: all .2s ease-in-out; 
   transform: scale(1.1);
@@ -270,11 +205,67 @@ to{
 
 }
 
-.imageposetion{
-position: absolute;
-height: 120px;
-width: 120px;
-right: 0;
-bottom: 0;
-z-index: 1;
+/***************************backimage**************imagecssbackground**************/
+.imagecssbackground{
+position:relative;
+height: 100%;
+width: 100%;
 }
+.backimage{
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.filterFlou{
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+ 
+  background-color: rgba(0,0,0,0.4);
+}
+.textContainer{
+  z-index: 5;
+position: relative;
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+}
+.h2Containerb{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+height: 20%;
+}
+.h2Containerb h2{
+  font-size: 2rem;
+  line-height: 4.41875rem;
+  color: #fff;
+  font-family: TTFirsNeue, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0 1.414rem;
+  padding: 0;
+  text-transform: none;
+  margin: 0;
+  }
+.pcontainerB{
+  height: 80%;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.pcontainerB p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  color: white;
+text-align: center;
+font-weight: bold;
+
+}
+

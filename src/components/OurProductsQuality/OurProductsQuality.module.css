@@ -1,161 +1,125 @@
 .OurProductsQuality{
     position: relative;
-    height: 50%;
+    height: 1200px;
     width: 100%;
     /*background-color:#141414 ;*/
-    background: #141e30; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
+    display: grid;
     min-height: 440px;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: 600px;
 }
-.pstylying2{
-    height: auto;
-    text-align: center;
-    font-weight: 500;
-    color: white;
-    font-size: 20px;
-    text-transform: capitalize;
-}
-.h2styuling23{
-
-    text-align: center;
-    color: white;
-    line-height: 1;
-    font-size: 40px;
-    font-weight: 700;
-}
-.chya3mlouDiscrption{
-    position: relative;
+.whoweareContainer{
+    height: 600px;
     width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5%;
-}
-.card{
-    flex-grow: 1;
-    max-width: 25%;
-    position: relative;
-    height: 80%;
-    background-color: transparent;
-
-}
-.header{
-    gap: 15%;
-    position: relative;
-    width: 100%;
-    height: 30%;
-    flex-direction: column;
-    display: flex;
+   display: flex;
     align-items: center;
     justify-content: center;
 }
-.header .h2styuling23{
-    margin: 0;
-}
-.header .pstylying2{
-    margin: 0;
-}
-.pstyling{
-    text-align: left;
-    line-height: 1;
-    font-family: sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: white;
-}
-.h2insideDsicprtion{
-    color: white;
-    text-align: center;
-}
-.centringp{
+.whoweare{
     position: relative;
-    height: 70%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 450px;
+    width: 450px;
+ 
+ 
 }
-.h2Container{
-    height: 15%;
-    position: relative;
-}
-.centringp1{
-    height: 85%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-.ul{
-    height: 100%;
-    width: 100%;
-}
-li{
-    color: white;
-    margin: 0;
-}
-@media only screen and (min-width:700px) and (max-width:1300px){
-    .pstyling{
-        text-align: left;
-        line-height: 1;
-        font-family: sans-serif;
-        font-size: 18px;
-        font-weight: 400;
-        color: white;
-    }
-    .pstylying2{
-        font-size: 15px;
-    }
-}
-@media only screen and (max-width: 700px) {
-    .card1fitel{
-        height: 300px!important;
-    }
-    .OurProductsQuality{
-        position: relative;
-        height: auto;
-        width: auto;
-        /*212121*/
-        background-color:#141414 ;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .header{
-        height: 300px;
-    }
-    .chya3mlouDiscrption{
-        height: auto;
-        flex-direction: column;
-    }
-    .card{
-        max-width: 100%;
-        width: 100%;
-        height: 250px;
-    }
-    .card ul{
-        padding-left: 7.0%;
-    }
-    .pstylying2{
-        margin-left: 10px;
-        height: auto;
-        text-align: center;
-        font-weight: 500;
-        margin-bottom: 5%;
-        color: white;
-    }
-}
-
-.pp{
+.Bigbox{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: white;
     position: absolute;
-    right: -7%;
-    width: 50%;
-    height: 100%;
+    right: -10%;
+    top: -10%;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pContainer{
+    position: relative;
+    height: 60%;
+    width: 80%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.pContainer p{
+    display: inline-block;
+    position: relative;
+    font-family: TTFirsNeue, sans-serif;
+    font-weight: 400;
+    line-height: 1.414em;
+    text-align: center;
+    color: #817d81;
+   
+}
 
+
+.imgLogocompantStyle{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.gzegzg1{
+    
+    display: block;
+    height: auto;
+}
+.h1Header{
+    font-style: normal;
+    line-height: 1.64024rem;
+    color: #232323;
+    margin: 0 0 1.414rem;
+    padding: 0;
+    text-transform: none;
+}
+.gzegzg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+/******************************Extrusion********************************************/
+.Extrusion{
+    height: 800px;
+    width: 100%;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pContainer1{
+    position: relative;
+    height: 60%;
+    width: 80%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.pContainer1 p{
+    display: inline-block;
+    position: relative;
+    font-family: TTFirsNeue, sans-serif;
+    font-weight: 400;
+    line-height: 1.414em;
+    text-align: left;
+    color: #817d81;
+   
+}
+/**********************************Compression*******************************************/
+.Compression{
+    height: 600px;
+    width: 100%;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/***************************************Decoupage*************************************************/
+.Decoupage{
+    height: 800px;
+    width: 100%;
+   display: flex;
+    align-items: center;
+    justify-content: center;
 }
