@@ -44,7 +44,6 @@ return {...e,[name]:value}})
 
           </div>
         </div>
-        <div className={style.googlemapdesmtionContainer}><div className={style.googlemapdesmtion}><Googlemap></Googlemap></div></div>
         <div className={style.ahahha}>
         <div className={style.iconsConTainer}>
         <div><a href="#her" class="fa fa-facebook">{``}</a></div>
