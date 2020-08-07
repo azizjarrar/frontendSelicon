@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from '../elements/button/button'
 import style from "./ourporducts.module.css";
-import {useImage} from 'react-image'
 
 import p2 from './imageProducts/2.jpg'
 import p3 from './imageProducts/3.jpg'
