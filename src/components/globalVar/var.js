@@ -23,7 +23,7 @@ var differntlang={
     Home:{
         discption1:{
             fr:"Notre entreprise sera votre meilleur choix",
-            eng:"Our company will be your best choice. We will ensure to deliver impeccable work to you"
+            eng:"Our company will be your best choice."
         },
         discption2:{
             fr:"Aujourd'hui MEA est une entreprise industrielle innovante qui n'a cessé de développer ses ressources de production, de diversifier et d'améliorer la qualité de ses produits.",

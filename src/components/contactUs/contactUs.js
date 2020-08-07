@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./contactus.module.css";
 import Input from '../elements/input/input'
 import axios from 'axios'
@@ -9,32 +9,30 @@ import Googlemap from '../elements/googlemap/googlemap'
 
 function ContactUs() {
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#4CAF50'})
+  const [state,setState]=useState({})
 
-  const [state,setState]=useState('')
   const ochangeHandler =(e)=>{
-    
     const {name,value}=e.target
     setState((e)=>{
-      return {...e,[name]:value}
-    })
-    console.log(state)
+return {...e,[name]:value}})
   }
   const sendEmail=()=>{
     setalertstate({state:true,msg:'Email sent',color:'#4CAF50'})
-setTimeout(() => {
-  setalertstate({state:false,msg:''})
-}, 4000);
+   
+  setTimeout(() => {
+    setalertstate({state:false,msg:''})
+  }, 4000);
     axios.post(`${url}sendEmail`,state).then((result)=>{
-      console.log(result)
     })
+
   }
   return (
     <div id="contactUs" className={style.contactUs}>
-            {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
+      {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div className={style.contactusContainer}>
-      
+
         <div className={style.conctactusModule}>
           <div className={style.cardContainer}>
             <h2 style={{textAlign:'center'}}>Contactez nos</h2>

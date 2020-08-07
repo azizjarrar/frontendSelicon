@@ -9,13 +9,15 @@ const View = (props) => {
     getData();
   }, []);
   useEffect(() => {
-   
+ 
   }, [state]);
   const getData = async () => {
     const data = await axios.post(`${url}items/searchOneItem`, {
       id: props.idData,
     });
-    setState(data.data.data);
+    setState((e)=>{
+      return {...e,...data.data.data}
+    })
   };
   return (
     <div className={style.viewContainer}>

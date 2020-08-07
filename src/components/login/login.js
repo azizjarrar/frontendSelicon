@@ -17,6 +17,7 @@ const Login = (props) => {
       localStorage.setItem('token',data.data.token)
       localStorage.setItem('role',data.data.role)
       props.routerProps.history.push('/admin')
+      window.location.reload();
     }else{
       alert('mot de passe incorrect')
     }

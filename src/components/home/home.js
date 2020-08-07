@@ -69,7 +69,6 @@ function Home(props) {
 
   }
   const handleResize=()=>{
-    console.log(windoww)
     setwindow(window.innerWidth)
   }
   useEffect(() => {
@@ -89,8 +88,8 @@ function Home(props) {
       onScroll={onscrollfunction}
     >
 
-      {testifcrhome() && <div className={style.welcomeleft}></div>}
-      {testifcrhome() && <div className={style.welcomeright}></div>}
+      {/*testifcrhome() && <div className={style.welcomeleft}></div>*/}
+      {/*testifcrhome() && <div className={style.welcomeright}></div>*/}
       <div className={style.translatelogocssContainer}>
       <div className={style.changelange} onClick={displayLang}><img src={translate} className={style.translatelogocss}></img></div>
       {langstate&&<div className={style.langDisplaying}>
@@ -116,7 +115,7 @@ function Home(props) {
             {langgg.disc2}
             </p>
           </div>
-          <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>voir nos article</p></button></div>
+          <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>voir nos articles</p></button></div>
         </div>
 
         <OurProductsQuality></OurProductsQuality>

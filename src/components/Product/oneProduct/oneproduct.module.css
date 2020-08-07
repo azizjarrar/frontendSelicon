@@ -60,6 +60,8 @@
     line-height: 1.25;
     font-weight: 400;
     letter-spacing: -0.2px;
+    word-break: break-all;
+    text-align: center;
 
 
 }

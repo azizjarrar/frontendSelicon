@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from '../elements/button/button'
 import style from "./ourporducts.module.css";
+import {useImage} from 'react-image'
 
 import p2 from './imageProducts/2.jpg'
 import p3 from './imageProducts/3.jpg'
@@ -45,10 +46,17 @@ function OurProducts(props) {
   },[])*/
   {/*<Button {...props} route="ProduitPlastique"></Button>*/}
         {/*<Button {...props} route={"ProduitSilicone"}></Button>*/}
+        function goto1(){
+          props.routerProps.history.push('/product/ProduitSilicone')
+        }
+        function goto2(){
+          props.routerProps.history.push('/product/ProduitPlastique')
+
+        }
   return (
     <div id="ourProducts" className={style.ourProducts}>
       <div className={style.cssulli}>
-      <div className={style.twoh2Container}><div className={style.h2Container}><h2>Selicon</h2></div><div className={style.h2Container}><h2>Plastic</h2></div></div>
+      <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>Selicon</h2></div><div className={style.h2Container}><h2 onClick={goto2}>Plastic</h2></div></div>
       </div>
       <div className={style.galery}>
         <div className={style.image2}><img src={p2} className={style.imagemax}/></div>
