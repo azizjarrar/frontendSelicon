@@ -156,5 +156,84 @@ var differntlang={
             }
         }
     }
+    ,OurProductsQualty:{
+        header1:{
+            fr:'Qui sommes nous?',
+            eng:'Who are we?'
+        },
+        header2:{
+            fr:'Extrusion',
+            eng:'Extrusion'
+        },
+        header3:{
+            fr:'Compression',
+            eng:'Compression'
+        },
+        header4:{
+            fr:'Decoupage',
+            eng:'Cutting'
+        },
+        disc1:{
+            fr:'MEA  Manufacturing and Engineering Activities est une entreprise qui œuvre depuis 2001 dans le domaine de la fabrication des produits et activités en silicone et caoutchouc',
+            eng:'MEA Manufacturing and Engineering Activities is a company that has been working since 2001 in the field of manufacturing silicone and rubber products and activities.'
+        }, 
+        disc2:{
+            tier1:{
+                fr:'Joint en Caoutchouc Spongieux et compact pour l’industrie Automobile et industrie divers',
+                eng:'Spongy and compact rubber seal for the automotive industry and various industries'
+            },
+            tier2:{
+                fr:'Joint, Tuyau et Profilé en Silicone pour le secteur Industriel, Médical, Electrique, et Electronique.',
+                eng:'Seal, Pipe and Silicone Profile for the Industrial, Medical, Electrical, and Electronic sectors.'
+            },
+        },
+        disc3:{
+            fr:'Joints en Silicone ou Caoutchouc pour différent industries et surtout pour l’industrie des filtres automobile.',
+            eng:'Silicone or Rubber gaskets for different industries and especially for the automotive filter industry.'
+        },
+        disc4:{
+            fr:'Des pièces en Silicone ou en   caoutchouc pour diverses industries et surtout pour l’industrie automobile.',
+            eng:'Silicone or rubber parts for various industries and especially for the automotive industry.'
+        }
+    },NOSVALEURS:{
+        header:{
+            fr:'NOS VALEURS',
+            eng:'OUR VALUES'
+        },
+        header1:{
+            fr:'Clientéle',
+            eng:'Customer base'
+        },
+        header2:{
+            fr:'Qualite',
+            eng:'Quality'
+        },
+        header3:{
+            fr:'Progres',
+            eng:'Progress'
+        },
+        header4:{
+            fr:'Performance',
+            eng:'Performance'
+        },
+        disc1:{
+            fr:'Accroitre la satisfaction, la fidélisation de nos clients en étant à leur écoute',
+            eng:'Increase customer satisfaction and loyalty by listening to them'
+        },
+        disc2:{
+            fr:'Garantir la qualité de nos produits',
+            eng:'Guarantee the quality of our products'
+        },
+        disc3:{
+            fr:'Améliorer la performance de l’entreprise',
+            eng:'Improve business performance'
+        },
+        disc4:{
+            fr:'Assurer une amélioration continue de notre SMQ',
+            eng:'Ensure continuous improvement of our QMS'
+        },
+    }
+
+
 }
 export {url,lang,differntlang};

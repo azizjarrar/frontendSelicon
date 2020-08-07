@@ -5,7 +5,7 @@ import axios from 'axios'
 import {url} from '../globalVar/var'
 import Alert from '../elements/alert/alert'
 import Googlemap from '../elements/googlemap/googlemap'
-
+import bkg from './contactus.jpg'
 
 function ContactUs() {
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#4CAF50'})
@@ -35,7 +35,7 @@ return {...e,[name]:value}})
 
         <div className={style.conctactusModule}>
           <div className={style.cardContainer}>
-            <h2 style={{textAlign:'center'}}>Contactez nos</h2>
+            <div className={style.h2background}><div className={style.h2fou9oul}><h2 style={{textAlign:'center',zIndex:4,margin:0,color:'white'}}>Contactez nos</h2></div><div className={style.filter} ></div><img src={bkg} className={style.srchw}/></div>
             <div className={style.NomPrenom}><div className={style.widthnp}><Input name="Nom" fn1={ochangeHandler}></Input></div><div className={style.widthnp}><Input name="prenom" fn1={ochangeHandler}></Input></div></div>
             <div className={style.email}><Input name="Email" fn1={ochangeHandler}></Input></div>
             <div className={style.phoneNumber}><Input name="Telephone" fn1={ochangeHandler}></Input></div>

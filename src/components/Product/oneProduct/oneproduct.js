@@ -23,7 +23,7 @@ const Oneproduct = (props) => {
         <img
           className={style.imageStyle}
           src={url+props.url}
-         alt="gezg"/>
+         alt={props.name}/>
       </div>
       <div className={style.h2Container}>
         <h4 className={style.h2Style}>{props.name}</h4>

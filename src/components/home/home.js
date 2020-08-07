@@ -19,12 +19,14 @@ function Home(props) {
   const lang = useSelector(state=>state.reducerlang.lang)
   const dispatchlang = useDispatch();
   var langgg={
+    btnfr:'voir nos articles',
     disc1:"Notre entreprise sera votre meilleur choix.",
     disc2:"Aujourd'hui MEA est une entreprise industrielle innovante qui n'a cessé de développer ses ressources de production, de diversifier et d'améliorer la qualité de ses produits."
   }
   if(lang==="ang"){
     var langgg={
-      disc1:"Our company will be your best choice. We will ensure to deliver impeccable work to you",
+      btnfr:'see our articles',
+      disc1:"Our company will be your best choice. ",
       disc2:"Today MEA is an innovative industrial company that has continued to develop its resources production, diversify and improve the quality of its products."
     }
   }
@@ -115,7 +117,7 @@ function Home(props) {
             {langgg.disc2}
             </p>
           </div>
-          <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>voir nos articles</p></button></div>
+          <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>{langgg.btnfr}</p></button></div>
         </div>
 
         <OurProductsQuality></OurProductsQuality>

@@ -2,11 +2,11 @@
     position: relative;
     height: auto;
     z-index: 1;
-    height:750px;
+    height:850px;
     background-size:cover;
-    background: #d3cce3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #d3cce3, #e9e4f0); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #d3cce3, #e9e4f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .conctactusModule{
     z-index: 1;
@@ -15,6 +15,38 @@
     width: 60%;
   
 
+}
+.h2background{
+    position: relative;
+    height: 200px;
+    width: 100%;
+    
+}
+.h2background{
+    z-index: 15;
+    
+}
+.filter{
+    background-color: rgba(54,84,99,0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+}
+.h2fou9oul{
+    z-index: 15;
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.srchw{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
 }
 .cardContainer{
     position: relative;
@@ -84,7 +116,7 @@
 
 .sendEmail{
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     width: 100%;
     height: auto;
     display: flex;
@@ -128,6 +160,8 @@
             position: relative;
             height: 60%;
             width: 100%;
+            border: 1px solid black;
+
         }
  .googlemapdesmtionContainer{
      display: flex;
@@ -183,9 +217,10 @@
     }
     .conctactusModule{
         z-index: 1;
-        height: 650px;
+        height: 900px;
         position: relative;
         width: 100%;
+        background-color: white;
     
     }
     .iconsConTainer{
