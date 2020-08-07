@@ -10,7 +10,6 @@ import translate from './image/subject.png'
 import {useSelector,useDispatch} from 'react-redux'
 import actionlang from '../../redux/action/changelang'
 
-
 function Home(props) {
   const [image, setimage] = useState(0);
   const [langstate, setLangeState] = useState(false);
@@ -119,11 +118,13 @@ function Home(props) {
           </div>
           <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>voir nos article</p></button></div>
         </div>
+
         <OurProductsQuality></OurProductsQuality>
         <Description></Description>
         <OurHistory></OurHistory>
         {windoww>700&&<OurProducts {...props}></OurProducts>}
         <ContactUs></ContactUs>
+
       </div>
     </div>
   );
