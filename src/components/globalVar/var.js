@@ -232,7 +232,9 @@ var differntlang={
             fr:'Assurer une amélioration continue de notre SMQ',
             eng:'Ensure continuous improvement of our QMS'
         },
-    }
+    },
+    btnfr:'voir nos articles',
+    btneng:'voir nos articles'
 
 
 }

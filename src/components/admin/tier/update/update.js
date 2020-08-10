@@ -8,34 +8,51 @@ import Alert from "../../../elements/alert/alert";
 const Update = () => {
   const [tier1, setTier1] = useState("None");
   const [tier2, setTier2] = useState("None");
-  const [sectionSP, setsection] = useState("silicon");
+  const [sectionSP, setsection] = useState("Silicone");
   const [tier1Display, settier1Display] = useState([]);
   const [tier2Display, settier2Display] = useState([]);
   const [selectedSelect2, setselectedSelect2] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [selectedSelect0, setselectedSelect0] = useState("");
-  const [alertstate, setalertstate] = useState({
-    state: false,
-    msg: "gzegz",
-    color: "#2196F3",
-  });
+  const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
+  /******************************************************/
+  /******************useEffect***************************/
+  /******************************************************/
+  useEffect(() => {
+    getTier1();
+  }, [sectionSP]);
+  useEffect(() => {
+    getTier2();
+  }, [selectedSelect1]);
 
-  const onchangeHandler1 = (e) => {
-    setTier2(e.target.value);
-  };
+  useEffect(() => {
+    document.getElementById("silicon").checked = true;
+    getTier1();
+  }, []);
+  /******************************************************/
+  /******************hedha mta3 input 1 2****************/
+  /******************************************************/
   const onchangeHandler0 = (e) => {
     setTier1(e.target.value);
   };
+  const onchangeHandler1 = (e) => {
+    setTier2(e.target.value);
+  };
+  /******************************************************/
+  /********hedha mta3 ena value fi select 5tart***********/
+  /******************************************************/
   const getSelectselect0 = (e) => {
     setselectedSelect0(e.target.value);
   };
-
   const getSelectselect1 = (e) => {
     setselectedSelect1(e.target.value);
   };
   const getSelectselect2 = (e) => {
     setselectedSelect2(e.target.value);
   };
+  /******************************************************/
+  /******************jib tier 1 ou 2**********************/
+  /******************************************************/
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
@@ -47,9 +64,6 @@ const Update = () => {
         </option>
       ))
     );
-  };
-  const radioboxHandler = (e) => {
-    setsection(e.target.value);
   };
   const getTier2 = async () => {
     const data1 = await axios.post(`${url}tier/getTier2`, {
@@ -65,6 +79,9 @@ const Update = () => {
       );
     }
   };
+  /******************************************************/
+  /**************tbadel esem mta3 tier1 ou 2**************/
+  /******************************************************/
   const changetier1Title0 = async () => {
     if(tier1==='None'){
       setalertstate({state:true,msg:'saisie  le Nouveau Tier nom',color:'#ff9800'})
@@ -89,8 +106,6 @@ const Update = () => {
         setalertstate({state:false,msg:''})
     },4000)
     }
-
-    
   };
   const changetier2Title1 = async () => {
     if(tier2==='None'){
@@ -112,21 +127,14 @@ const Update = () => {
         newname: tier2,
       }).then(()=>getTier2());
     }
-
-    
   };
-  useEffect(() => {
-    getTier1();
-  }, [sectionSP]);
-  useEffect(() => {
-    console.log("tbadel");
-    getTier2();
-  }, [selectedSelect1]);
+  /******************************************************/
+  /******************ki tbadel radio box*****************/
+  /******************************************************/
+  const radioboxHandler = (e) => {
+    setsection(e.target.value);
+  };
 
-  useEffect(() => {
-    document.getElementById("silicon").checked = true;
-    getTier1();
-  }, []);
   return (
     <div className={style.deletContainer}>
       {alertstate.state && (
@@ -137,22 +145,22 @@ const Update = () => {
         <h1>Tier 1</h1>
         <div className={style.radiobox}>
           <label class="container">
-            silicon
+          Silicone
             <input
               id="silicon"
               type="radio"
               name="radio"
-              value="silicon"
+              value="Silicone"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            plastic
+          Caoutchouc
             <input
               type="radio"
               name="radio"
-              value="plastic"
+              value="Caoutchouc"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>

@@ -4,9 +4,21 @@ import {useSelector,useDispatch} from 'react-redux'
 import ActionNavar from '../../../redux/action/changenavbar'
 function Navbar(props){
  const [windowWidth,setwindowWidth] = useState(window.innerWidth)
- const [productType,settype] = useState(props.routerProps.match.params.choice)
  const dispatchlang = useDispatch();
+ var lang = useSelector((e)=>e.reducerlang.lang)
 
+ var langg={
+   Title1:'Produit Caoutchouc',
+   Title2:'Produit Selicone',
+   Title3:'Accueil'
+ }
+ if(lang==="ang"){
+  langg={
+    Title1:'Rubber Product',
+    Title2:'Selicone product',
+    Title3:'Home'
+  }
+ }
  const handleResize=()=>{
     setwindowWidth(window.innerWidth)
   }
@@ -17,10 +29,16 @@ function Navbar(props){
       }
   },[])
   function changeNavbar(a){
+      if(a==="Silicone"){
+        props.routerProps.history.push('/product/Silicone')
+        dispatchlang(ActionNavar(a))
+      }else{
+        props.routerProps.history.push('/product/Caoutchouc')
+        dispatchlang(ActionNavar(a))
 
-    props.routerProps.history.push('/product/'+a)
-    settype(a)
-    dispatchlang(ActionNavar(a))
+      }
+
+    
   }
   const goHome=()=>{
     props.routerProps.history.push("/");
@@ -34,17 +52,17 @@ function Navbar(props){
         if(windowWidth>700){
             return (
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
-                <div className={style.logo}><h1 onClick={goHome}>Measilicone</h1></div>
+                <div className={style.logo}><h1 onClick={goHome}>MeaSilicone</h1></div>
                 { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
-                {productType==="ProduitSilicone"&&<div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitPlastique")}>Produit plastique</p></div>}
-                {productType==="ProduitPlastique"&&<div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("ProduitSilicone")}>Produit Selicon</p></div>}
-                <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >Home</p></div>
+            <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("Caoutchouc")}>{langg.Title1}</p></div>
+                <div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("Silicone")}>{langg.Title2}</p></div>
+                <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >{langg.Title3}</p></div>
              </div>
          )
         }else{
            return( 
             <div className={style.navbartel}>
-                <div className={style.logophone}><h1 className={style.logoStyling }onClick={goHome}>Measilicone</h1></div>
+                <div className={style.logophone}><h1 className={style.logoStyling }onClick={goHome}>MeaSilicone</h1></div>
  {        /*       <div className={style.pStyleDivphone}><p className={style.paraStyling}>Produit plastique</p></div>
                 <div className={style.pStyleDivphone}><p className={style.paraStyling}>Produit Selicon</p></div>
            <div className={style.pStyleDivphone}><p className={style.paraStyling}>Home</p></div> */}

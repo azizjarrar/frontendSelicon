@@ -8,7 +8,7 @@ import axios from "axios";
 import Alert from '../../elements/alert/alert'
 const AdminDashbored = () => {
   const [photo, setPhoto] = useState(pp);
-  const [sectionSP, setsection] = useState("silicon");
+  const [sectionSP, setsection] = useState("Silicone");
   const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
   const [selectedSelect, setselectedSelect] = useState("");
@@ -16,22 +16,11 @@ const AdminDashbored = () => {
   const [PhotoDataAppend,setPhotoDataAppend]= useState('')
   const [Discription,setDiscription]=useState('default')
   const [Titre,setTitre]=useState('default')
-  const [state,setState]=useState({'R4tier2':''})
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#2196F3'})
-  const changeHandler=(e)=>{
-    const {name,value}=e.target
-    setState((oldstate)=>{
-      return {...oldstate,[name]:value}
-    })
-    console.log(state)
-  }
+  /***************************use efect *****************************************/
   useEffect(() => {
-    document.getElementById("silicon").checked = true;
+    document.getElementById("Silicone").checked = true;
   }, []);
-
-  const getSelectselect1 = (e) => {
-    setselectedSelect1(e.target.value);
-  };
   useEffect(() => {
     getTier1()
   },[sectionSP])
@@ -39,51 +28,61 @@ const AdminDashbored = () => {
     getTier1();
     getTier2();
   }, [selectedSelect]);
+    /********************************************************************/
+    /******************************Ajouter Tier***********************************/
+    const addTier = async () =>{
+      if(PhotoDataAppend.length===0){
+       setalertstate({state:true,msg:'saisie un images',color:'#ff9800'})
+       setTimeout(() => {
+         setalertstate({state:false,msg:''})
+       }, 4000);
+       return
+      }else if(Discription==="default"){
+       setalertstate({state:true,msg:'saisie une Discription',color:'#ff9800'})
+       setTimeout(() => {
+         setalertstate({state:false,msg:''})
+       }, 4000);
+       return
+      }else if(Titre==="default"){
+       setalertstate({state:true,msg:'saisie un Titre',color:'#ff9800'})
+       setTimeout(() => {
+         setalertstate({state:false,msg:''})
+       }, 4000);
+       return
+      }else if(selectedSelect.length===0){
+       setalertstate({state:true,msg:'Select un Tier',color:'#ff9800'})
+       setTimeout(() => {
+         setalertstate({state:false,msg:''})
+       }, 4000);
+       return
+      }else{
+       let formData = new FormData();  
+       formData.append('file',PhotoDataAppend)
+       formData.append('name', Titre)
+       formData.append('tier1id', selectedSelect)
+       formData.append('tier2id', selectedSelect1)
+       formData.append('Description', Discription)
+       const data = await axios.post(`${url}items/Itemadd`, formData);
+       setalertstate({state:true,msg:'Article a été enregistrée',color:'#4CAF50'})
+       setTimeout(() => {
+         setalertstate({state:false,msg:''})
+       }, 4000);
+      }
+   
+   
+     }
+     /******************************************************************************/
+ 
+
+  const getSelectselect1 = (e) => {
+    setselectedSelect1(e.target.value);
+  };
+
   const getSelectselect = (e) => {
     setselectedSelect(e.target.value);
   };
-  const addTier = async () =>{
-   if(PhotoDataAppend.length===0){
-    setalertstate({state:true,msg:'saisie un images',color:'#ff9800'})
-    setTimeout(() => {
-      setalertstate({state:false,msg:''})
-    }, 4000);
-    return
-   }else if(Discription==="default"){
-    setalertstate({state:true,msg:'saisie une Discription',color:'#ff9800'})
-    setTimeout(() => {
-      setalertstate({state:false,msg:''})
-    }, 4000);
-    return
-   }else if(Titre==="default"){
-    setalertstate({state:true,msg:'saisie un Titre',color:'#ff9800'})
-    setTimeout(() => {
-      setalertstate({state:false,msg:''})
-    }, 4000);
-    return
-   }else if(selectedSelect.length===0){
-    setalertstate({state:true,msg:'Select un Tier',color:'#ff9800'})
-    setTimeout(() => {
-      setalertstate({state:false,msg:''})
-    }, 4000);
-    return
-   }else{
-    let formData = new FormData();  
-    formData.append('file',PhotoDataAppend)
-    formData.append('name', Titre)
-    formData.append('tier1id', selectedSelect)
-    formData.append('tier2id', selectedSelect1)
-    formData.append('Description', Discription)
-    formData.append('table', JSON.stringify(state))
-    const data = await axios.post(`${url}items/Itemadd`, formData);
-    setalertstate({state:true,msg:'Article a été enregistrée',color:'#4CAF50'})
-    setTimeout(() => {
-      setalertstate({state:false,msg:''})
-    }, 4000);
-   }
-
-
-  }
+  
+  /****************************jib tier1 et 2*****************************************/
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
@@ -111,6 +110,7 @@ const AdminDashbored = () => {
     }
 
   };
+  /********************************************************************/
   function photoDisplay(e) {
     setPhoto(URL.createObjectURL(e.target.files[0]));
     setPhotoDataAppend(e.target.files[0])
@@ -118,7 +118,6 @@ const AdminDashbored = () => {
   const radioboxHandler = (e) => {
     setsection(e.target.value);
   };
-
 
   function Discriptioninput(e){
     setDiscription(e.target.value)
@@ -140,22 +139,22 @@ const AdminDashbored = () => {
       </div>
       <div className={style.radiobox}>
         <label class="container">
-          silicon
+        Silicone
           <input
-            id="silicon"
+            id="Silicone"
             type="radio"
             name="radio"
-            value="silicon"
+            value="Silicone"
             onChange={radioboxHandler}
           />
           <span class="checkmark"></span>
         </label>
         <label class="container">
-          plastic
+        Caoutchouc
           <input
             type="radio"
             name="radio"
-            value="plastic"
+            value="Caoutchouc"
             onChange={radioboxHandler}
           />
           <span class="checkmark"></span>
@@ -174,7 +173,7 @@ const AdminDashbored = () => {
         </select>
       </div>
       <div className={style.tableData}>
-      <Table fn1={changeHandler}></Table>
+        <h1>table keenet hne</h1>
       </div>
 
       <div className={style.displayimageBTNContainer}>

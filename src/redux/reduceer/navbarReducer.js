@@ -1,4 +1,4 @@
-const reducerProduct=(state={navbar:'silicon'},action)=>{
+const reducerProduct=(state={navbar:'Silicone'},action)=>{
 
     switch(action.type){
       case 'changeProduct':

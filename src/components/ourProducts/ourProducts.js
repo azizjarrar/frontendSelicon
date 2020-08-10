@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {useSelector} from 'react-redux'
 import style from "./ourporducts.module.css";
-
 import p2 from './imageProducts/2.jpg'
 import p3 from './imageProducts/3.jpg'
 import p4 from './imageProducts/4.jpg'
@@ -13,6 +13,7 @@ import p10 from './imageProducts/10.jpg'
 import p11 from './imageProducts/11.jpg'
 import p12 from './imageProducts/12.jpg'
 import p13 from './imageProducts/13.jpg'
+import { lang } from "../globalVar/var";
 
 /*const slideImages = [
   { imageUrl: require("./imageProducts/1.jpg") },
@@ -25,36 +26,30 @@ import p13 from './imageProducts/13.jpg'
 
 
 function OurProducts(props) {
- /* const[on,seton]=useState(false)
-  useEffect(()=>{
-    const b1=document.getElementById("homeContainer")
-    b1.addEventListener('scroll',onscroll)
-    function onscroll(){
-      const b1=document.getElementById("homeContainer")
-      var aa = document.getElementById("ourProducts").offsetTop-0 //fin tji ourproducsts
-      var ourproductQalitypos=document.getElementById("contactUs").offsetTop // fin tji contact us
-    
-      if(ourproductQalitypos-aa+(b1.offsetHeight/2)<=b1.scrollTop){
-        seton(true)
-      }
-    }
-
-    
-  
-  },[])*/
-  {/*<Button {...props} route="ProduitPlastique"></Button>*/}
-        {/*<Button {...props} route={"ProduitSilicone"}></Button>*/}
+       var lang = useSelector((e)=>e.reducerlang.lang)
+        var langg={
+          title1:"Silicone",
+          title2:"Caoutchouc"
+        }
+        if (lang==="ang"){
+          langg={
+            title1:"silicone",
+            title2:"Rubber"
+          }
+        }
         function goto1(){
-          props.routerProps.history.push('/product/ProduitSilicone')
+          props.routerProps.history.push('/product/silicone')
+          window.location.reload();
         }
         function goto2(){
-          props.routerProps.history.push('/product/ProduitPlastique')
+          props.routerProps.history.push('/product/Caoutchouc')
+          window.location.reload();
 
         }
   return (
     <div id="ourProducts" className={style.ourProducts}>
       <div className={style.cssulli}>
-      <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>Selicon</h2></div><div className={style.h2Container}><h2 onClick={goto2}>Plastic</h2></div></div>
+  <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>{langg.title1}</h2></div><div className={style.h2Container}><h2 onClick={goto2}>{langg.title2}</h2></div></div>
       </div>
       <div className={style.galery}>
         <div className={style.image2}><img src={p2} className={style.imagemax}/></div>

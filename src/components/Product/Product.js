@@ -9,20 +9,55 @@ import Oneproduct from "./oneProduct/oneproduct";
 import Contact from "../contactUs/contactUs";
 import { url } from "../globalVar/var";
 import axios from "axios";
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
+import ActionNavar from '../../redux/action/changenavbar'
 
 const Product = (props) => {
   
   const [selectedSelect, setselectedSelect] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [itemDisplay,setItemDisplay]=useState([])
-  const [sectionSP, setsection] = useState("");
   const [windowWidth, setwindowWidth] = useState(window.innerWidth);
   const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
   const [Modal,setModal]=useState({state:false,id:''})
   const [itemdelete,setitemdeleted]=useState(false)
+  const dispatchlang = useDispatch();
+
+  const Page =useSelector(e=>e.navbarReducer.navbar)
+ /******************************************************* */
+ /**********************useeffect************************* */
+  /******************************************************* */
+
+ useEffect(()=>{
  
+  window.addEventListener("resize", handleResize);
+  const url =props.routerProps.match.path.substring(9,props.routerProps.match.path.length)
+  if (url==="Silicone"){
+    getTier1("Silicone")
+  }else{
+    getTier1("Caoutchouc")
+  }
+  return ()=>{
+    window.removeEventListener("resize", handleResize)
+  }
+},[])
+useEffect(()=>{
+  getTier1(Page)
+  settier2Display([])
+},[Page])
+ useEffect(()=>{
+  setItemDisplay(itemDisplay.filter((element)=>element.key!=itemdelete))
+},[itemdelete])
+
+useEffect(() => {
+  getNewItems()
+  getTier2()
+
+},[selectedSelect,selectedSelect1])
+ /******************************************************* */
+ /*******************hel ou tsaker model****************** */
+ /********************************************************* */
   const displayModal=(id)=>{
     setModal((e)=>{
       return {state:!e.state,id:id}
@@ -34,39 +69,24 @@ const Product = (props) => {
     return {...Modal,state:!e.state}  
   })
  }
+  /******************************************************* */
+ /****************tfasa5 article*************************** */
+ /********************************************************* */
  const deleteOn=async(id)=>{
   const data1 = await axios.post(`${url}items/deleteOneItem`, {
     id: id,
   })
   setitemdeleted(id)
 }
-useEffect(()=>{
-  setItemDisplay(itemDisplay.filter((element)=>element.key!=itemdelete))
-},[itemdelete])
-
-  const navbarReducer = useSelector(state=>state.navbarReducer.navbar)
-  useEffect(()=>{
-    if(navbarReducer==="ProduitPlastique"){
-      setsection('plastic')
-        setItemDisplay([])
-    }else{
-      setsection('silicon')
-        setItemDisplay([])
-    }
-  },[navbarReducer])
-
-  
-  useEffect(() => {
-      getTier1()
-    window.addEventListener("resize", handleResize);
-    return ()=>{
-      window.removeEventListener("resize", handleResize)
-    }
-  },[sectionSP]);
+ /******************************************************* */
+ /******************************************************* */
+ /********************************************************* */
   const handleResize = () => {
     setwindowWidth(window.innerWidth);
   };
-  /**********************get tier 1 and 2*********************/
+ /********************************************************* */
+ /***************tjib tier 1 ou 2************************** */
+ /********************************************************* */
   
   const getTier2 = async () => {
     
@@ -85,10 +105,10 @@ useEffect(()=>{
 
   }
   
-    const getTier1 = async () => {
+    const getTier1 = async (params) => {
 
       const data = await axios.post(`${url}tier/getTier1`, {
-        section: sectionSP,
+        section: params,
       });
       settier1Display(
         data.data.data.map((e) => (
@@ -98,51 +118,28 @@ useEffect(()=>{
         ))
       );
     }
-  /*********************************************/
+/**********************************************************/
+ /***************t9oulek ena select 5tart***************** */
+ /********************************************************* */
   
   const getSelectselect=(e)=>{
-    setselectedSelect(e.target.value)
-    
+    setselectedSelect(e.target.value)  
   }
- 
-  useEffect(() => {
-    getNewItems()
-    getTier2()
-  
-  },[selectedSelect,selectedSelect1])
-
-    useEffect(()=>{
-
-      if(windowWidth<700){
-
-        if(props.routerProps.match.params.choice==="ProduitSilicone"){
-          document.getElementById("silicon").checked = true;
-          setsection('silicon')
-        }else{
-          document.getElementById("plastic").checked = true;
-          setsection('plastic')
-        }
-      }
-      if(props.routerProps.match.params.choice==="ProduitSilicone"){
-        setsection('silicon')
-      }else{
-        setsection('plastic')
-      }
-  
-
-    },[])
-  
-
-  const goAdminDashbord = () => {
-    props.routerProps.history.push("/admin");
-  };
   function getSelectselect1(e){
     setselectedSelect1(e.target.value)
   }
- /**************************fetech getItemsSelection***************************************/
+  /**********************************************************/
+ /***************thezek li dashbored********************** */
+ /********************************************************* */
+  const goAdminDashbord = () => {
+    props.routerProps.history.push("/admin");
+  };
+
+  /**********************************************************/
+ /***************ijib les article************************** */
+ /********************************************************* */
  
   const getNewItems=async ()=>{
-
     var  data
     if(selectedSelect1.length===0){
        data = await axios.post(`${url}items/getItemsSelection`, {
@@ -173,44 +170,53 @@ useEffect(()=>{
       setItemDisplay([])
     }
   }
-  const radioboxHandler=(e)=>{
-    setsection(e.target.value)
-
-  }
-  
-  const radiobox=()=>{
- return (
-  <div className={style.radiobox}>
-  <label class="container">
-    silicon
-    <input
-      id="silicon"
-      type="radio"
-      name="radio"
-      value="silicon"
-      onChange={radioboxHandler}
-    />
-    <span class="checkmark"></span>
-  </label>
-  <label class="container">
-    plastic
-    <input
-    id="plastic"
-      type="radio"
-      name="radio"
-      value="plastic"
-      onChange={radioboxHandler}
-    />
-    <span class="checkmark"></span>
-  </label>
-</div>
- )
-  }
+  /**********************************************************/
+ /***************thezek Home********************** */
+ /********************************************************* */
   const goToHome =()=>{
     props.routerProps.history.push("/");
 
   }
-  
+    /**********************************************************/
+ /***************ta3 radio box fi tel********************** */
+ /********************************************************* */
+  const radiobox=()=>{
+    return (
+     <div className={style.radiobox}>
+     <label class="container">
+     Silicone
+       <input
+         id="silicon"
+         type="radio"
+         name="radio"
+         value="Silicone"
+         onChange={radioboxHandler}
+       />
+       <span class="checkmark"></span>
+     </label>
+     <label class="container">
+     Caoutchouc
+       <input
+       id="plastic"
+         type="radio"
+         name="radio"
+         value="Caoutchouc"
+         onChange={radioboxHandler}
+       />
+       <span class="checkmark"></span>
+     </label>
+   </div>
+    )
+    
+     }
+     const radioboxHandler=(e)=>{
+      dispatchlang(ActionNavar(e.target.value))
+      
+    }
+  /**********************************************************/
+ /***************Radio box handler***************************/
+ /************************************************************/
+
   return (
     <div className={style.productBody}>
       {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
@@ -221,7 +227,7 @@ useEffect(()=>{
           <h1 onClick={goToHome}>
             <span className={style.Measilicone}>Measilicone</span>
           </h1>
-          <h3>{sectionSP}</h3>
+          <h3>{props.routerProps.match.path.substring(9,props.routerProps.match.path.length)}</h3>
         </div>
         <div className={style.khat2}><div className={style.khatwe7ed}></div></div>
       </div>

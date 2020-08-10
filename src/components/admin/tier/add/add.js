@@ -6,34 +6,47 @@ import axios from "axios";
 import Alert from "../../../elements/alert/alert";
 
 const Add = () => {
-  /**************Tier1*****************/
   const [tier1, setTier1] = useState("None");
   const [tier1Display, settier1Display] = useState([]);
   const [selectedSelect, setselectedSelect] = useState("");
-  /**************Tier2*****************/
   const [tier2, setTier2] = useState("None");
   const [tier2Display, settier2Display] = useState([]);
-  /*********************par default bil radio nhot silicon*************************/
-  const [sectionSP, setsection] = useState("silicon");
-  /************************************************************/
-  /**************** teb3in tier 1*********************/
-  /************************************************************/
-  const [alertstate, setalertstate] = useState({
-    state: false,
-    msg: "gzegz",
-    color: "#2196F3",
-  });
-
+  const [sectionSP, setsection] = useState("Silicone");
+  const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
+  /*************************UseEffects************************/
+  /***********************************************************/
+  /**********************************************************/
+  useEffect(() => {
+    getTier1();
+  }, [sectionSP]);
+  useEffect(() => {
+    getTier1();
+    getTier2();
+  }, [selectedSelect]);
+  useEffect(() => {
+    document.getElementById("silicon").checked = true;
+    getTier1();
+  }, []);
+  /**********************************************************************/
+  /************hedhi mta3 input 1 ou 2***********************************/
+  /**********************************************************************/
   const onchangeHandler = (e) => {
     setTier1(e.target.value);
   };
+  const onchangeHandler1 = (e) => {
+    setTier2(e.target.value);
+  };
+  /**********************************************************************/
+  /*****************hedhi mta3 checkbox**********************************/
+  /**********************************************************************/
   const radioboxHandler = (e) => {
     setsection(e.target.value);
   };
+  /**********************************************************************/
+  /********************nzid tier 1***************************************/
+  /**********************************************************************/
   const addTier1 = () => {
- 
     if(tier1==='None'){
-   
       setalertstate({state:true,msg:'saisie un tier1',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
@@ -52,27 +65,9 @@ const Add = () => {
     },4000)
   }
 }
-
-  const getTier1 = async () => {
-    const data = await axios.post(`${url}tier/getTier1`, {
-      section: sectionSP,
-    });
-    settier1Display(
-      data.data.data.map((e) => (
-        <option value={e._id} key={e._id}>
-          {e.name}
-        </option>
-      ))
-    );
-  };
-  /***te5ou select mta3 tier 1*/
-  const getSelectselect = (e) => {
-    setselectedSelect(e.target.value);
-  };
-  /************************************************************/
-  /************************************************************/
-  /************************************************************/
-  /****************ajouti tier 2*********** */
+  /**********************************************************************/
+  /********************nzid tier 2***************************************/
+  /**********************************************************************/
   const addTier2 = async () => {
     if(tier2==='None'){
       setalertstate({state:true,msg:'saisie un tier2',color:'#ff9800'})
@@ -99,13 +94,19 @@ const Add = () => {
     },4000)
   };
     }
-
-
-  /***************mta3 input 2******* */
-  const onchangeHandler1 = (e) => {
-    setTier2(e.target.value);
+  /************************************************************/
+/*************************************njib tier 1*************/  
+/************************************************************/
+  const getTier1 = async () => {
+    const data = await axios.post(`${url}tier/getTier1`, {
+      section: sectionSP,
+    });
+    let NewTier1Array=data.data.data.map((e) => (<option value={e._id} key={e._id}>{e.name}</option>))
+    settier1Display([...NewTier1Array]);
   };
-  /******************tjiblk tier 2 kol ta3 blasa li enti feha******************/
+    /************************************************************/
+/*************************************njib tier 2*************/  
+/************************************************************/
   const getTier2 = async () => {
     const data1 = await axios.post(`${url}tier/getTier2`, {
       id: selectedSelect,
@@ -120,17 +121,15 @@ const Add = () => {
       );
     }
   };
-  useEffect(() => {
-    getTier1();
-  }, [sectionSP]);
-  useEffect(() => {
-    getTier1();
-    getTier2();
-  }, [selectedSelect]);
-  useEffect(() => {
-    document.getElementById("silicon").checked = true;
-    getTier1();
-  }, []);
+/************************************************************/
+/******************enehi tier 1 selectit*********************/  
+/************************************************************/
+  const getSelectselect = (e) => {
+    setselectedSelect(e.target.value);
+  };
+  /************************************************************/
+/*************************************************************/  
+/************************************************************/
   return (
     <div className={style.addContainer}>
       {alertstate.state && (
@@ -141,22 +140,22 @@ const Add = () => {
         <h1>Tier 1</h1>
         <div className={style.radiobox}>
           <label class="container">
-            silicon
+          Silicone
             <input
               id="silicon"
               type="radio"
               name="radio"
-              value="silicon"
+              value="Silicone"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            plastic
+          Caoutchouc
             <input
               type="radio"
               name="radio"
-              value="plastic"
+              value="Caoutchouc"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>

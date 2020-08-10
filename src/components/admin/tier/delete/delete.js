@@ -11,54 +11,13 @@ const Delete = () => {
   const [selectedSelect2, setselectedSelect2] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [selectedSelect0, setselectedSelect0] = useState("");
-  const [sectionSP, setsection] = useState("silicon");
+  const [sectionSP, setsection] = useState("Silicone");
   const [input1, setinput1] = useState("");
   const [input2, setinput2] = useState("None");
-  const [alertstate, setalertstate] = useState({
-    state: false,
-    msg: "gzegz",
-    color: "#2196F3",
-  });
-
-  const getTier2 = async () => {
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect1,
-    });
-    if (Array.isArray(data1.data.data)) {
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id} name={e.name}>
-            {e.name}
-          </option>
-        ))
-      );
-    }
-  };
-  const getTier1 = async () => {
-    const data = await axios.post(`${url}tier/getTier1`, {
-      section: sectionSP,
-    });
-
-    settier1Display(
-      data.data.data.map((e) => (
-        <option value={e._id} key={e._id} name={e.name}>
-          {e.name}
-        </option>
-      ))
-    );
-  };
-  const radioboxHandler = (e) => {
-    setsection(e.target.value);
-  };
-
-  const getSelectselect0 = (e) => {
-    setselectedSelect0(e.target.value);
-    setinput1(e.target.value);
-  };
-
-  const getSelectselect1 = (e) => {
-    setselectedSelect1(e.target.value);
-  };
+  const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
+    /******************************************************/
+  /******************useEffect***************************/
+  /******************************************************/
   useEffect(() => {
     getTier2();
   }, [selectedSelect1]);
@@ -75,6 +34,51 @@ const Delete = () => {
     document.getElementById("silicon").checked = true;
     getTier1();
   }, []);
+  /******************************************************/
+  /******************jib tier 1 ou 2**********************/
+  /******************************************************/
+  const getTier1 = async () => {
+    const data = await axios.post(`${url}tier/getTier1`, {
+      section: sectionSP,
+    });
+
+    settier1Display(
+      data.data.data.map((e) => (
+        <option value={e._id} key={e._id} name={e.name}>
+          {e.name}
+        </option>
+      ))
+    );
+  };
+  const getTier2 = async () => {
+    const data1 = await axios.post(`${url}tier/getTier2`, {
+      id: selectedSelect1,
+    });
+    if (Array.isArray(data1.data.data)) {
+      settier2Display(
+        data1.data.data[0].tier2.map((e) => (
+          <option value={e._id} key={e._id} name={e.name}>
+            {e.name}
+          </option>
+        ))
+      );
+    }
+  };
+
+  /******************************************************/
+  /*i gamer ena select 5tart ou i 7out id fil input******/
+  /******************************************************/
+  const getSelectselect0 = (e) => {
+    setselectedSelect0(e.target.value);
+    setinput1(e.target.value);
+  };
+
+  const getSelectselect1 = (e) => {
+    setselectedSelect1(e.target.value);
+  };
+  /******************************************************/
+  /**********fasa5 tier 1 wala tier 2*********************/
+  /******************************************************/
   const deleteTier = async () => {
     if(input1.length===0){
       setalertstate({state:true,msg:'selectione Tier1 a supprime',color:'#ff9800'})
@@ -112,6 +116,12 @@ const Delete = () => {
     }
 
   };
+  /*******************************************************/
+  /**********i badel section selecon wala kawetchou********/
+  /********************************************************/
+  const radioboxHandler = (e) => {
+    setsection(e.target.value);
+  };
 
   return (
     <div className={style.deletContainer}>
@@ -123,22 +133,22 @@ const Delete = () => {
         <h1>Tier 1</h1>
         <div className={style.radiobox}>
           <label class="container">
-            silicon
+          Silicone
             <input
               id="silicon"
               type="radio"
               name="radio"
-              value="silicon"
+              value="Silicone"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            plastic
+          Caoutchouc
             <input
               type="radio"
               name="radio"
-              value="plastic"
+              value="Caoutchouc"
               onChange={radioboxHandler}
             />
             <span class="checkmark"></span>

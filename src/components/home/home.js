@@ -14,10 +14,22 @@ function Home(props) {
   const [image, setimage] = useState(0);
   const [langstate, setLangeState] = useState(false);
   const [opacity,setOpacity]= useState(0)
-  const [windoww,setwindow]=useState(701)
-
+  const [windoww,setwindow]=useState(1000)
   const lang = useSelector(state=>state.reducerlang.lang)
   const dispatchlang = useDispatch();
+  useEffect(() => {
+    document.querySelector('#homeContainer').scrollIntoView({ behavior: 'smooth' });
+    window.addEventListener("resize", handleResize);
+  return ()=>{
+    window.removeEventListener("resize", handleResize)
+  }
+
+},[]);
+const handleResize=()=>{
+  setwindow(window.innerWidth)
+}
+useEffect(()=>{
+},[windoww])
   var langgg={
     btnfr:'voir nos articles',
     disc1:"Notre entreprise sera votre meilleur choix.",
@@ -67,22 +79,11 @@ function Home(props) {
   }
   /***** */
   const gotoporoduct=()=>{
-    props.routerProps.history.push("/product/ProduitSilicone");
+    props.routerProps.history.push("/product/Silicone");
 
   }
-  const handleResize=()=>{
-    setwindow(window.innerWidth)
-  }
-  useEffect(() => {
-    document.querySelector('#homeContainer').scrollIntoView({ 
-      behavior: 'smooth' 
-    });
-  window.addEventListener("resize", handleResize);
-  return ()=>{
-    window.removeEventListener("resize", handleResize)
-  }
 
-},[]);
+
   return (
     <div
       id="homeContainer"

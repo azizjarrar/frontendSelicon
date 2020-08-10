@@ -9,7 +9,9 @@ import './App.css';
 function App() {
   return (
       <Switch>
-       <Route exact path='/product/:choice' render={(props)=><Product routerProps={props} />}/>
+       <Route exact path='/product/Silicone' render={(props)=><Product routerProps={props} />}/>
+       <Route exact path='/product/Caoutchouc' render={(props)=><Product routerProps={props} />}/>
+       
        <Route exact path='/login' render={(props)=><Login routerProps={props} />}/>
        <Route exact path='/'      render={(props)=><Home routerProps={props} />}/>
        {(localStorage.getItem('role')==='admin')&&<Route exact path='/admin'      render={(props)=><Admin routerProps={props} />}/>}
