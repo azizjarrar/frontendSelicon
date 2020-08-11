@@ -23,8 +23,9 @@ const Product = (props) => {
   const [Modal,setModal]=useState({state:false,id:''})
   const [itemdelete,setitemdeleted]=useState(false)
   const dispatchlang = useDispatch();
-
   const Page =useSelector(e=>e.navbarReducer.navbar)
+  var lang = useSelector((e)=>e.reducerlang.lang)
+
  /******************************************************* */
  /**********************useeffect************************* */
   /******************************************************* */
@@ -146,7 +147,7 @@ useEffect(() => {
         tier1id:selectedSelect,
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
 
     }else{
@@ -155,7 +156,7 @@ useEffect(() => {
         tier2id:selectedSelect1
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
     }
     //setItemDisplay()
@@ -165,7 +166,7 @@ useEffect(() => {
       word:e.target.value,
     });
     if(Array.isArray(data.data.data)){
-      setItemDisplay(data.data.data.map((e)=><Oneproduct name={e.name} url={e.url} Description={e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+      setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description}  deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
     }else{
       setItemDisplay([])
     }

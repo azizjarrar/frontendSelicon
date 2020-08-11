@@ -14,9 +14,18 @@ const AdminDashbored = () => {
   const [selectedSelect, setselectedSelect] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("None");
   const [PhotoDataAppend,setPhotoDataAppend]= useState('')
+  /********************fr************************ */
   const [Discription,setDiscription]=useState('default')
   const [Titre,setTitre]=useState('default')
+  const [discriptionkbiraV,setdiscriptionkbira]=useState('default')
+
+  /*****************eng******************************* */
+  const [TitreEng,setTitreEng]=useState('default')
+  const [DiscriptionEng,setDiscriptionEng]=useState('default')
+  const [discriptionkbiraEngv,setdiscriptionkbiraEng]=useState('default')
+
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#2196F3'})
+
   /***************************use efect *****************************************/
   useEffect(() => {
     document.getElementById("Silicone").checked = true;
@@ -58,10 +67,16 @@ const AdminDashbored = () => {
       }else{
        let formData = new FormData();  
        formData.append('file',PhotoDataAppend)
-       formData.append('name', Titre)
        formData.append('tier1id', selectedSelect)
        formData.append('tier2id', selectedSelect1)
+       /***************FR************* */
+       formData.append('name', Titre)
        formData.append('Description', Discription)
+       formData.append('bigDescription', discriptionkbiraV)
+       /**************ENG**************** */
+       formData.append('nameEng', TitreEng)
+       formData.append('DescriptionEng', DiscriptionEng)
+       formData.append('bigDescriptionEng', discriptionkbiraEngv)
        const data = await axios.post(`${url}items/Itemadd`, formData);
        setalertstate({state:true,msg:'Article a été enregistrée',color:'#4CAF50'})
        setTimeout(() => {
@@ -125,17 +140,33 @@ const AdminDashbored = () => {
   function TitreInput(e){
     setTitre(e.target.value)
   }
+  function DiscriptioninputEng(e){
+    setTitreEng(e.target.value)
+  }
+  function TitreInputEng(e){
+    setDiscriptionEng(e.target.value)
+  }
+  function discriptionkbira(e){
+    setdiscriptionkbira(e.target.value)
+  }
+  function discriptionkbiraEng(e){
+    setdiscriptionkbiraEng(e.target.value)
+  }
   return (
     <div className={style.leftside}>
       {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
       <div className={style.h2cssadminContainer}>
         <h2 className={style.h2cssadmin}>Ajoute un article</h2>
       </div>
+      
       <div className={style.title}>
         <Input name="Titre" fn1={TitreInput}></Input>
+        <Input name="TitreEng" fn1={TitreInputEng}></Input>
       </div>
       <div className={style.litelDescription}>
         <Input name="Description" fn1={Discriptioninput}></Input>
+        <Input name="DescriptionEng" fn1={DiscriptioninputEng}></Input>
+
       </div>
       <div className={style.radiobox}>
         <label class="container">
@@ -172,8 +203,9 @@ const AdminDashbored = () => {
           {tier2Display}
         </select>
       </div>
-      <div className={style.tableData}>
-        <h1>table keenet hne</h1>
+      <div className={style.textArea}>
+        <textarea className={style.textareaStyle} placeholder="description en francais" onChange={discriptionkbira}></textarea>
+        <textarea className={style.textareaStyle} placeholder="description en anglais" onChange={discriptionkbiraEng}></textarea>
       </div>
 
       <div className={style.displayimageBTNContainer}>

@@ -56,7 +56,6 @@ const Admin = (props) => {
           {page==="Supprime"&&<Delete></Delete>}
           </div>
       </div>
-      <Contact></Contact>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import style from "./navbar.module.css";
 import {useSelector,useDispatch} from 'react-redux'
 import ActionNavar from '../../../redux/action/changenavbar'
+
 function Navbar(props){
  const [windowWidth,setwindowWidth] = useState(window.innerWidth)
  const dispatchlang = useDispatch();
@@ -12,7 +13,7 @@ function Navbar(props){
    Title2:'Produit Selicone',
    Title3:'Accueil'
  }
- if(lang==="ang"){
+ if(lang==="ang"||localStorage.getItem('lang')==="ang"){
   langg={
     Title1:'Rubber Product',
     Title2:'Selicone product',
@@ -51,7 +52,9 @@ function Navbar(props){
     }
         if(windowWidth>700){
             return (
+
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
+    
                 <div className={style.logo}><h1 onClick={goHome}>MeaSilicone</h1></div>
                 { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
             <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("Caoutchouc")}>{langg.Title1}</p></div>

@@ -17,7 +17,11 @@ function Home(props) {
   const [windoww,setwindow]=useState(1000)
   const lang = useSelector(state=>state.reducerlang.lang)
   const dispatchlang = useDispatch();
+
   useEffect(() => {
+    if(localStorage.getItem('lang')==="ang"){
+      dispatchlang(actionlang("ang"))
+    }
     document.querySelector('#homeContainer').scrollIntoView({ behavior: 'smooth' });
     window.addEventListener("resize", handleResize);
   return ()=>{
@@ -70,10 +74,11 @@ useEffect(()=>{
   }
   const changelangFR=()=>{
     dispatchlang(actionlang("fr"))
-
+    localStorage.setItem('lang','fr')
   }
   const changelangANG=()=>{
     dispatchlang(actionlang("ang"))
+    localStorage.setItem('lang','ang')
 
 
   }

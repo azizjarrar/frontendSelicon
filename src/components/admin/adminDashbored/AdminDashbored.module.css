@@ -98,13 +98,26 @@
     position: relative;
     width: 80%;
     height: 50px;
-}
+    display: flex;
+    gap: 15px;
 
+}
+.title div{
+    left: 0px;
+    transform:none
+}
 
 .litelDescription{
     position: relative;
     width: 80%;
     height: 50px;
+    display: flex;
+    gap: 15px;
+}
+.litelDescription div{
+    left: 0px;
+    transform:none
+
 }
 .Category{
     position: relative;
@@ -362,4 +375,15 @@
     flex-grow: 1;
     width: 50%;
 
+}
+.textArea{
+    display: flex;
+    gap: 15px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.textareaStyle{
+    height: 200px;
+    width: 50%;
 }
