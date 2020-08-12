@@ -43,6 +43,12 @@
     width: 100%;
     position: relative;
     margin-top: 15px;
+    gap: 15px;
+}
+.inputContainer  div{
+   
+    left: 0px;
+    transform:none
 }
 .selectStyle{
     position: relative;

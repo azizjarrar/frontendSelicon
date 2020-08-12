@@ -13,6 +13,9 @@ const Add = () => {
   const [tier2Display, settier2Display] = useState([]);
   const [sectionSP, setsection] = useState("Silicone");
   const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
+  const [nameEng1,setnameEng1]=useState('')
+  const [nameEng2,setnameEng2]=useState('')
+
   /*************************UseEffects************************/
   /***********************************************************/
   /**********************************************************/
@@ -54,7 +57,7 @@ const Add = () => {
       return
     }else{
       axios
-      .post(`${url}tier/AaddTier1`, { name: tier1, section: sectionSP })
+      .post(`${url}tier/AaddTier1`, { name: tier1, section: sectionSP ,nameEng:nameEng1})
       .then((response) => {
         getTier1();
       })
@@ -84,7 +87,7 @@ const Add = () => {
     }
     else{
       await axios
-      .post(`${url}tier/AaddTier2`, { name: tier2, tier1id: selectedSelect })
+      .post(`${url}tier/AaddTier2`, { name: tier2, tier1id: selectedSelect,nameEng:nameEng2 })
       .then((response) => {
         getTier2()
       });
@@ -130,6 +133,13 @@ const Add = () => {
   /************************************************************/
 /*************************************************************/  
 /************************************************************/
+function onchangeHandlereng1(e){
+  setnameEng1(e.target.value)
+}
+function onchangeHandlereng2(e){
+  setnameEng2(e.target.value)
+}
+
   return (
     <div className={style.addContainer}>
       {alertstate.state && (
@@ -162,7 +172,7 @@ const Add = () => {
           </label>
         </div>
         <div className={style.inputContainer}>
-          <Input name="tier1Select" fn1={onchangeHandler}></Input>
+          <Input name="tier1Select" fn1={onchangeHandler}></Input><Input name="tier1Select Eng" fn1={onchangeHandlereng1} ></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={addTier1}>
@@ -183,7 +193,7 @@ const Add = () => {
           {tier2Display}
         </select>
         <div className={style.inputContainer}>
-          <Input name="tier2Select" fn1={onchangeHandler1}></Input>
+         <Input name="tier2Select" fn1={onchangeHandler1}></Input><Input name="tier2Select Eng" fn1={onchangeHandlereng2} ></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={addTier2}>

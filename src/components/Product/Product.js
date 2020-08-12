@@ -98,7 +98,7 @@ useEffect(() => {
       settier2Display(
         data1.data.data[0].tier2.map((e) => (
           <option value={e._id} key={e._id}>
-            {e.name}
+            {localStorage.getItem('lang')==="ang"?e.nameEng:e.name}
           </option>
         ))
       );
@@ -107,14 +107,14 @@ useEffect(() => {
   }
   
     const getTier1 = async (params) => {
-
       const data = await axios.post(`${url}tier/getTier1`, {
         section: params,
       });
+      console.log(data.data.data)
       settier1Display(
         data.data.data.map((e) => (
           <option value={e._id} key={e._id}>
-            {e.name}
+            {localStorage.getItem('lang')==="ang"?e.nameEng:e.name}
           </option>
         ))
       );
@@ -147,7 +147,7 @@ useEffect(() => {
         tier1id:selectedSelect,
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
 
     }else{
@@ -156,7 +156,7 @@ useEffect(() => {
         tier2id:selectedSelect1
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
     }
     //setItemDisplay()
@@ -166,7 +166,7 @@ useEffect(() => {
       word:e.target.value,
     });
     if(Array.isArray(data.data.data)){
-      setItemDisplay(data.data.data.map((e)=><Oneproduct name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description}  deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+      setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description}  deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
     }else{
       setItemDisplay([])
     }
@@ -217,7 +217,7 @@ useEffect(() => {
   /**********************************************************/
  /***************Radio box handler***************************/
  /************************************************************/
-
+ 
   return (
     <div className={style.productBody}>
       {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
@@ -228,7 +228,7 @@ useEffect(() => {
           <h1 onClick={goToHome}>
             <span className={style.Measilicone}>Measilicone</span>
           </h1>
-          <h3>{props.routerProps.match.path.substring(9,props.routerProps.match.path.length)}</h3>
+          <h3>{(localStorage.getItem('lang')==="ang"&&props.routerProps.match.path.substring(9,props.routerProps.match.path.length)==="Caoutchouc")?'Rubber':props.routerProps.match.path.substring(9,props.routerProps.match.path.length)}</h3>
         </div>
         <div className={style.khat2}><div className={style.khatwe7ed}></div></div>
       </div>

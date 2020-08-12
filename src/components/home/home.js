@@ -6,7 +6,7 @@ import OurProducts from "../ourProducts/ourProducts";
 import ContactUs from "../contactUs/contactUs";
 import OurHistory from "../ourHistory/ourHistory";
 import OurProductsQuality from "../OurProductsQuality/OurProductsQuality";
-import translate from './image/subject.png'
+import translate from './image/translate.png'
 import {useSelector,useDispatch} from 'react-redux'
 import actionlang from '../../redux/action/changelang'
 

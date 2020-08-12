@@ -40,19 +40,21 @@ return {...e,[name]:value}})
             <div className={style.email}><Input name="Email" fn1={ochangeHandler}></Input></div>
             <div className={style.phoneNumber}><Input name="Telephone" fn1={ochangeHandler}></Input></div>
             <div className={style.textArea}><textarea placeholder="Remember, be nice!" cols="80" rows="10" onChange={ochangeHandler} name="textArea"></textarea></div>
-            <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}><p>Enovyer un Email</p></button></div>
+  <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}>{localStorage.getItem('lang')==="ang"?<p>send an email</p>:<p>envoyer un email</p>} </button></div>
 
           </div>
         </div>
         <div className={style.ahahha}>
         <div className={style.iconsConTainer}>
-        <div><a href="#her" class="fa fa-facebook">{``}</a></div>
+        <div><a href="https://www.facebook.com/MEA-Silicone-Caoutchouc-632439290736992" class="fa fa-facebook">{``}</a></div>
         <div><a href="#her" class="fa fa-twitter">{``}</a></div>
         <div><a href="#her" class="fa fa-linkedin">{``}</a></div>
         <div><a href="#hre" class="fa fa-instagram">{``}</a></div>
         </div>
         </div>
       </div>
+      <footer> <small>&copy; Copyright {new Date().getFullYear()}, Mea Silicone .All Rights Reserved</small> </footer> 
+
     </div>
   );
 }

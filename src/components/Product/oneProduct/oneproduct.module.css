@@ -158,3 +158,13 @@
   .close:after {
     transform: rotate(-45deg);
   }
+  .Vu{
+      position: absolute;
+      height: 15px;
+      width: 15px;
+      top: 5px;
+      left: 5px;
+  }
+  .Vu P{
+    margin: 0;
+}

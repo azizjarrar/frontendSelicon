@@ -27,7 +27,7 @@ function Navbar(props){
         if(windowWidth>700){
             return (
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
-                <div className={style.logo}><h1 onClick={goHome}>Measilicone</h1></div>
+                <div className={style.logo}><h1 onClick={goHome}>Mea Silicone</h1></div>
                 { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
                 <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={gotoProduct}>les Produit</p></div>
                 <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >Home</p></div>

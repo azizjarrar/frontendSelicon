@@ -16,6 +16,8 @@ const View = (props) => {
     if (lang === "ang"||localStorage.getItem('lang')==="ang") {
       setfichtec("more description");
     }
+    const data =  axios.post(`${url}items/UpdateVu`, {id:props.idData})
+
   }, []);
   useEffect(() => {}, [state]);
   const getData = async () => {

@@ -55,7 +55,7 @@ function Navbar(props){
 
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
     
-                <div className={style.logo}><h1 onClick={goHome}>MeaSilicone</h1></div>
+                <div className={style.logo}><h1 onClick={goHome}>Mea Silicone</h1></div>
                 { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
             <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("Caoutchouc")}>{langg.Title1}</p></div>
                 <div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("Silicone")}>{langg.Title2}</p></div>
