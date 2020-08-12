@@ -136,7 +136,9 @@ useEffect(()=>{
         <OurProductsQuality></OurProductsQuality>
         <Description></Description>
         <OurHistory></OurHistory>
-        {windoww>700&&<OurProducts {...props}></OurProducts>}
+        {/*windoww>700&&<OurProducts {...props}></OurProducts>*/}
+        {<OurProducts {...props}></OurProducts>}
+
         <ContactUs></ContactUs>
 
       </div>

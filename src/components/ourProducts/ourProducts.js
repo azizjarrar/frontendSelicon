@@ -46,29 +46,46 @@ function OurProducts(props) {
           window.location.reload();
 
         }
-  return (
-    <div id="ourProducts" className={style.ourProducts}>
-      <div className={style.cssulli}>
-  <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>{langg.title1}</h2></div><div className={style.h2Container}><h2 onClick={goto2}>{langg.title2}</h2></div></div>
-      </div>
-      <div className={style.galery}>
-        <div className={style.image2}><img src={p2} className={style.imagemax}/></div>
-        <div className={style.image3}><img src={p3} className={style.imagemax}/></div>
-        <div className={style.image4}><img src={p4} className={style.imagemax}/></div>
-        <div className={style.image5}><img src={p5} className={style.imagemax}/></div>
-        <div className={style.image6}><img src={p6} className={style.imagemax}/></div>
-        <div className={style.image7}><img src={p7} className={style.imagemax}/></div>
-        <div className={style.image8}><img src={p8} className={style.imagemax}/></div>
-        <div className={style.image9}><img src={p9} className={style.imagemax}/></div>
-        <div className={style.image10}><img src={p10} className={style.imagemax}/></div>
-        <div className={style.image11}><img src={p11} className={style.imagemax}/></div>
-        <div className={style.image12}><img src={p12} className={style.imagemax}/></div>
-        <div className={style.image13}><img src={p13} className={style.imagemax}/></div>
+        if(window.innerWidth>700){
+          return (
+            <div id="ourProducts" className={style.ourProducts}>
+              <div className={style.cssulli}>
+          <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>{langg.title1}</h2></div><div className={style.h2Container}><h2 onClick={goto2}>{langg.title2}</h2></div></div>
+              </div>
+              <div className={style.galery}>
+                <div className={style.image2}><img src={p2} className={style.imagemax}/></div>
+                <div className={style.image3}><img src={p3} className={style.imagemax}/></div>
+                <div className={style.image4}><img src={p4} className={style.imagemax}/></div>
+                <div className={style.image5}><img src={p5} className={style.imagemax}/></div>
+                <div className={style.image6}><img src={p6} className={style.imagemax}/></div>
+                <div className={style.image7}><img src={p7} className={style.imagemax}/></div>
+                <div className={style.image8}><img src={p8} className={style.imagemax}/></div>
+                <div className={style.image9}><img src={p9} className={style.imagemax}/></div>
+                <div className={style.image10}><img src={p10} className={style.imagemax}/></div>
+                <div className={style.image11}><img src={p11} className={style.imagemax}/></div>
+                <div className={style.image12}><img src={p12} className={style.imagemax}/></div>
+                <div className={style.image13}><img src={p13} className={style.imagemax}/></div>
+        
+        
+              </div>
+            </div>
+          );
+        }else{
+          return (
+            <div id="ourProducts" className={style.ourProducts}>
+              <div className={style.cssulli}>
+          <div className={style.twoh2Container}><div className={style.h2Container}><h2 onClick={goto1}>{langg.title1}</h2></div><div className={style.h2Container}><h2 onClick={goto2}>{langg.title2}</h2></div></div>
+              </div>
+              <div className={style.galery}>
+                <div className={style.image2}><img src={p2} className={style.imagemax}/></div>
+                <div className={style.image7}><img src={p7} className={style.imagemax}/></div>
+                <div className={style.image9}><img src={p9} className={style.imagemax}/></div>
+                <div className={style.image10}><img src={p10} className={style.imagemax}/></div>    
+              </div>
+            </div>
+          );
+        }
 
-
-      </div>
-    </div>
-  );
 }
 
 export default OurProducts;

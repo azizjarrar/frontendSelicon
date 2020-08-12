@@ -178,6 +178,12 @@ background-color: #038fcc;
 
 
 @media only screen and (max-width: 600px) {
+    .blackfilter{
+        background-image: url('./image/background-1747786_1280.jpg');
+    }
+    .videoContainer{
+        visibility: hidden;
+    }
     .videocss{
         position: absolute;
         object-fit: fill;
