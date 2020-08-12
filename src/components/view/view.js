@@ -40,7 +40,6 @@ const View = (props) => {
   return (
     <div className={style.viewContainer}>
       <div className={style.display}>
-
         <div className={style.close} onClick={props.fn2}></div>
         <div className={style.leftandright}>
           <div className={style.left}>

@@ -124,7 +124,6 @@ transition:  all 0.3s ease;
 }
 .backgroundphoto{
     position: absolute;
-    background-image: url('../home/image/002.jpg');
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -142,6 +141,16 @@ transition:  all 0.3s ease;
     height: 100%;
     width: 100%;
 
+}
+.videoContainer{
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.videocss{
+object-fit: cover;
 }
 @media only screen and (min-width: 700px)and (max-width: 1100px) {
     .inputcontainer{
