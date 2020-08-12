@@ -9,7 +9,7 @@ import OurProductsQuality from "../OurProductsQuality/OurProductsQuality";
 import translate from './image/translate.png'
 import {useSelector,useDispatch} from 'react-redux'
 import actionlang from '../../redux/action/changelang'
-
+import mp4video from './image/thegoodplasticcompany.mp4'
 function Home(props) {
   const [image, setimage] = useState(0);
   const [langstate, setLangeState] = useState(false);
@@ -24,6 +24,8 @@ function Home(props) {
     }
     document.querySelector('#homeContainer').scrollIntoView({ behavior: 'smooth' });
     window.addEventListener("resize", handleResize);
+    document.getElementById('video').play();
+
   return ()=>{
     window.removeEventListener("resize", handleResize)
   }
@@ -112,6 +114,11 @@ useEffect(()=>{
 
       {/*style={{backgroundColor:('255','70','0',opacity)}}*/}
         <div id="home" className={style.beginning} >
+          <div className={style.videoContainer}>
+            <video id="video"   className={style.videocss}  autoplay   loop muted>
+            <source src={mp4video} type="video/mp4"/>
+          </video>
+          </div>
           <div className={style.backgroundphotoUrl}></div>
           <div style={{zIndex:15,position:'absolute',height:'100%',width:'100%',backgroundColor:`rgba(7.8%,7.8%,7.8%,${opacity})`,pointerEvents:"none"}}></div>
           <div className={style.blackfilter} ></div>
