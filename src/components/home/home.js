@@ -24,8 +24,15 @@ function Home(props) {
     }
     document.querySelector('#homeContainer').scrollIntoView({ behavior: 'smooth' });
     window.addEventListener("resize", handleResize);
-    document.getElementById('video').play();
 
+
+    var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+    navigator.userAgent &&
+    navigator.userAgent.indexOf('CriOS') == -1 &&
+    navigator.userAgent.indexOf('FxiOS') == -1;
+    if(!isSafari){
+      document.getElementById('video').play();
+    }
   return ()=>{
     window.removeEventListener("resize", handleResize)
   }

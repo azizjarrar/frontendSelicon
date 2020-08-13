@@ -125,6 +125,7 @@ useEffect(() => {
   
   const getSelectselect=(e)=>{
     setselectedSelect(e.target.value)  
+    setselectedSelect1('')
   }
   function getSelectselect1(e){
     setselectedSelect1(e.target.value)

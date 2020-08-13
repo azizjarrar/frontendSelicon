@@ -147,7 +147,7 @@ function onchangeHandlereng2(e){
       )}
 
       <div className={style.display}>
-        <h1>Tier 1</h1>
+        <h1>niveau 1</h1>
         <div className={style.radiobox}>
           <label class="container">
           Silicone
@@ -179,7 +179,7 @@ function onchangeHandlereng2(e){
             Ajouter
           </button>
         </div>
-        <h1>Tier 2</h1>
+        <h1>niveau 2</h1>
         <select
           className={style.selectStyle}
           className={style.selectcss}

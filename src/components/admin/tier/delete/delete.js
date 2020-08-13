@@ -130,7 +130,7 @@ const Delete = () => {
       )}
 
       <div className={style.display}>
-        <h1>Tier 1</h1>
+        <h1>niveau 1</h1>
         <div className={style.radiobox}>
           <label class="container">
           Silicone
@@ -167,7 +167,7 @@ const Delete = () => {
             efface
           </button>
         </div>
-        <h1>Tier 2</h1>
+        <h1>niveau 2</h1>
         <select className={style.selectcss} onChange={getSelectselect1}>
           <option>choisire un elemnet</option>
           {tier1Display}
