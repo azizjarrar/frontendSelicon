@@ -18,7 +18,7 @@ const Oneproduct = (props) => {
   return (
     <div className={style.boxStyle} id={props.id}>
       {localStorage.getItem('role')==="admin"&&<div className={style.close} onClick={props.deleteOn}></div>}
-      {localStorage.getItem('role')==="admin"&&<div className={style.Vu} ><p>{props.Vu}</p></div>}
+      {localStorage.getItem('role')==="admin"&&<div className={style.Vu} ><p>Vu:{props.Vu}</p></div>}
 
       <div className={style.OneproductImageContainer}>
         <img
