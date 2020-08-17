@@ -61,6 +61,8 @@
         line-height: normal;
         font-size: 36px;
         margin: 0;
+        cursor: pointer;
+
     }
 
     .h2Container::after{

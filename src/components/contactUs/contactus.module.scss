@@ -2,13 +2,20 @@
     position: relative;
     height: auto;
     z-index: 1;
-    height:850px;
+    height:1100px;
     background-size:cover;
-    background: #141e30; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: rgb(65 ,74 ,80);
+
 }
-.conctactusModule{
+.contactusContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 900px;
+    position: relative;
+}
+.conctactusModule{ 
     z-index: 1;
     height: 100%;
     position: relative;
@@ -53,7 +60,7 @@
     background-color: white;
     height: 80%;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -84,30 +91,25 @@
     justify-content: center;
     width: 100%;
 }
-.contactusContainer{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    position: relative;
-}
+
 .widthnp{
     width: 40%;
 }
 
 .ahahha{
+    flex-direction: column;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width: 30%;
+    height: 50%;
 }
 .iconsConTainer{
     position: relative;
     height: 50%;
     width: 50%;
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
         display: flex;
         align-items: center;
@@ -175,6 +177,19 @@
  }
 
 @media only screen and (max-width: 600px){
+    .ahahha{
+        height: 400px;
+        width: 90%;
+        p{
+            text-align: center;
+        }
+    }
+    .sayhallo{
+        p{
+            font-size: 15px;
+            text-align: center;
+        }
+    }
     .h2fou9oul{
         z-index: 15;
         height: 100%;
@@ -203,9 +218,9 @@
         justify-content: center;
         }
     .contactusContainer{
-    
+        width: 100%;
         display: flex;
-        height: auto;
+        height: 1100px;
         flex-direction: column;
         position: relative;
     }
@@ -217,7 +232,7 @@
     }
     .cardContainer{
         background-color: transparent;
-        height: 70%;
+        height: 80%;
         width: 80%;
         box-shadow:none;
     }
@@ -240,11 +255,7 @@
         gap: 15px;
 
     }
-    .ahahha{
-        width: 100%;
-        height: 100px!important;
-        flex-grow: none;
-    }
+
     .sendEmail{
         top: 5%;
 
@@ -256,4 +267,78 @@ footer{
     background-color: #333333;
     text-align: center;
     color: white;
+}
+.h1Contact{
+    position: relative;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        position: relative;
+        font: 1.125em/1.5 "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: white;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 700;
+        line-height: normal;
+        font-size: 36px;
+        margin: 0;
+        cursor: pointer;
+        &:after{
+        content: "";
+        width: 300px;
+        height: 3px;
+        background-color: #2791D8;
+        position: absolute;
+        bottom: 0px;
+        bottom: -15px;
+        transform:translate(-78%,0);
+        }
+    }
+}
+.sayhallo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    color :white;
+    font-size:20px;
+}
+.tierinsideahahha{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    position: relative;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoim{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}
+.text{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 80%;
+    p{
+        font-weight: bold;
+        color :white
+    }
+}
+.khtayet{
+    background-color: #2791D8;
+    width: 100%;
+    height: 1px;
 }

@@ -5,6 +5,7 @@ import Description from "../description/description";
 import OurProducts from "../ourProducts/ourProducts";
 import ContactUs from "../contactUs/contactUs";
 import OurHistory from "../ourHistory/ourHistory";
+import OurContact from "../OurContact/OurContact";
 import OurProductsQuality from "../OurProductsQuality/OurProductsQuality";
 import translate from './image/translate.png'
 import {useSelector,useDispatch} from 'react-redux'
@@ -145,7 +146,6 @@ useEffect(()=>{
         <OurHistory></OurHistory>
         {/*windoww>700&&<OurProducts {...props}></OurProducts>*/}
         {<OurProducts {...props}></OurProducts>}
-
         <ContactUs></ContactUs>
 
       </div>

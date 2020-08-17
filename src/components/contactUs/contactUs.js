@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import style from "./contactus.module.css";
+import style from "./contactus.module.scss";
 import Input from '../elements/input/input'
 import axios from 'axios'
 import {url} from '../globalVar/var'
 import Alert from '../elements/alert/alert'
-import Googlemap from '../elements/googlemap/googlemap'
 import bkg from './contactus.jpg'
-
+import logo1 from  './email.png'
+import logo2 from './phone-call.png'
+import logo3 from './placeholder.png'
 function ContactUs() {
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#4CAF50'})
   const [state,setState]=useState({})
@@ -29,7 +30,8 @@ return {...e,[name]:value}})
   return (
     <div id="contactUs" className={style.contactUs}>
       {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
-
+      <div className={style.h1Contact}><h1>CONTACT</h1></div>
+      <div className={style.sayhallo}><p>We like to create thing with fun,Open-minded people, feel free to say hello!</p></div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div className={style.contactusContainer}>
 
@@ -40,17 +42,23 @@ return {...e,[name]:value}})
             <div className={style.email}><Input name="Email" fn1={ochangeHandler}></Input></div>
             <div className={style.phoneNumber}><Input name="Telephone" fn1={ochangeHandler}></Input></div>
             <div className={style.textArea}><textarea placeholder="Remember, be nice!" cols="80" rows="10" onChange={ochangeHandler} name="textArea"></textarea></div>
-  <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}>{localStorage.getItem('lang')==="ang"?<p>send an email</p>:<p>envoyer un email</p>} </button></div>
+            <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}>{localStorage.getItem('lang')==="ang"?<p>send an email</p>:<p>envoyer un email</p>} </button></div>
 
           </div>
         </div>
         <div className={style.ahahha}>
-        <div className={style.iconsConTainer}>
+          <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo1} className={style.logoim}/></div><div className={style.text}><p>commercial-mea@measilicone.com</p></div></div>
+          <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo2} className={style.logoim}/></div><div className={style.text}><p> 216 71 390 304</p></div></div>
+          <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo3} className={style.logoim}/></div><div className={style.text}><p>77 Rue Montagne Atlas Jbel Jloud, Sidi Fathallah 2023 Tunis</p></div></div>
+          <div className={style.khtayet}></div>
+          <div className={style.tierinsideahahha}>
+          <div className={style.iconsConTainer}>
         <div><a href="https://www.facebook.com/MEA-Silicone-Caoutchouc-632439290736992" class="fa fa-facebook">{``}</a></div>
         <div><a href="#her" class="fa fa-twitter">{``}</a></div>
         <div><a href="#her" class="fa fa-linkedin">{``}</a></div>
         <div><a href="#hre" class="fa fa-instagram">{``}</a></div>
         </div>
+          </div>
         </div>
       </div>
       <footer> <small>&copy; Copyright {new Date().getFullYear()}, Mea Silicone .All Rights Reserved</small> </footer> 
