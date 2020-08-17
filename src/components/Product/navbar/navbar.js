@@ -10,13 +10,13 @@ function Navbar(props){
 
  var langg={
    Title1:'Produit Caoutchouc',
-   Title2:'Produit Selicone',
+   Title2:'Produit Silicone',
    Title3:'Accueil'
  }
  if(lang==="ang"||localStorage.getItem('lang')==="ang"){
   langg={
     Title1:'Rubber Product',
-    Title2:'Selicone product',
+    Title2:'Silicone product',
     Title3:'Home'
   }
  }
@@ -55,7 +55,7 @@ function Navbar(props){
 
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
     
-                <div className={style.logo}><h1 onClick={goHome}>Mea Silicone</h1></div>
+                <div className={style.logo}><h1 onClick={goHome}>MEA Silicone</h1></div>
                 { localStorage.getItem('role')==='admin'&&<div className={style.pStyleDiv}><p className={style.aStylehref} onClick={Deconnexion}>déconnexion</p></div>}
             <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("Caoutchouc")}>{langg.Title1}</p></div>
                 <div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("Silicone")}>{langg.Title2}</p></div>
