@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useSelector,useDispatch} from 'react-redux'
 import style from "./contactus.module.scss";
 import Input from '../elements/input/input'
 import axios from 'axios'
@@ -11,6 +12,10 @@ import logo3 from './placeholder.png'
 function ContactUs() {
   const [alertstate,setalertstate]=useState({state:false,msg:'gzegz',color:'#4CAF50'})
   const [state,setState]=useState({})
+  var lang = useSelector((e)=>e.reducerlang.lang)
+
+
+
 
   const ochangeHandler =(e)=>{
     const {name,value}=e.target
@@ -31,7 +36,8 @@ return {...e,[name]:value}})
     <div id="contactUs" className={style.contactUs}>
       {alertstate.state&&<Alert msg={alertstate.msg} color={alertstate.color}></Alert>}
       <div className={style.h1Contact}><h1>CONTACT</h1></div>
-      <div className={style.sayhallo}><p>We like to create thing with fun,Open-minded people, feel free to say hello!</p></div>
+      <div className={style.sayhallo}>{lang==="ang"?<p>We like to create thing with fun,Open-minded people, feel free to say hello!</p>:<p>
+Nous aimons créer des choses avec des gens amusants et ouverts d'esprit, n'hésitez pas à dire bonjour!</p>}</div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div className={style.contactusContainer}>
 
