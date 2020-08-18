@@ -61,25 +61,23 @@ const View = (props) => {
           </div>
 
           <div className={style.right}>
-            <div className={style.tabletitleHeader}>
+      { /*     <div className={style.tabletitleHeader}>
               <h2>{fichtec}</h2>
-            </div>
+  </div>*/}
             <div className={style.tableContainer}>
-              <textarea
+              <p
                 className={style.cssTextArea}
-                value={
-                  lang === "ang"||localStorage.getItem('lang')==="ang"
-                    ? state.bigDescriptionEng
-                    : state.bigDescription
-                }
-              ></textarea>
+
+              >        {lang === "ang"||localStorage.getItem('lang')==="ang"
+              ? state.bigDescriptionEng
+              : state.bigDescription}</p>
             </div>
             <div className={style.contactNos}>
-              <div className={style.pEnvoyEmail}><p>Envoye nos un email sur cette article</p></div>
             <Input name="votre email" fn1={onchangeHandler1}></Input>
             <Input name="sujet" fn1={onchangeHandler2}></Input>
-            <button className={style.btnSend} onClick={sendmail}><p>Send</p></button>
             </div>
+            <button className={style.btnSend} onClick={sendmail}><p>Send</p></button>
+
           </div>
         </div>
       </div>
