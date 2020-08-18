@@ -19,10 +19,9 @@
 .whoweare{
     position: relative;
     height: 450px;
-    width: 450px;
- 
- 
+    width: 550px;
 }
+
 .Bigbox{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: white;
@@ -122,6 +121,18 @@
    display: flex;
     align-items: center;
     justify-content: center;
+}
+@media only screen and (max-width: 900px){
+    .whoweare{
+        position: relative;
+        height: 350px;
+        width: 350px;
+    }
+    .Bigbox{
+        height: 300px;
+        width: 300px;
+
+    }
 }
 @media only screen and (max-width: 700px){
     .OurProductsQuality{

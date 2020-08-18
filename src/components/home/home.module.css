@@ -52,7 +52,7 @@ overflow-x: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.3);
 }
 
 .beginning{
@@ -300,6 +300,7 @@ height: 100px;
 width: 200px;
 bottom:  0px;
 right: 0;
+transform:translate(0,30%);
 z-index: 15;
 background-color: #141414;
 
@@ -346,5 +347,7 @@ background-color: black;
     position: absolute;
     height: 100%;
     width: 100%;
+    background-image: url('./image/90nGa.jpg');
+    background-repeat:no-repeat;
 
 }

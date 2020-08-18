@@ -31,9 +31,9 @@ function Home(props) {
     navigator.userAgent &&
     navigator.userAgent.indexOf('CriOS') == -1 &&
     navigator.userAgent.indexOf('FxiOS') == -1;
-    if(!isSafari){
+   /* if(!isSafari){
       document.getElementById('video').play();
-    }
+    }*/
   return ()=>{
     window.removeEventListener("resize", handleResize)
   }
@@ -123,9 +123,10 @@ useEffect(()=>{
       {/*style={{backgroundColor:('255','70','0',opacity)}}*/}
         <div id="home" className={style.beginning} >
           <div className={style.videoContainer}>
-            <video id="video"   className={style.videocss}  autoplay   loop muted>
+ {           /*<video id="video"   className={style.videocss}  autoplay   loop muted>
             <source src={mp4video} type="video/mp4"/>
-          </video>
+          </video>*/}
+          
           </div>
           <div className={style.backgroundphotoUrl}></div>
           <div style={{zIndex:15,position:'absolute',height:'100%',width:'100%',backgroundColor:`rgba(7.8%,7.8%,7.8%,${opacity})`,pointerEvents:"none"}}></div>

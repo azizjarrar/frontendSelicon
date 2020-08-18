@@ -41,7 +41,7 @@ Nous aimons créer des choses avec des gens amusants et ouverts d'esprit, n'hés
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div className={style.contactusContainer}>
 
-        <div className={style.conctactusModule}>
+ {       /*<div className={style.conctactusModule}>
           <div className={style.cardContainer}>
             <div className={style.h2background}><div className={style.h2fou9oul}><h2 style={{textAlign:'center',zIndex:4,margin:0,color:'white'}}>Contactez nos</h2></div><div className={style.filter} ></div><img src={bkg} className={style.srchw}/></div>
             <div className={style.NomPrenom}><div className={style.widthnp}><Input name="Nom" fn1={ochangeHandler}></Input></div><div className={style.widthnp}><Input name="prenom" fn1={ochangeHandler}></Input></div></div>
@@ -51,12 +51,12 @@ Nous aimons créer des choses avec des gens amusants et ouverts d'esprit, n'hés
             <div className={style.sendEmail}><button className={style.btnContact} onClick={sendEmail}>{localStorage.getItem('lang')==="ang"?<p>send an email</p>:<p>envoyer un email</p>} </button></div>
 
           </div>
-        </div>
+        </div>*/}
         <div className={style.ahahha}>
           <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo1} className={style.logoim}/></div><div className={style.text}><p>commercial-mea@measilicone.com</p></div></div>
           <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo2} className={style.logoim}/></div><div className={style.text}><p> 216 71 390 304</p></div></div>
           <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo3} className={style.logoim}/></div><div className={style.text}><p>77 Rue Montagne Atlas Jbel Jloud, Sidi Fathallah 2023 Tunis</p></div></div>
-          <div className={style.khtayet}></div>
+          {/*<div className={style.khtayet}></div>*/}
           <div className={style.tierinsideahahha}>
           <div className={style.iconsConTainer}>
         <div><a href="https://www.facebook.com/MEA-Silicone-Caoutchouc-632439290736992" class="fa fa-facebook">{``}</a></div>
