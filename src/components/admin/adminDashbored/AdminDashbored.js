@@ -164,8 +164,8 @@ const AdminDashbored = () => {
         <Input name="TitreEng" fn1={TitreInputEng}></Input>
       </div>
       <div className={style.litelDescription}>
-        <Input name="Description" fn1={Discriptioninput}></Input>
-        <Input name="DescriptionEng" fn1={DiscriptioninputEng}></Input>
+        <Input name="Mini Description" fn1={Discriptioninput}></Input>
+        <Input name="Mini DescriptionEng" fn1={DiscriptioninputEng}></Input>
 
       </div>
       <div className={style.radiobox}>

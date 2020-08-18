@@ -33,7 +33,7 @@ function OurHistory(){
         <div id="ourHistoryContainerid" className={style.ourHistoryContainer}>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <div className={style.space}></div>
-            <div className={style.spacing}><h2 className={style.h2center}>{language.l1Header}</h2><p className={style.pstyleys}><span class="fa fa-star checked"></span>{language.l4HeaderDescription1} 15</p></div>
+            <div className={style.spacing}><h2 className={style.h2center}>{language.l1Header}</h2><p className={style.pstyleys}><span class="fa fa-star checked"></span>{language.l4HeaderDescription1} 19</p></div>
             <div className={style.spacing}><h2 className={style.h2center}>{language.l2Header}</h2><p className={style.pstyleys}><span class="fa fa-star checked"></span>{language.l4HeaderDescription2} 44</p></div>
             <div className={style.spacing}><h2 className={style.h2center}>{language.l3Header}</h2><p className={style.pstyleys}><span class="fa fa-star checked"></span>{language.l4HeaderDescription3} 3</p></div>
             <div className={style.spacing}><h2 className={style.h2center}>{language.l4Header}</h2><p className={style.pstyleys}><span class="fa fa-star checked"></span>204 </p></div>

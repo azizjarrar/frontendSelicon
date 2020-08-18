@@ -30,7 +30,7 @@
 }
 @keyframes showwhite{
     from {width:  0px;height:0%;}
-    to {width:  500px;height:80%;}
+    to {width:  350px;height:80%;}
 
 }
 @keyframes showw {
@@ -73,7 +73,7 @@
       flex-direction: column;
   }
   .left{
-    min-width: 450px;
+    min-width: 250px;
     width: 100%;
     height: 60%;
     display: flex;
@@ -82,7 +82,7 @@
  
   }
   .right{
-  min-width: 450px;
+  min-width: 250px;
   width: 100%;
   height: 40%;
   display: flex;
@@ -95,7 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #420217;
+    background-color: #353839;
     
   
 
@@ -103,14 +103,15 @@
   .Header h2{
     text-align: center;
     font-size: 30px;
-    font-family: "Raleway";
-    text-transform: uppercase;
+    font-family: TTFirsNeue, sans-serif;
+        text-transform: uppercase;
     line-height: 1.25;
     font-weight: 400;
     letter-spacing: -0.2px;
     color: white;
   }
   .Image{
+    width: 100%;
         height: 70%;
         display: flex;
         align-items: center;
@@ -221,7 +222,7 @@
           }
 
           .cssTextArea{
-            width: 80%;
+            width: 100%;
             height: 80%;
             border: none;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -275,7 +276,7 @@
             font-family: "Archivo Black", Sans-serif;
             font-weight: bold;
             text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-            background: #420217;
+            background-color: #343434;
             
             }
             .btnSend{
@@ -286,7 +287,7 @@
               font-family: "Archivo Black", Sans-serif;
               font-weight: bold;
               text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-              background: #420217;
+              background-color: #343434;
 
               
               height:20%;
