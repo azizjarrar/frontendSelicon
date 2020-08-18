@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import style from "./ourHistory.module.css";
+import style from "./ourHistory.module.scss";
 import {useSelector} from 'react-redux'
 import {differntlang} from '../globalVar/var'
 

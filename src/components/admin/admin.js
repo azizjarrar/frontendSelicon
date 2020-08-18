@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./admin.module.css";
+import style from "./admin.module.scss";
 import Navbar from "./navbar/navbar";
 import Contact from "../contactUs/contactUs";
 import Add from "./tier/add/add";

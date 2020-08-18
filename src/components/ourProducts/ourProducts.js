@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {useSelector} from 'react-redux'
-import style from "./ourporducts.module.css";
+import style from "./ourporducts.module.scss";
 import p1 from './imageProducts/1.jpeg'
 import p2 from './imageProducts/2.jpeg'
 import p3 from './imageProducts/3.jpeg'

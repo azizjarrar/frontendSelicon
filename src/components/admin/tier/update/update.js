@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "../../../elements/input/input";
 import { url } from "../../../globalVar/var";
 import axios from "axios";
-import style from "./update.module.css";
+import style from "./update.module.scss";
 import Alert from "../../../elements/alert/alert";
 
 const Update = () => {

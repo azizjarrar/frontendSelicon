@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./product.module.css";
+import style from "./product.module.scss";
 import Navbar from "./navbar/navbar";
 import Inputc from "../elements/input/input";
 import table from "./test.js";

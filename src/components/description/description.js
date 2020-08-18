@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { differntlang } from "../globalVar/var";
-import style from "./description.module.css";
+import style from "./description.module.scss";
 
 import p1 from "./image/5.jpg";
 import p2 from "./image/2.jpg";

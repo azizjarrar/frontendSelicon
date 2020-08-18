@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import style from "./navbar.module.css";
+import style from "./navbar.module.scss";
 function Navbar(props){
  const [windowWidth,setwindowWidth] = useState(window.innerWidth)
   const handleResize=()=>{

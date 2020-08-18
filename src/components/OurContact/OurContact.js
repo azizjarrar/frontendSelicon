@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './OurContact.module.css'
+import style from './OurContact.module.scss'
 const OurContact = () =>{
     return(
         <div className={style.OurContactContainer}>

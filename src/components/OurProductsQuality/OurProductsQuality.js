@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./OurProductsQuality.module.css";
+import style from "./OurProductsQuality.module.scss";
 import { useSelector } from "react-redux";
 import { differntlang } from "../globalVar/var";
 import imgLogocompantStyle from './image/book-731199_1920.jpg'

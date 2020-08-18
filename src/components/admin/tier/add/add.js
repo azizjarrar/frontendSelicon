@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../../elements/input/input";
-import style from "./add.module.css";
+import style from "./add.module.scss";
 import { url } from "../../../globalVar/var";
 import axios from "axios";
 import Alert from "../../../elements/alert/alert";

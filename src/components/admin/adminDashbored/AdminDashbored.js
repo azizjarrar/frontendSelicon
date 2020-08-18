@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "../../elements/input/input";
 import Table from '../../elements/table/table'
 import pp from ".././g5-patin-silicone-demi-sphere.jpg";
-import style from "./AdminDashbored.module.css";
+import style from "./AdminDashbored.module.scss";
 import { url } from "../../globalVar/var";
 import axios from "axios";
 import Alert from '../../elements/alert/alert'

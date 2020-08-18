@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Input from '../elements/input/input'
-import style from "./view.module.css";
+import style from "./view.module.scss";
 import axios from "axios";
 import { url } from "../globalVar/var";
 import { useSelector } from "react-redux";

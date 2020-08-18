@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./login.module.css";
+import style from "./login.module.scss";
 import logo from './logoMEA.png'
 import InputC from '../elements/input/input'
 import axios from 'axios'

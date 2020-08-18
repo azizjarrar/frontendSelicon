@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from 'react';
-import style from "./navbar.module.css";
+import style from "./navbar.module.scss";
 import {differntlang} from '../globalVar/var'
 import {useSelector} from 'react-redux'
 function Navbar(){
