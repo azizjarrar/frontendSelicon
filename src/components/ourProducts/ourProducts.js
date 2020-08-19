@@ -8,7 +8,8 @@ import p4 from './imageProducts/4.jpeg'
 import p5 from './imageProducts/5.jpg'
 import p6 from './imageProducts/6.jpeg'
 import p7 from './imageProducts/7.jpeg'
-
+import p8 from './imageProducts/8.jpeg'
+import p9 from './imageProducts/9.jpeg'
 import { lang } from "../globalVar/var";
 
 /*const slideImages = [
@@ -54,7 +55,8 @@ function OurProducts(props) {
                 <div className={style.image5}><img src={p5} className={style.imagemax}/></div>
                 <div className={style.image6}><img src={p6} className={style.imagemax}/></div>
                 <div className={style.image1}><img src={p1} className={style.imagemax}/></div>
-
+                <div className={style.image8}><img src={p8} className={style.imagemax}/></div>
+                <div className={style.image9}><img src={p9} className={style.imagemax}/></div>
               </div>
             </div>
           );
