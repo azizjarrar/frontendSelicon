@@ -12,6 +12,8 @@
     animation-fill-mode: forwards;
 }
 .display{
+  min-height: 700px;
+  min-width: 350px;
    border-radius: 5px;
     position: absolute;
     height: 0%;
@@ -25,7 +27,6 @@
     animation-fill-mode: forwards;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: #ffffff;
-    min-height: 580px;
     overflow: hidden;
 }
 @keyframes showwhite{
@@ -128,6 +129,7 @@
         flex-direction: column;
         word-break: break-all;
         h4{
+          margin-bottom:2px;
           color:#3498db;
         }
   }
@@ -190,6 +192,16 @@
       top: 4px;
     }
       }
+      .tableContainer{
+        height: 80%;
+        width: 100%;
+        background-color: #f3f3f3;
+        overflow:scroll;
+        overflow-x:hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       @media only screen and (max-width: 361px)   {
 
         @keyframes showwhite{
@@ -206,15 +218,7 @@
             align-items: center;
             justify-content: center;
           }
-          .tableContainer{
-            height: 80%;
-            width: 100%;
-            background-color: #f3f3f3;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+    
           .contactNos input{
             background-color: white;
           }
