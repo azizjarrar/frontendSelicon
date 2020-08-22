@@ -14,7 +14,8 @@ function Navbar(props){
 
   }
   const gotoProduct=()=>{
-    props.routerProps.history.push("/product/ProduitSilicone");
+   
+    props.routerProps.history.push("/product/Silicone");
 
   }
   const Deconnexion=()=>{
