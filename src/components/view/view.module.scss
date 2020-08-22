@@ -12,6 +12,7 @@
     animation-fill-mode: forwards;
 }
 .display{
+  
   min-height: 700px;
    border-radius: 5px;
     position: absolute;
@@ -57,7 +58,7 @@
     content: ' ';
     height: 20px;
     width: 2px;
-    background-color: #333;
+    background-color: #E05263;
   }
   .close:before {
     transform: rotate(45deg);
@@ -162,6 +163,9 @@
   }
   
   @media only screen and (max-width: 700px)   {
+    .contactNos{
+      padding-bottom: 4px;
+    }
     .leftandright{
     display: flex;
     flex-direction: column;
@@ -169,7 +173,9 @@
     justify-content: center;
     }
     .display{
-    
+   
+        height: 95% !important;
+        min-height: 500px;
     }
     @keyframes showwhite{
       from {width:  0%;height:0%;}
@@ -180,7 +186,7 @@
         width: 100%;
     }
     .right{
-      display: none;
+      
       height: 40%;
       width: 100%;
 
@@ -189,6 +195,7 @@
     .close {
       right: 4px;
       top: 4px;
+    
     }
       }
       .tableContainer{
@@ -220,6 +227,7 @@
     
           .contactNos input{
             background-color: white;
+            
           }
           .tabletitleHeader h2{
             text-align: center;
