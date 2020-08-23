@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
+import ActionNavar from '../../redux/action/changenavbar'
 import style from "./ourporducts.module.scss";
 import p1 from './imageProducts/1.jpeg'
 import p2 from './imageProducts/2.jpeg'
@@ -23,7 +24,10 @@ import { lang } from "../globalVar/var";
 
 
 function OurProducts(props) {
+
        var lang = useSelector((e)=>e.reducerlang.lang)
+       const dispatchlang = useDispatch();
+
         var langg={
           title1:"Silicone",
           title2:"Caoutchouc"
@@ -36,10 +40,13 @@ function OurProducts(props) {
         }
         function goto1(){
           props.routerProps.history.push('/product/silicone')
+          dispatchlang(ActionNavar('silicone'))
           window.location.reload();
         }
         function goto2(){
           props.routerProps.history.push('/product/Caoutchouc')
+          dispatchlang(ActionNavar('Caoutchouc'))
+
           window.location.reload();
 
         }

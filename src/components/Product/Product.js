@@ -31,12 +31,15 @@ const Product = (props) => {
   /******************************************************* */
 
  useEffect(()=>{
- 
+
   window.addEventListener("resize", handleResize);
   const url =props.routerProps.match.path.substring(9,props.routerProps.match.path.length)
+
   if (url==="Silicone"){
+    dispatchlang(ActionNavar(url))
     getTier1("Silicone")
   }else{
+    dispatchlang(ActionNavar(url))
     getTier1("Caoutchouc")
   }
   return ()=>{
@@ -55,7 +58,11 @@ useEffect(() => {
   getNewItems()
   getTier2()
 
-},[selectedSelect,selectedSelect1])
+},[selectedSelect])
+useEffect(() => {
+  getNewItems()
+
+},[selectedSelect1])
  /******************************************************* */
  /*******************hel ou tsaker model****************** */
  /********************************************************* */
@@ -107,10 +114,11 @@ useEffect(() => {
   }
   
     const getTier1 = async (params) => {
+      setselectedSelect1('')
+      settier1Display([])
       const data = await axios.post(`${url}tier/getTier1`, {
         section: params,
       });
-      console.log(data.data.data)
       settier1Display(
         data.data.data.map((e) => (
           <option value={e._id} key={e._id}>
@@ -118,6 +126,14 @@ useEffect(() => {
           </option>
         ))
       );
+        
+      if(document.getElementById('selectlowla')[1]!=undefined){
+        document.getElementById('selectlowla').selectedIndex=1
+        setselectedSelect(document.getElementById('selectlowla')[1].value)
+        getNewItems()
+      
+      }
+
     }
 /**********************************************************/
  /***************t9oulek ena select 5tart***************** */
@@ -142,6 +158,7 @@ useEffect(() => {
  /********************************************************* */
  
   const getNewItems=async ()=>{
+    console.log("===="+selectedSelect1)
     var  data
     if(selectedSelect1.length===0){
        data = await axios.post(`${url}items/getItemsSelection`, {
@@ -163,8 +180,13 @@ useEffect(() => {
     //setItemDisplay()
   }
   const searchbyword=async (e)=>{
+
+    document.getElementById('selectlowla').selectedIndex=0
+    settier2Display([])
+    setselectedSelect('')
     var data = await axios.post(`${url}items/searchByword`, {
       word:e.target.value,
+      lang:localStorage.getItem('lang') 
     });
     if(Array.isArray(data.data.data)){
       setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description}  deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
@@ -218,7 +240,11 @@ useEffect(() => {
   /**********************************************************/
  /***************Radio box handler***************************/
  /************************************************************/
- 
+ /***laod tier 1 on click* */
+ const loadtier1 =()=>{
+  // console.log(Page)
+  //getTier1()
+ }
   return (
     <div className={style.productBody}>
       {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
@@ -238,8 +264,8 @@ useEffect(() => {
 
         <div className={style.search}>
 
-          <select className={style.searchCss}  onChange={getSelectselect}>
-            <option value="None">None</option>
+          <select id="selectlowla" className={style.searchCss}  onClick={loadtier1} onChange={getSelectselect}>
+            <option  value="None">None</option>
             {tier1Display}
           </select>
           <select className={style.searchCss} onChange={getSelectselect1}>

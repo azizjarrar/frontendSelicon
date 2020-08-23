@@ -160,7 +160,7 @@ const Delete = () => {
         </select>
 
         <div className={style.inputContainer}>
-          <Input name="tier1" value={input1}></Input>
+          <Input name="tier1" value={input1} fn1={()=>{}}></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={deleteTier}>
@@ -177,7 +177,7 @@ const Delete = () => {
           {tier2Display}
         </select>
         <div className={style.inputContainer}>
-          <Input name="tier2" value={input2}></Input>
+          <Input name="tier2" value={input2} fn1={()=>{}}></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={deleteTier1}>

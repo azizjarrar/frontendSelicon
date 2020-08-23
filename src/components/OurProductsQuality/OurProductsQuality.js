@@ -66,7 +66,7 @@ function OurProductsQuality() {
       </div>
       <div className={style.Compression}>
       <div className={style.whoweare}>
-          <img className={style.imgLogocompantStyle} src={imgLogocompantStyle2}></img>
+          <img className={style.imgLogocompantStyle} src={imgLogocompantStyle3}></img>
           <div className={style.Bigbox}>
             <h1 className={style.h1Header}>{language.header3}</h1>
             <div className={style.pContainer}><div className={style.gzegzg}><p>
@@ -78,7 +78,7 @@ function OurProductsQuality() {
       </div>
       <div className={style.Decoupage}>
       <div className={style.whoweare}>
-          <img className={style.imgLogocompantStyle} src={imgLogocompantStyle3}></img>
+          <img className={style.imgLogocompantStyle} src={imgLogocompantStyle2}></img>
           <div className={style.Bigbox}>
             <h1 className={style.h1Header}>{language.header4}</h1>
             <div className={style.pContainer}><div className={style.gzegzg}>

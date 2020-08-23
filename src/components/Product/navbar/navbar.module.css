@@ -48,7 +48,12 @@ justify-content: center;
 .pStyleDiv >.aStylehref:hover{
     color:rgb(245, 189, 143);
 }
+@media only screen and (max-width: 1100px) {
+    .logo >h1{
 
+         font-size: 25px; 
+    }
+}
 @media only screen and (max-width: 600px) {
     .navbarContainer{
         position: absolute;
@@ -79,7 +84,7 @@ justify-content: center;
         position: relative;
         text-align: center;
         left: 0;
-        color: white; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
+        color: white; font-family: 'Trocchi', serif; font-size: 24px; font-weight: normal; line-height: 48px; margin: 0;
     }
     .aStylehref{
         display: none;

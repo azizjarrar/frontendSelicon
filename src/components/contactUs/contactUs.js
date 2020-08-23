@@ -54,12 +54,12 @@ Nous aimons créer des choses avec des gens amusants et ouverts d'esprit, n'hés
         </div>*/}
         <div className={style.ahahha}>
           <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo1} className={style.logoim}/></div><div className={style.text}><p>commercial-mea@measilicone.com</p></div></div>
-          <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo2} className={style.logoim}/></div><div className={style.text}><p> 216 71 390 304</p></div></div>
+          <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo2} className={style.logoim}/></div><div className={style.text}><p> +216 71 390 304</p></div></div>
           <div className={style.tierinsideahahha}><div className={style.logo}><img src={logo3} className={style.logoim}/></div><div className={style.text}><p>77 Rue Montagne Atlas Jbel Jloud, Sidi Fathallah 2023 Tunis</p></div></div>
           {/*<div className={style.khtayet}></div>*/}
           <div className={style.tierinsideahahha}>
           <div className={style.iconsConTainer}>
-        <div><a href="https://www.facebook.com/MEA-Silicone-Caoutchouc-632439290736992" class="fa fa-facebook">{``}</a></div>
+        <div><a href="https://www.facebook.com/MEA-711595498961588" class="fa fa-facebook">{``}</a></div>
         <div><a href="#her" class="fa fa-twitter">{``}</a></div>
         <div><a href="#her" class="fa fa-linkedin">{``}</a></div>
         <div><a href="#hre" class="fa fa-instagram">{``}</a></div>

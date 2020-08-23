@@ -40,6 +40,7 @@ const AdminDashbored = () => {
     /********************************************************************/
     /******************************Ajouter Tier***********************************/
     const addTier = async () =>{
+ 
       if(PhotoDataAppend.length===0){
        setalertstate({state:true,msg:'saisie un images',color:'#ff9800'})
        setTimeout(() => {
@@ -82,6 +83,12 @@ const AdminDashbored = () => {
        setTimeout(() => {
          setalertstate({state:false,msg:''})
        }, 4000);
+       for(var x=0 ;x<  document.getElementsByTagName('input').length;x++){
+        document.getElementsByTagName('input')[x].value=''
+      }
+      document.getElementsByTagName('textarea')[0].value=''
+      document.getElementsByTagName('textarea')[1].value=''
+      setPhoto(pp)
       }
    
    
@@ -127,8 +134,11 @@ const AdminDashbored = () => {
   };
   /********************************************************************/
   function photoDisplay(e) {
-    setPhoto(URL.createObjectURL(e.target.files[0]));
-    setPhotoDataAppend(e.target.files[0])
+    if(e.target.files[0]!=undefined && e.target.files[0]!=null){
+      setPhoto(URL.createObjectURL(e.target.files[0]));
+      setPhotoDataAppend(e.target.files[0])
+    }
+
   }
   const radioboxHandler = (e) => {
     setsection(e.target.value);
