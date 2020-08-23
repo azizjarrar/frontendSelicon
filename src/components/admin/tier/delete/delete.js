@@ -80,6 +80,8 @@ const Delete = () => {
   /**********fasa5 tier 1 wala tier 2*********************/
   /******************************************************/
   const deleteTier = async () => {
+    settier1Display([])
+    getTier1()
     if(input1.length===0){
       setalertstate({state:true,msg:'selectione Tier1 a supprime',color:'#ff9800'})
       setTimeout(() => {
@@ -98,6 +100,8 @@ const Delete = () => {
  
   };
   const deleteTier1 = async () => {
+    getTier1()
+    settier2Display([])
     if(input2==="None"){
       setalertstate({state:true,msg:'selectione Tier2 a supprime',color:'#ff9800'})
       setTimeout(() => {
