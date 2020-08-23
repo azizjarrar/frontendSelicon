@@ -72,6 +72,7 @@ const AdminDashbored = () => {
        formData.append('tier2id', selectedSelect1)
        /***************FR************* */
        formData.append('name', Titre)
+ 
        formData.append('Description', Discription)
        formData.append('bigDescription', discriptionkbiraV)
        /**************ENG**************** */
@@ -89,6 +90,9 @@ const AdminDashbored = () => {
       document.getElementsByTagName('textarea')[0].value=''
       document.getElementsByTagName('textarea')[1].value=''
       setPhoto(pp)
+      setTitre('default')
+      setDiscription('default')
+      setdiscriptionkbira('default')
       }
    
    
