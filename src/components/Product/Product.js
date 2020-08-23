@@ -47,6 +47,8 @@ const Product = (props) => {
   }
 },[])
 useEffect(()=>{
+  setItemDisplay(null)
+  setItemDisplay([])
   getTier1(Page)
   settier2Display([])
 },[Page])
