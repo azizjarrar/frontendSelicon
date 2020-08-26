@@ -7,24 +7,18 @@ import Alert from "../../../elements/alert/alert";
 
 const Delete = () => {
   const [tier1Display, settier1Display] = useState([]);
-  const [tier2Display, settier2Display] = useState([]);
-  const [selectedSelect2, setselectedSelect2] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [selectedSelect0, setselectedSelect0] = useState("");
   const [sectionSP, setsection] = useState("Silicone");
   const [input1, setinput1] = useState("");
-  const [input2, setinput2] = useState("None");
   const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
     /******************************************************/
   /******************useEffect***************************/
   /******************************************************/
   useEffect(() => {
-    getTier2();
-  }, [selectedSelect1]);
-  const getSelectselect2 = (e) => {
-    setselectedSelect2(e.target.value);
-    setinput2(e.target.value);
-  };
+    getTier1();
+  }, [selectedSelect0]);
+ 
 
   useEffect(() => {
     getTier1();
@@ -40,8 +34,8 @@ const Delete = () => {
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
+      ECD:selectedSelect0
     });
-
     settier1Display(
       data.data.data.map((e) => (
         <option value={e._id} key={e._id} name={e.name}>
@@ -50,38 +44,25 @@ const Delete = () => {
       ))
     );
   };
-  const getTier2 = async () => {
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect1,
-    });
-    if (Array.isArray(data1.data.data)) {
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id} name={e.name}>
-            {e.name}
-          </option>
-        ))
-      );
-    }
-  };
+
 
   /******************************************************/
   /*i gamer ena select 5tart ou i 7out id fil input******/
   /******************************************************/
   const getSelectselect0 = (e) => {
     setselectedSelect0(e.target.value);
-    setinput1(e.target.value);
   };
 
   const getSelectselect1 = (e) => {
     setselectedSelect1(e.target.value);
+    setinput1(e.target.value);
+
   };
   /******************************************************/
   /**********fasa5 tier 1 wala tier 2*********************/
   /******************************************************/
   const deleteTier = async () => {
-    settier1Display([])
-    getTier1()
+
     if(input1.length===0){
       setalertstate({state:true,msg:'selectione Tier1 a supprime',color:'#ff9800'})
       setTimeout(() => {
@@ -97,29 +78,10 @@ const Delete = () => {
         setalertstate({state:false,msg:''})
     },4000)
     }
- 
-  };
-  const deleteTier1 = async () => {
+    settier1Display([])
     getTier1()
-    settier2Display([])
-    if(input2==="None"){
-      setalertstate({state:true,msg:'selectione Tier2 a supprime',color:'#ff9800'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-      }, 4000);
-      return
-    }else{
-      const data = await axios.post(`${url}items/Itemdelete`, {
-        tier1id: selectedSelect1,
-        tier2id: input2,
-      });
-      setalertstate({state:true,msg:'tier2 a éte supprime',color:'#4CAF50'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-    },4000)
-    }
-
   };
+
   /*******************************************************/
   /**********i badel section selecon wala kawetchou********/
   /********************************************************/
@@ -159,32 +121,21 @@ const Delete = () => {
           </label>
         </div>
         <select className={style.selectcss} onChange={getSelectselect0}>
-          <option>choisire un elemnet</option>
+        <option value="None">choisire un famille</option>
+          <option value="Extrusion">Extrusion</option>
+          <option value="Compression">Compression</option>
+          <option value="Decoupage">Decoupage</option>
+        </select>
+        <select className={style.selectcss} onChange={getSelectselect1}>
+        <option value="None">choisire un famille</option>
+
           {tier1Display}
         </select>
-
         <div className={style.inputContainer}>
           <Input name="tier1" value={input1} fn1={()=>{}}></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={deleteTier}>
-            efface
-          </button>
-        </div>
-        <h1>niveau 2</h1>
-        <select className={style.selectcss} onChange={getSelectselect1}>
-          <option>choisire un elemnet</option>
-          {tier1Display}
-        </select>
-        <select className={style.selectcss} onChange={getSelectselect2}>
-          <option>choisire un elemnet</option>
-          {tier2Display}
-        </select>
-        <div className={style.inputContainer}>
-          <Input name="tier2" value={input2} fn1={()=>{}}></Input>
-        </div>
-        <div className={style.btncontainer}>
-          <button className={style.btn} onClick={deleteTier1}>
             efface
           </button>
         </div>

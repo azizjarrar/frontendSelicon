@@ -11,19 +11,19 @@ import { url } from "../globalVar/var";
 import axios from "axios";
 import {useSelector,useDispatch} from 'react-redux'
 import ActionNavar from '../../redux/action/changenavbar'
+import changeEDC from '../../redux/action/changeECD'
 
 const Product = (props) => {
-  
   const [selectedSelect, setselectedSelect] = useState("");
-  const [selectedSelect1, setselectedSelect1] = useState("");
   const [itemDisplay,setItemDisplay]=useState([])
   const [windowWidth, setwindowWidth] = useState(window.innerWidth);
-  const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
   const [Modal,setModal]=useState({state:false,id:''})
   const [itemdelete,setitemdeleted]=useState(false)
   const dispatchlang = useDispatch();
+  const dispatchEDC = useDispatch();
   const Page =useSelector(e=>e.navbarReducer.navbar)
+  var ECDD = useSelector((e)=>e.changeEDCreducer)
   var lang = useSelector((e)=>e.reducerlang.lang)
 
  /******************************************************* */
@@ -42,29 +42,38 @@ const Product = (props) => {
     dispatchlang(ActionNavar(url))
     getTier1("Caoutchouc")
   }
+  
   return ()=>{
     window.removeEventListener("resize", handleResize)
   }
+  
 },[])
 useEffect(()=>{
-  setItemDisplay(null)
   setItemDisplay([])
-  getTier1(Page)
-  settier2Display([])
+  getNewItems()
+
+},[selectedSelect])
+
+useEffect(()=>{
+  setItemDisplay([])
+  setselectedSelect('')
+  const url =props.routerProps.match.path.substring(9,props.routerProps.match.path.length)
+  getTier1(url)
+  
 },[Page])
+useEffect(()=>{
+ 
+  setItemDisplay([])
+  setselectedSelect('')
+  const url =props.routerProps.match.path.substring(9,props.routerProps.match.path.length)
+  getTier1(url)
+
+},[ECDD])
  useEffect(()=>{
   setItemDisplay(itemDisplay.filter((element)=>element.key!=itemdelete))
 },[itemdelete])
 
-useEffect(() => {
-  getNewItems()
-  getTier2()
 
-},[selectedSelect])
-useEffect(() => {
-  getNewItems()
-
-},[selectedSelect1])
  /******************************************************* */
  /*******************hel ou tsaker model****************** */
  /********************************************************* */
@@ -88,38 +97,21 @@ useEffect(() => {
   })
   setitemdeleted(id)
 }
+const updateOn=async()=>{
+
+}
  /******************************************************* */
  /******************************************************* */
  /********************************************************* */
   const handleResize = () => {
     setwindowWidth(window.innerWidth);
   };
- /********************************************************* */
- /***************tjib tier 1 ou 2************************** */
- /********************************************************* */
-  
-  const getTier2 = async () => {
-    
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect,
-    });
-    if(Array.isArray(data1.data.data)){
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id}>
-            {localStorage.getItem('lang')==="ang"?e.nameEng:e.name}
-          </option>
-        ))
-      );
-    }
 
-  }
   
     const getTier1 = async (params) => {
-      setselectedSelect1('')
-      settier1Display([])
       const data = await axios.post(`${url}tier/getTier1`, {
         section: params,
+        ECD:ECDD
       });
       settier1Display(
         data.data.data.map((e) => (
@@ -128,13 +120,16 @@ useEffect(() => {
           </option>
         ))
       );
-        
       if(document.getElementById('selectlowla')[1]!=undefined){
+        document.getElementById('selectlowla').selectedIndex=1
+        setselectedSelect(document.getElementById('selectlowla')[1].value)
+      }
+     /* if(document.getElementById('selectlowla')[1]!=undefined){
         document.getElementById('selectlowla').selectedIndex=1
         setselectedSelect(document.getElementById('selectlowla')[1].value)
         getNewItems()
       
-      }
+      }*/
 
     }
 /**********************************************************/
@@ -143,11 +138,9 @@ useEffect(() => {
   
   const getSelectselect=(e)=>{
     setselectedSelect(e.target.value)  
-    setselectedSelect1('')
+
   }
-  function getSelectselect1(e){
-    setselectedSelect1(e.target.value)
-  }
+
   /**********************************************************/
  /***************thezek li dashbored********************** */
  /********************************************************* */
@@ -160,41 +153,17 @@ useEffect(() => {
  /********************************************************* */
  
   const getNewItems=async ()=>{
-    console.log("===="+selectedSelect1)
     var  data
-    if(selectedSelect1.length===0){
        data = await axios.post(`${url}items/getItemsSelection`, {
-        tier1id:selectedSelect,
+        tier1id:selectedSelect
+        /*ECD:ECDD,
+        type:Page*/
       });
       if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
+        setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} updateOn={()=>updateOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
       }
 
-    }else{
-       data = await axios.post(`${url}items/getItemsSelection`, {
-        tier1id:selectedSelect,
-        tier2id:selectedSelect1
-      });
-      if(Array.isArray(data.data.data)){
-        setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description} deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
-      }
-    }
-    //setItemDisplay()
-  }
-  const searchbyword=async (e)=>{
-
-    document.getElementById('selectlowla').selectedIndex=0
-    settier2Display([])
-    setselectedSelect('')
-    var data = await axios.post(`${url}items/searchByword`, {
-      word:e.target.value,
-      lang:localStorage.getItem('lang') 
-    });
-    if(Array.isArray(data.data.data)){
-      setItemDisplay(data.data.data.map((e)=><Oneproduct Vu={e.Vu} name={lang==="ang"||localStorage.getItem('lang')==="ang"?e.nameEng:e.name} url={e.url} Description={lang==="ang"||localStorage.getItem('lang')==="ang"?e.DescriptionEng:e.Description}  deleteOn={()=>deleteOn(e._id)} fn1={()=>displayModal(e._id)} key={e._id} id={e._id}></Oneproduct>))    
-    }else{
-      setItemDisplay([])
-    }
+    
   }
   /**********************************************************/
  /***************thezek Home********************** */
@@ -242,10 +211,8 @@ useEffect(() => {
   /**********************************************************/
  /***************Radio box handler***************************/
  /************************************************************/
- /***laod tier 1 on click* */
- const loadtier1 =()=>{
-  // console.log(Page)
-  //getTier1()
+ const ecdfn=(e)=>{
+  dispatchEDC(changeEDC(e))
  }
   return (
     <div className={style.productBody}>
@@ -265,21 +232,13 @@ useEffect(() => {
       {windowWidth<700&&radiobox()}
 
         <div className={style.search}>
-
-          <select id="selectlowla" className={style.searchCss}  onClick={loadtier1} onChange={getSelectselect}>
+          <div className={`${style.ecdContainer}  ${ECDD==="Extrusion"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Extrusion') }><h2>Extrusion</h2></div>
+          <div className={`${style.ecdContainer} ${ECDD==="Compression"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Compression') }><h2>Compression</h2></div>
+          <div className={`${style.ecdContainer} ${ECDD==="Decoupage"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Decoupage') }><h2>Decoupage</h2></div>
+          <select id="selectlowla" className={style.searchCss}   onChange={getSelectselect}>
             <option  value="None">None</option>
             {tier1Display}
           </select>
-          <select className={style.searchCss} onChange={getSelectselect1}>
-            <option value="None">None</option>
-            {tier2Display}
-
-          </select>
-          {windowWidth > 700 &&(
-            <div className={style.searchContainer}>
-              <Inputc name="seach"  fn1={searchbyword}></Inputc>
-            </div>
-          )}
           {(windowWidth > 700 && localStorage.getItem('role')==='admin') && (
             <div>
               <button className={style.buttonadd} onClick={goAdminDashbord}>
@@ -288,8 +247,7 @@ useEffect(() => {
             </div>
           )}
         </div>
-        {windowWidth < 700 && (
-          <div className={style.searchContainer}><Inputc name="seach" fn1={searchbyword}></Inputc></div>)}
+
         <div className={style.itemsContainer}>
         {itemDisplay}
         </div>

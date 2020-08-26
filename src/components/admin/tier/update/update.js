@@ -10,8 +10,6 @@ const Update = () => {
   const [tier2, setTier2] = useState("None");
   const [sectionSP, setsection] = useState("Silicone");
   const [tier1Display, settier1Display] = useState([]);
-  const [tier2Display, settier2Display] = useState([]);
-  const [selectedSelect2, setselectedSelect2] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("");
   const [selectedSelect0, setselectedSelect0] = useState("");
   const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
@@ -20,11 +18,13 @@ const Update = () => {
   /******************************************************/
   useEffect(() => {
     getTier1();
+    setTier1('')
   }, [sectionSP]);
   useEffect(() => {
-    getTier2();
-  }, [selectedSelect1]);
+    getTier1();
+  }, [selectedSelect0]);
 
+  
   useEffect(() => {
     document.getElementById("silicon").checked = true;
     getTier1();
@@ -47,15 +47,15 @@ const Update = () => {
   const getSelectselect1 = (e) => {
     setselectedSelect1(e.target.value);
   };
-  const getSelectselect2 = (e) => {
-    setselectedSelect2(e.target.value);
-  };
+
   /******************************************************/
   /******************jib tier 1 ou 2**********************/
   /******************************************************/
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
+      ECD:selectedSelect0
+
     });
     settier1Display(
       data.data.data.map((e) => (
@@ -65,32 +65,19 @@ const Update = () => {
       ))
     );
   };
-  const getTier2 = async () => {
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect1,
-    });
-    if (Array.isArray(data1.data.data)) {
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id}>
-            {e.name}
-          </option>
-        ))
-      );
-    }
-  };
+
   /******************************************************/
   /**************tbadel esem mta3 tier1 ou 2**************/
   /******************************************************/
   const changetier1Title0 = async () => {
     if(tier1==='None'){
-      setalertstate({state:true,msg:'saisie  le Nouveau Tier nom',color:'#ff9800'})
+      setalertstate({state:true,msg:'saisie  le famille  ',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
       }, 4000);
       return
-    }else if(selectedSelect0.length===0){
-      setalertstate({state:true,msg:'selection tier pour le modifie',color:'#ff9800'})
+    }else if(selectedSelect1.length===0){
+      setalertstate({state:true,msg:'selection le famille pour le modifie',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
       }, 4000);
@@ -98,7 +85,7 @@ const Update = () => {
     }
     else{
       const data1 = await axios.post(`${url}tier/MaddTier1`, {
-        id: selectedSelect0,
+        id: selectedSelect1,
         newname: tier1,
       }).then(()=>getTier1());
       setalertstate({state:true,msg:'tier1 Nom  a éte modifie',color:'#4CAF50'})
@@ -107,27 +94,7 @@ const Update = () => {
     },4000)
     }
   };
-  const changetier2Title1 = async () => {
-    if(tier2==='None'){
-      setalertstate({state:true,msg:'saisie  le Nouveau Tier nom',color:'#ff9800'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-      }, 4000);
-      return
-    }else if(selectedSelect2.length===0){
-      setalertstate({state:true,msg:'selection tier pour le modifie',color:'#ff9800'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-      }, 4000);
-      return
-    } 
-    else{
-      const data1 = await axios.post(`${url}tier/MaddTier2`, {
-        id: selectedSelect2,
-        newname: tier2,
-      }).then(()=>getTier2());
-    }
-  };
+
   /******************************************************/
   /******************ki tbadel radio box*****************/
   /******************************************************/
@@ -167,7 +134,14 @@ const Update = () => {
           </label>
         </div>
         <select className={style.selectcss} onChange={getSelectselect0}>
-          <option>choisire un element</option>
+        <option value="None">choisire un famille</option>
+          <option value="Extrusion">Extrusion</option>
+          <option value="Compression">Compression</option>
+          <option value="Decoupage">Decoupage</option>
+        </select>
+        <select className={style.selectcss} onChange={getSelectselect1}>
+        <option value="None">choisire un famille</option>
+
           {tier1Display}
         </select>
         <div className={style.inputContainer}>
@@ -175,23 +149,6 @@ const Update = () => {
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={changetier1Title0}>
-            Mise a Jour Tier1
-          </button>
-        </div>
-        <h1>niveau 2</h1>
-        <select className={style.selectcss} onChange={getSelectselect1}>
-          <option>choisire un element</option>
-          {tier1Display}
-        </select>
-        <select className={style.selectcss} onChange={getSelectselect2}>
-          <option>choisire un element</option>
-          {tier2Display}
-        </select>
-        <div className={style.inputContainer}>
-          <Input name="tier2" fn1={onchangeHandler1}></Input>
-        </div>
-        <div className={style.btncontainer}>
-          <button className={style.btn} onClick={changetier2Title1}>
             Mise a Jour
           </button>
         </div>

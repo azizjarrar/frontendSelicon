@@ -142,7 +142,7 @@ useEffect(()=>{
           <div className={style.voirNosarticle}><button className={style.btnhome} onClick={gotoporoduct}><p>{langgg.btnfr}</p></button></div>
         </div>
 
-        <OurProductsQuality></OurProductsQuality>
+        <OurProductsQuality {...props}></OurProductsQuality>
         <Description></Description>
         <OurHistory></OurHistory>
         {/*windoww>700&&<OurProducts {...props}></OurProducts>*/}

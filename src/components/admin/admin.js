@@ -44,9 +44,9 @@ const Admin = (props) => {
         <div className={style.Header}>
             <div className={style.DashboredTitleContainer}><h2 className={style.DashboredTitle}>Admin Dashbored</h2></div>
             <button className={style.buttonstyle1} onClick={e=>changepage("AjouterArticle")}>Ajouter un article</button>
-            <button className={style.buttonstyle0} onClick={e=>changepage("Ajouter")}>Ajouter un Nivaux</button>
-            <button className={style.buttonstyle2} onClick={e=>changepage("Modifier")}>Modifier un Nivaux</button>
-            <button className={style.buttonstyle3} onClick={e=>changepage("Supprime")}>Supprime un Nivaux</button>
+            <button className={style.buttonstyle0} onClick={e=>changepage("Ajouter")}>Ajouter une famille</button>
+            <button className={style.buttonstyle2} onClick={e=>changepage("Modifier")}>Modifier une famille</button>
+            <button className={style.buttonstyle3} onClick={e=>changepage("Supprime")}>Supprime une famille</button>
           </div>
         </div>
           <div className={style.DashboredContent}>

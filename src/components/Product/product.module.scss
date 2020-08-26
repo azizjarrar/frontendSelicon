@@ -45,7 +45,7 @@
 }
 .itemsContainer{
     position: relative;
-    top: 20px;
+    top: 50px;
     height: auto;
     justify-content: center;
     display: grid;
@@ -161,4 +161,15 @@
     justify-content: center;
     gap: 15px;
     padding-top: 15px;
+}
+.ecdContainer{
+    width: 20%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ecdContainerBottm{
+    border-bottom: 3px solid #904E55;
 }

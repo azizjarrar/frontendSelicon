@@ -9,8 +9,8 @@ import {createStore,combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import reducerlang from './redux/reduceer/changelang'
 import navbarReducer from './redux/reduceer/navbarReducer'
-
-let store = createStore(combineReducers({reducerlang,navbarReducer}),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import changeEDCreducer from './redux/reduceer/changeEDCreducer'
+let store = createStore(combineReducers({reducerlang,navbarReducer,changeEDCreducer}),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 /***************************/
 axios.interceptors.request.use(request=>{

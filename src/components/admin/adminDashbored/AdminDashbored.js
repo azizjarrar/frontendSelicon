@@ -9,7 +9,6 @@ import Alert from '../../elements/alert/alert'
 const AdminDashbored = () => {
   const [photo, setPhoto] = useState(pp);
   const [sectionSP, setsection] = useState("Silicone");
-  const [tier2Display, settier2Display] = useState([]);
   const [tier1Display, settier1Display] = useState([]);
   const [selectedSelect, setselectedSelect] = useState("");
   const [selectedSelect1, setselectedSelect1] = useState("None");
@@ -35,8 +34,10 @@ const AdminDashbored = () => {
   },[sectionSP])
   useEffect(() => {
     getTier1();
-    getTier2();
   }, [selectedSelect]);
+  useEffect(()=>{
+
+  },[tier1Display])
     /********************************************************************/
     /******************************Ajouter Tier***********************************/
     const addTier = async () =>{
@@ -68,8 +69,9 @@ const AdminDashbored = () => {
       }else{
        let formData = new FormData();  
        formData.append('file',PhotoDataAppend)
-       formData.append('tier1id', selectedSelect)
-       formData.append('tier2id', selectedSelect1)
+       formData.append('ECD', selectedSelect)
+       formData.append('tier1id', selectedSelect1)
+       formData.append('type',sectionSP)
        /***************FR************* */
        formData.append('name', Titre)
  
@@ -112,6 +114,7 @@ const AdminDashbored = () => {
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
+      ECD:selectedSelect
     });
     settier1Display(
       data.data.data.map((e) => (
@@ -121,21 +124,7 @@ const AdminDashbored = () => {
       ))
     );
   };
-  const getTier2 = async () => {
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect,
-    });
-    if(Array.isArray(data1.data.data)){
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id}>
-            {e.name}
-          </option>
-        ))
-      );
-    }
 
-  };
   /********************************************************************/
   function photoDisplay(e) {
     if(e.target.files[0]!=undefined && e.target.files[0]!=null){
@@ -207,14 +196,16 @@ const AdminDashbored = () => {
       </div>
       <div className={style.tier}>
         <select className={style.selectcss} onChange={getSelectselect}>
-          <option>None</option>
-          {tier1Display}
+          <option>choisire un famille</option>
+        <option value="Extrusion">Extrusion</option>
+          <option value="Compression">Compression</option>
+          <option value="Decoupage">Decoupage</option>
         </select>
       </div>
       <div className={style.tier}>
         <select className={style.selectcss} onChange={getSelectselect1}>
           <option value="None">None</option>
-          {tier2Display}
+          {tier1Display}
         </select>
       </div>
       <div className={style.textArea}>

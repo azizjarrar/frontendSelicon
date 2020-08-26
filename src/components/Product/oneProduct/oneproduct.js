@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import style from "./oneproduct.module.css";
-import {url} from '../../globalVar/var'
+import style from "./oneproduct.module.scss";
+import {url} from '../../globalVar/var';
+import deleteLogo from './bin.png' ;
+import updateLogo from './refresh1.png' ;
 {/*const ArrayofPhoto = [
   { imgurl: require(`../1.jpg`) },
   { imgurl: require(`../2.jpg`) },
@@ -16,7 +18,8 @@ import {url} from '../../globalVar/var'
 const Oneproduct = (props) => {
   return (
     <div className={style.boxStyle} id={props.id}>
-      {localStorage.getItem('role')==="admin"&&<div className={style.close} onClick={props.deleteOn}></div>}
+      {localStorage.getItem('role')==="admin"&&<div className={style.update} onClick={props.updateOn}><img className={style.logo} src={updateLogo}/></div>}
+      {localStorage.getItem('role')==="admin"&&<div className={style.close} onClick={props.deleteOn}><img className={style.logo} src={deleteLogo}/></div>}
       {localStorage.getItem('role')==="admin"&&<div className={style.Vu} ><p>Vu:{props.Vu}</p></div>}
 
       <div className={style.OneproductImageContainer}>

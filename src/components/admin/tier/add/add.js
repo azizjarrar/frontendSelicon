@@ -8,13 +8,10 @@ import Alert from "../../../elements/alert/alert";
 const Add = () => {
   const [tier1, setTier1] = useState("None");
   const [tier1Display, settier1Display] = useState([]);
-  const [selectedSelect, setselectedSelect] = useState("");
-  const [tier2, setTier2] = useState("None");
-  const [tier2Display, settier2Display] = useState([]);
+  const [selectedSelect, setselectedSelect] = useState("");//hedhi famille 1 che5tar menha
   const [sectionSP, setsection] = useState("Silicone");
   const [alertstate, setalertstate] = useState({state: false,msg: "gzegz",color: "#2196F3",});
   const [nameEng1,setnameEng1]=useState('')
-  const [nameEng2,setnameEng2]=useState('')
 
   /*************************UseEffects************************/
   /***********************************************************/
@@ -24,7 +21,6 @@ const Add = () => {
   }, [sectionSP]);
   useEffect(() => {
     getTier1();
-    getTier2();
   }, [selectedSelect]);
   useEffect(() => {
     document.getElementById("silicon").checked = true;
@@ -36,9 +32,7 @@ const Add = () => {
   const onchangeHandler = (e) => {
     setTier1(e.target.value);
   };
-  const onchangeHandler1 = (e) => {
-    setTier2(e.target.value);
-  };
+
   /**********************************************************************/
   /*****************hedhi mta3 checkbox**********************************/
   /**********************************************************************/
@@ -57,7 +51,7 @@ const Add = () => {
       return
     }else{
       axios
-      .post(`${url}tier/AaddTier1`, { name: tier1, section: sectionSP ,nameEng:nameEng1})
+      .post(`${url}tier/AaddTier1`, { name: tier1, section: sectionSP ,nameEng:nameEng1,ECD:selectedSelect})
       .then((response) => {
         getTier1();
       })
@@ -68,67 +62,24 @@ const Add = () => {
     },4000)
   }
 }
-  /**********************************************************************/
-  /********************nzid tier 2***************************************/
-  /**********************************************************************/
-  const addTier2 = async () => {
-    if(tier2==='None'){
-      setalertstate({state:true,msg:'saisie un tier2',color:'#ff9800'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-      }, 4000);
-      return
-    }else if(selectedSelect.length===0){
-      setalertstate({state:true,msg:'selection tier pour ajoute ta7tha tier 2',color:'#ff9800'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-      }, 4000);
-      return
-    }
-    else{
-      await axios
-      .post(`${url}tier/AaddTier2`, { name: tier2, tier1id: selectedSelect,nameEng:nameEng2 })
-      .then((response) => {
-        getTier2()
-      });
-      setalertstate({state:true,msg:'Tier2 a éte enregistre',color:'#4CAF50'})
-      setTimeout(() => {
-        setalertstate({state:false,msg:''})
-    },4000)
-  };
-    }
+
+ 
   /************************************************************/
 /*************************************njib tier 1*************/  
 /************************************************************/
   const getTier1 = async () => {
     const data = await axios.post(`${url}tier/getTier1`, {
       section: sectionSP,
+      ECD:selectedSelect
     });
     let NewTier1Array=data.data.data.map((e) => (<option value={e._id} key={e._id}>{e.name}</option>))
     settier1Display([...NewTier1Array]);
   };
-    /************************************************************/
-/*************************************njib tier 2*************/  
-/************************************************************/
-  const getTier2 = async () => {
-    const data1 = await axios.post(`${url}tier/getTier2`, {
-      id: selectedSelect,
-    });
-    if (Array.isArray(data1.data.data)) {
-      settier2Display(
-        data1.data.data[0].tier2.map((e) => (
-          <option value={e._id} key={e._id}>
-            {e.name}
-          </option>
-        ))
-      );
-    }
-  };
+
 /************************************************************/
 /******************enehi tier 1 selectit*********************/  
 /************************************************************/
   const getSelectselect = (e) => {
-    settier2Display([])
     setselectedSelect(e.target.value);
   };
   /************************************************************/
@@ -136,9 +87,6 @@ const Add = () => {
 /************************************************************/
 function onchangeHandlereng1(e){
   setnameEng1(e.target.value)
-}
-function onchangeHandlereng2(e){
-  setnameEng2(e.target.value)
 }
 
   return (
@@ -172,6 +120,16 @@ function onchangeHandlereng2(e){
             <span class="checkmark"></span>
           </label>
         </div>
+        <select
+          className={style.selectStyle}
+          className={style.selectcss}
+          onChange={getSelectselect}
+        >
+          <option value="None">choisire un famille</option>
+          <option value="Extrusion">Extrusion</option>
+          <option value="Compression">Compression</option>
+          <option value="Decoupage">Decoupage</option>
+        </select>
         <div className={style.inputContainer}>
           <Input name="tier1Select" fn1={onchangeHandler}></Input><Input name="tier1Select Eng" fn1={onchangeHandlereng1} ></Input>
         </div>
@@ -180,27 +138,16 @@ function onchangeHandlereng2(e){
             Ajouter
           </button>
         </div>
-        <h1>niveau 2</h1>
+        <h2>Liste les famille</h2>
         <select
           className={style.selectStyle}
           className={style.selectcss}
-          onChange={getSelectselect}
         >
-          <option value="None">choisir un elemnt</option>
           {tier1Display}
         </select>
-        <select className={style.selectStyle} className={style.selectcss}>
-          <option value="None">choisir un elemnt</option>
-          {tier2Display}
-        </select>
-        <div className={style.inputContainer}>
-         <Input name="tier2Select" fn1={onchangeHandler1}></Input><Input name="tier2Select Eng" fn1={onchangeHandlereng2} ></Input>
-        </div>
-        <div className={style.btncontainer}>
-          <button className={style.btn} onClick={addTier2}>
-            Ajouter
-          </button>
-        </div>
+  
+  
+
       </div>
     </div>
   );

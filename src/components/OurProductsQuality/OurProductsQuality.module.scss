@@ -162,3 +162,69 @@
         height: 600px;
     }
 }
+/******************************************/
+.animation1{
+height: 50px;
+width: 200px;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+
+animation-name: left,kbarshgar  ;
+animation-duration:1s, 2s ;
+animation-delay: 0s ,1s;
+animation-timing-function: ease-in ease-in;
+animation-fill-mode: forwards ;
+animation-iteration-count: 1 ,infinite;
+z-index: 15;
+background-color: white;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+h2{
+    color:black
+}
+display:flex;
+align-items: center;
+justify-content: center;
+}
+.animation2{
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+animation-name: right,kbarshgar  ;
+animation-duration:1s, 2s ;
+animation-delay: 0s ,1s;
+animation-timing-function: ease-in ease-in;
+animation-fill-mode: forwards ;
+animation-iteration-count: 1 ,infinite;
+z-index: 15;
+background-color: white;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+h2{
+    color:black
+}
+display:flex;
+align-items: center;
+justify-content: center;
+}
+@keyframes kbarshgar{
+    
+    0% {width: 200px;}
+    50%  {width: 220px;}
+    100% {width:200px;}
+}
+@keyframes right{
+    from{left: 50%;top:50%}
+    to{left: 10%;top: 60%;transform:none}
+    
+}
+@keyframes left{
+    from{left: 50%;top:50%}
+    to{left: 10%;top: 10%;transform:none}
+  
+}
