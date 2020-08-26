@@ -1,0 +1,216 @@
+.viewContainer{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position:fixed ;
+    z-index: 150;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    animation-name: showw ;
+    animation-duration: 1s ;
+    animation-fill-mode: forwards;
+    overflow: scroll;
+}
+.display{
+
+  min-height: 850px;
+   border-bottom-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+    position: absolute;
+    height: 0%;
+    width: 0%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation-name: showwhite ;
+    animation-delay: 1s;
+    animation-duration: 1s ; 
+    animation-fill-mode: forwards;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    overflow: hidden;
+}
+@keyframes showwhite{
+    from {width:  0px;height:0%;}
+    to {width:  700px;height:80%;}
+
+}
+@keyframes showw {
+    from {width:  0%;height:0%;}
+    to {width:  100%;height:100%;}
+  }
+  .close {
+    color: black;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+    z-index: 15;
+
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #E05263;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  .Container{
+      overflow: hidden;
+    position: relative;
+    width: 700px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    h2{
+        font-family: 'Alata', sans-serif;
+
+        position: relative;
+        &:after{
+       
+                content: "";
+                width: 100%;
+                height: 3px;
+                background-color: gray;
+                position: absolute;
+                left: 0px;
+                bottom: -5px;
+            
+        }
+    }
+}
+  /*****************************************************************************/
+  
+  .title{
+    position: relative;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    gap: 15px;
+
+}
+.title div{
+    left: 0px;
+    transform:none
+}
+
+.litelDescription{
+    position: relative;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    gap: 15px;
+}
+.litelDescription div{
+    left: 0px;
+    transform:none
+
+}
+.textArea{
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 15px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.textareaStyle{
+    border: 1px solid black;
+    height: 200px;
+    width: 50%;
+}
+/*********upload****************/
+.displayimageBTNContainer{
+    position: relative;
+    height: 100px;
+    width: 60%;
+}
+.imageDisplay{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border: 3px solid #333333;
+}
+.imageCss{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.filebuttoncss:hover >label{
+    background-color:#ed070d;
+}
+.filebuttoncss{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    height: 80%;
+    width: 100%;
+    
+}
+.labelfile{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #df474b;
+
+}
+.Pinputfile{
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+.inputfile{
+    position: relative;
+    height: 98%;
+    width: 100%;
+}
+.btn{
+    background-color: gray;
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    &:hover{
+        background-color:#ed070d;
+
+    }
+}
+.btncontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    height: 40px;
+    margin-bottom: 0px;
+}

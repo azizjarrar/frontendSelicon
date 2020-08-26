@@ -88,7 +88,7 @@ const Update = () => {
         id: selectedSelect1,
         newname: tier1,
       }).then(()=>getTier1());
-      setalertstate({state:true,msg:'tier1 Nom  a éte modifie',color:'#4CAF50'})
+      setalertstate({state:true,msg:'famille  a éte modifie',color:'#4CAF50'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
     },4000)

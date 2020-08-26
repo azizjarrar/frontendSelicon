@@ -4,7 +4,7 @@ import Navbar from "./navbar/navbar";
 import Inputc from "../elements/input/input";
 import table from "./test.js";
 import View from '../view/view'
-
+import Viewupdate from '../viewupdate/viewupdate'
 import Oneproduct from "./oneProduct/oneproduct";
 import Contact from "../contactUs/contactUs";
 import { url } from "../globalVar/var";
@@ -20,6 +20,7 @@ const Product = (props) => {
   const [tier1Display, settier1Display] = useState([]);
   const [Modal,setModal]=useState({state:false,id:''})
   const [itemdelete,setitemdeleted]=useState(false)
+  const [displayUpdate,setdisplayUpdate]=useState({state:false,id:''})
   const dispatchlang = useDispatch();
   const dispatchEDC = useDispatch();
   const Page =useSelector(e=>e.navbarReducer.navbar)
@@ -58,8 +59,8 @@ useEffect(()=>{
   setItemDisplay([])
   setselectedSelect('')
   const url =props.routerProps.match.path.substring(9,props.routerProps.match.path.length)
-  getTier1(url)
   
+  getTier1(url)
 },[Page])
 useEffect(()=>{
  
@@ -97,8 +98,15 @@ useEffect(()=>{
   })
   setitemdeleted(id)
 }
-const updateOn=async()=>{
-
+const closeModeldisplayUpdate=()=>{
+  setdisplayUpdate((e)=>{
+    return {...Modal,state:!e.state}  
+  })
+}
+const updateOn=async(id)=>{
+setdisplayUpdate((e)=>{
+  return {state:!e.state,id:id}
+})
 }
  /******************************************************* */
  /******************************************************* */
@@ -205,6 +213,7 @@ const updateOn=async()=>{
     
      }
      const radioboxHandler=(e)=>{
+      props.routerProps.history.push("/product/"+e.target.value);
       dispatchlang(ActionNavar(e.target.value))
       
     }
@@ -216,6 +225,7 @@ const updateOn=async()=>{
  }
   return (
     <div className={style.productBody}>
+      {displayUpdate.state&&<Viewupdate  fn1={closeModeldisplayUpdate} idData={displayUpdate.id}></Viewupdate>}
       {Modal.state&&<View fn2={closeModel} idData={Modal.id}></View>}
       {windowWidth>700&&<Navbar {...props}></Navbar>}
       <div className={style.HeaderTop}>
@@ -230,8 +240,8 @@ const updateOn=async()=>{
       </div>
       <div className={style.producContainer}>
       {windowWidth<700&&radiobox()}
-
-        <div className={style.search}>
+{/************************************fil ecran kbira**************************************** */}
+        {windowWidth>700&&<div className={style.search}>
           <div className={`${style.ecdContainer}  ${ECDD==="Extrusion"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Extrusion') }><h2>Extrusion</h2></div>
           <div className={`${style.ecdContainer} ${ECDD==="Compression"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Compression') }><h2>Compression</h2></div>
           <div className={`${style.ecdContainer} ${ECDD==="Decoupage"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Decoupage') }><h2>Decoupage</h2></div>
@@ -246,7 +256,21 @@ const updateOn=async()=>{
               </button>
             </div>
           )}
-        </div>
+        </div>}
+{/***************************************fi ecran s8ira********************************************************/}
+        {windowWidth<700&&<div className={style.search}>
+          <div className={style.ECDtel}>
+          <div className={`${style.ecdContainer}  ${ECDD==="Extrusion"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Extrusion') }><h2>Extrusion</h2></div>
+          <div className={`${style.ecdContainer} ${ECDD==="Compression"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Compression') }><h2>Compression</h2></div>
+          <div className={`${style.ecdContainer} ${ECDD==="Decoupage"&&style.ecdContainerBottm}`} onClick={e=>ecdfn('Decoupage') }><h2>Decoupage</h2></div>
+          </div>
+          <select id="selectlowla" className={style.searchCss}   onChange={getSelectselect}>
+            <option  value="None">None</option>
+            {tier1Display}
+          </select>
+    
+        </div>}
+        {/***************************************fi ecran s8ira********************************************************/}
 
         <div className={style.itemsContainer}>
         {itemDisplay}

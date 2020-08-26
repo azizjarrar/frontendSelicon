@@ -72,6 +72,23 @@
     }
 }
 @media only screen and (max-width: 700px) {
+    .ECDtel{
+        display: flex;
+        div{
+            flex-grow: 1;
+            h2{
+                font-size: 15px;
+            }
+        }
+    }
+    .search{
+        width: 100%;
+        flex-direction: column;
+        height: 150px;
+        select{
+            width: 100%;
+        }
+    }
     .itemsContainer{
         grid-template-columns: 80%   ;
         grid-auto-rows: 400px;

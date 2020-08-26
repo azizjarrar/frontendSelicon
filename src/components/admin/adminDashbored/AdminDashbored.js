@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../elements/input/input";
-import Table from '../../elements/table/table'
 import pp from ".././g5-patin-silicone-demi-sphere.jpg";
 import style from "./AdminDashbored.module.scss";
 import { url } from "../../globalVar/var";
@@ -41,7 +40,13 @@ const AdminDashbored = () => {
     /********************************************************************/
     /******************************Ajouter Tier***********************************/
     const addTier = async () =>{
- 
+      if(selectedSelect1=="None"){
+        setalertstate({state:true,msg:'Selectione  une famille',color:'#ff9800'})
+        setTimeout(() => {
+          setalertstate({state:false,msg:''})
+        }, 4000);
+        return
+      }
       if(PhotoDataAppend.length===0){
        setalertstate({state:true,msg:'saisie un images',color:'#ff9800'})
        setTimeout(() => {
@@ -61,7 +66,7 @@ const AdminDashbored = () => {
        }, 4000);
        return
       }else if(selectedSelect.length===0){
-       setalertstate({state:true,msg:'Select un Tier',color:'#ff9800'})
+       setalertstate({state:true,msg:'Selectione une famille',color:'#ff9800'})
        setTimeout(() => {
          setalertstate({state:false,msg:''})
        }, 4000);
@@ -169,7 +174,6 @@ const AdminDashbored = () => {
       <div className={style.litelDescription}>
         <Input name="Mini Description" fn1={Discriptioninput}></Input>
         <Input name="Mini DescriptionEng" fn1={DiscriptioninputEng}></Input>
-
       </div>
       <div className={style.radiobox}>
         <label class="container">
@@ -196,7 +200,7 @@ const AdminDashbored = () => {
       </div>
       <div className={style.tier}>
         <select className={style.selectcss} onChange={getSelectselect}>
-          <option>choisire un famille</option>
+          <option value="None">choisire un famille</option>
         <option value="Extrusion">Extrusion</option>
           <option value="Compression">Compression</option>
           <option value="Decoupage">Decoupage</option>

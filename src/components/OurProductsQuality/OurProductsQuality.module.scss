@@ -15,11 +15,14 @@
    display: flex;
     align-items: center;
     justify-content: center;
+
 }
 .whoweare{
     position: relative;
     height: 450px;
     width: 550px;
+    transform: perspective(1000px) rotateY(3deg);
+
 }
 
 .Bigbox{

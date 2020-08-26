@@ -43,8 +43,14 @@ const Add = () => {
   /********************nzid tier 1***************************************/
   /**********************************************************************/
   const addTier1 = () => {
-    if(tier1==='None'){
-      setalertstate({state:true,msg:'saisie un tier1',color:'#ff9800'})
+    if(tier1==='None' ){
+      setalertstate({state:true,msg:'saisie un nom de famille',color:'#ff9800'})
+      setTimeout(() => {
+        setalertstate({state:false,msg:''})
+      }, 4000);
+      return
+    }else if(selectedSelect.length==0){
+      setalertstate({state:true,msg:'Choisir un nom de famille (Compression,Decoupage,Extrusion)',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
       }, 4000);
@@ -56,7 +62,7 @@ const Add = () => {
         getTier1();
       })
       .catch((e) => console.log("Error=" + e));
-      setalertstate({state:true,msg:'Tier1 a éte enregistre',color:'#4CAF50'})
+      setalertstate({state:true,msg:'famille a éte enregistre',color:'#4CAF50'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
     },4000)
@@ -131,7 +137,7 @@ function onchangeHandlereng1(e){
           <option value="Decoupage">Decoupage</option>
         </select>
         <div className={style.inputContainer}>
-          <Input name="tier1Select" fn1={onchangeHandler}></Input><Input name="tier1Select Eng" fn1={onchangeHandlereng1} ></Input>
+          <Input name="nom famille france " fn1={onchangeHandler}></Input><Input name="nom famille anglais" fn1={onchangeHandlereng1} ></Input>
         </div>
         <div className={style.btncontainer}>
           <button className={style.btn} onClick={addTier1}>

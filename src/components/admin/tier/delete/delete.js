@@ -64,7 +64,7 @@ const Delete = () => {
   const deleteTier = async () => {
 
     if(input1.length===0){
-      setalertstate({state:true,msg:'selectione Tier1 a supprime',color:'#ff9800'})
+      setalertstate({state:true,msg:'selectione famille a supprime',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
       }, 4000);
@@ -73,7 +73,7 @@ const Delete = () => {
       const data = await axios.post(`${url}items/Itemdelete`, {
         tier1id: input1,
       });
-      setalertstate({state:true,msg:'tier1   a éte supprime',color:'#4CAF50'})
+      setalertstate({state:true,msg:'famille  a éte supprime',color:'#4CAF50'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
     },4000)
