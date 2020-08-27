@@ -87,8 +87,8 @@
                 content: "";
                 width: 100%;
                 height: 3px;
-                background-color: gray;
-                position: absolute;
+                background-color: rgb(25 ,118 ,210);
+                                position: absolute;
                 left: 0px;
                 bottom: -5px;
             
@@ -103,6 +103,16 @@
     height: 50px;
     display: flex;
     gap: 15px;
+    label{
+        span{
+            color: black;
+
+        }
+        color: black;
+        &:after{
+            border-bottom: 1px solid black;
+        }
+    }
 
 }
 .title div{
@@ -116,6 +126,16 @@
     height: 50px;
     display: flex;
     gap: 15px;
+    label{
+        span{
+            color: black;
+
+        }
+        color: black;
+        &:after{
+            border-bottom: 1px solid black;
+        }
+    }
 }
 .litelDescription div{
     left: 0px;
@@ -154,7 +174,7 @@
     width: 100%;
 }
 .filebuttoncss:hover >label{
-    background-color:#ed070d;
+    background-color: rgb(0, 127, 253);
 }
 .filebuttoncss{
     left: 50%;
@@ -174,8 +194,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #df474b;
-
+    background-color: rgb(25 ,118 ,210);
 }
 .Pinputfile{
     color: white;
@@ -188,7 +207,7 @@
     width: 100%;
 }
 .btn{
-    background-color: gray;
+    background-color: rgb(25 ,118 ,210);
     border: none;
     color: white;
     
@@ -201,7 +220,7 @@
     height: 100%;
     width: 100%;
     &:hover{
-        background-color:#ed070d;
+        background-color: rgb(0, 127, 253);
 
     }
 }

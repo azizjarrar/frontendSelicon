@@ -159,7 +159,7 @@ var differntlang={
     ,OurProductsQualty:{
         header1:{
             fr:'Qui sommes nous?',
-            eng:'Who are we?'
+            eng:'Who we are?'
         },
         header2:{
             fr:'Extrusion',

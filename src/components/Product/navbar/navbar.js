@@ -55,7 +55,7 @@ function Navbar(props){
 
                 <div id="navbarBackgroundColor" className={style.navbarContainer}>
     
-                <div className={style.logo}><h1 onClick={goHome}>MEA MANUFACTURING</h1></div>
+                <div className={style.logo}><h1 onClick={goHome}>Mea Silicone Caoutchouc</h1></div>
                 <div className={style.pStyleDiv}><p className={style.aStylehref} onClick={goHome} >{langg.Title3}</p></div>
                 <div className={style.pStyleDiv}  ><p className={style.aStylehref}  onClick={e=>changeNavbar("Caoutchouc")}>{langg.Title1}</p></div>
                 <div className={style.pStyleDiv} ><p className={style.aStylehref}  onClick={e=>changeNavbar("Silicone")}>{langg.Title2}</p></div>

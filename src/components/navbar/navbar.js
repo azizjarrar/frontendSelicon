@@ -31,7 +31,7 @@ var langggg={
     
     return (
         <div id="navbarBackgroundColor" className={style.navbarContainer}>
-           <div className={style.logo}><h1>MEA MANUFACTURING</h1></div>
+           <div className={style.logo}><h1>Mea Silicone Caoutchouc</h1></div>
            <div className={style.pStyleDiv}><a class="aStylehref" href="#home">{langggg.one}</a></div>
            <div className={style.pStyleDiv}><a class="aStylehref" href="#description" >{langggg.two}</a></div>
            <div className={style.pStyleDiv}><a class="aStylehref" href="#ourProducts" >{langggg.three}</a></div>

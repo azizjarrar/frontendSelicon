@@ -114,7 +114,7 @@ function Description() {
       >
         {/* <div>{one?<h1>true</h1>:<h1>false</h1>}</div>*/}
         <div
-          className={style.boxValues}
+          className={`${style.boxValues} ${style.isar}`}
           name="QUALITY"
           onMouseEnter={(e) => displayDescription("one")}
           onMouseLeave={(e) => removeDescription("one")}
@@ -127,7 +127,7 @@ function Description() {
           </div>
         </div>
         <div
-          className={style.boxValues}
+          className={`${style.boxValues} ${style.imin}`}
           name="OPENNESS"
           onMouseLeave={(e) => removeDescription("two")}
           onMouseEnter={(e) => displayDescription("two")}
@@ -141,7 +141,7 @@ function Description() {
         </div>
 
         <div
-          className={style.boxValues}
+          className={`${style.boxValues} ${style.isar}`}
           name="TEAMWORK"
           onMouseLeave={(e) => removeDescription("three")}
           onMouseEnter={(e) => displayDescription("three")}
@@ -155,7 +155,7 @@ function Description() {
         </div>
 
         <div
-          className={style.boxValues}
+          className={`${style.boxValues} ${style.imin}`}
           name="FLEXIBILITY"
           onMouseLeave={(e) => removeDescription("four")}
           onMouseEnter={(e) => displayDescription("four")}

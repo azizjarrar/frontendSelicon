@@ -43,13 +43,14 @@ const Add = () => {
   /********************nzid tier 1***************************************/
   /**********************************************************************/
   const addTier1 = () => {
+    console.log(selectedSelect)
     if(tier1==='None' ){
       setalertstate({state:true,msg:'saisie un nom de famille',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
       }, 4000);
       return
-    }else if(selectedSelect.length==0){
+    }else if(selectedSelect.length==0 || selectedSelect==="None"){
       setalertstate({state:true,msg:'Choisir un nom de famille (Compression,Decoupage,Extrusion)',color:'#ff9800'})
       setTimeout(() => {
         setalertstate({state:false,msg:''})
@@ -144,7 +145,7 @@ function onchangeHandlereng1(e){
             Ajouter
           </button>
         </div>
-        <h2>Liste les famille</h2>
+        <h2>Liste des familles</h2>
         <select
           className={style.selectStyle}
           className={style.selectcss}

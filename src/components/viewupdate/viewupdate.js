@@ -43,24 +43,37 @@ const Viewupdate = (props) => {
     
       }
       /**************************************************************/
-      const update=()=>{
+      const update=async ()=>{
+        let formData = new FormData();  
+        formData.append('id',props.idData)
+       formData.append('file',PhotoDataAppend)
+       /***************FR************* */
+       formData.append('name', Titre)
+       formData.append('Description', Discription)
+       formData.append('bigDescription', discriptionkbiraV)
+       /**************ENG**************** */
+       formData.append('nameEng', TitreEng)
+       formData.append('DescriptionEng', DiscriptionEng)
+       formData.append('bigDescriptionEng', discriptionkbiraEngv)
+       await axios.post(`${url}items/itemUpdate`, formData);
+       window.location.reload();
 
       }
     /*******************************************************************/
+    function TitreInput(e){
+      setTitre(e.target.value)
+    }
     function Discriptioninput(e){
         setDiscription(e.target.value)
       }
-      function TitreInput(e){
-        setTitre(e.target.value)
-      }
-      function DiscriptioninputEng(e){
-        setTitreEng(e.target.value)
-      }
-      function TitreInputEng(e){
-        setDiscriptionEng(e.target.value)
-      }
       function discriptionkbira(e){
         setdiscriptionkbira(e.target.value)
+      }
+      function DiscriptioninputEng(e){
+        setDiscriptionEng(e.target.value)
+      }
+      function TitreInputEng(e){
+        setTitreEng(e.target.value)
       }
       function discriptionkbiraEng(e){
         setdiscriptionkbiraEng(e.target.value)

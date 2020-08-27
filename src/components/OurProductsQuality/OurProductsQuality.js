@@ -33,6 +33,7 @@ function OurProductsQuality(props) {
     disc2t2:differntlang.OurProductsQualty.disc2.tier2.fr,
     disc3:differntlang.OurProductsQualty.disc3.fr,
     disc4:differntlang.OurProductsQualty.disc4.fr,
+    pl:"Caoutchouc"
   };
 
   if (lang === "ang") {
@@ -46,6 +47,7 @@ function OurProductsQuality(props) {
       disc2t2:differntlang.OurProductsQualty.disc2.tier2.eng,
       disc3:differntlang.OurProductsQualty.disc3.eng,
       disc4:differntlang.OurProductsQualty.disc4.eng,
+      pl:"Rubber"
     };
   }
   const GotoSilicone=(e)=>{
@@ -79,7 +81,7 @@ function OurProductsQuality(props) {
       <div className={style.Extrusion}>
       <div className={style.whoweare} onMouseEnter={Display4image}>
       {display&&<div className={style.animation1}><h2 onClick={e=>GotoSilicone('Extrusion')}>Silicone</h2></div>}
-            {display&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Extrusion')}>Caoutchouc</h2></div>}
+            {display&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Extrusion')}>{language.pl}</h2></div>}
           <img className={style.imgLogocompantStyle} src={imgLogocompantStyle1}></img>
           <div className={style.Bigbox} >
             <h1 className={style.h1Header}>{language.header2}</h1>
@@ -98,7 +100,7 @@ function OurProductsQuality(props) {
       <div className={style.Compression}>
       <div className={style.whoweare} onMouseEnter={Display4image1}>
       {display1&&<div className={style.animation1}><h2 onClick={e=>GotoSilicone('Compression')}>Silicone</h2></div>}
-            {display1&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Compression')}>Caoutchouc</h2></div>}
+            {display1&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Compression')}>{language.pl}</h2></div>}
           <img className={style.imgLogocompantStyle} src={imgLogocompantStyle3}></img>
           <div className={style.Bigbox} >
             <h1 className={style.h1Header}>{language.header3}</h1>
@@ -112,7 +114,7 @@ function OurProductsQuality(props) {
       <div className={style.Decoupage}>
       <div className={style.whoweare} onMouseEnter={Display4image2}>
           {display2&&<div className={style.animation1}><h2 onClick={e=>GotoSilicone('Decoupage')}>Silicone</h2></div>}
-            {display2&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Decoupage')}>Caoutchouc</h2></div>}
+            {display2&&<div className={style.animation2}><h2 onClick={e=>GotoCaoutchouc('Decoupage')}>{language.pl}</h2></div>}
           <img className={style.imgLogocompantStyle} src={imgLogocompantStyle2}></img>
           <div className={style.Bigbox} >
             <h1 className={style.h1Header}>{language.header4}</h1>

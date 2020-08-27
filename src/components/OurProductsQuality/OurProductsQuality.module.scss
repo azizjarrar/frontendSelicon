@@ -2,7 +2,10 @@
     position: relative;
     height: 1200px;
     width: 100%;
+    //background-color: #f1f3f8;
     /*background-color:#141414 ;*/
+        background-color: white;
+
     flex-direction: column;
     display: grid;
     min-height: 440px;
@@ -137,34 +140,7 @@
 
     }
 }
-@media only screen and (max-width: 700px){
-    .OurProductsQuality{
-        position: relative;
-        height: 2400px;
- 
-    }
-    .OurProductsQuality{
-        grid-template-columns: 100% ;
-        grid-auto-rows: 600px;
-    }
-     .whoweare{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .Bigbox{
-        right: auto;
-        top: auto;
-    }
-    /****************************/
-    .Extrusion{
-        height: 600px;
-    }
-    .Decoupage{
-        height: 600px;
-    }
-}
+
 /******************************************/
 .animation1{
 height: 50px;
@@ -183,7 +159,10 @@ animation-iteration-count: 1 ,infinite;
 z-index: 15;
 background-color: white;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
+&:hover{
+    background-color: #f1f1f1;
+}
+cursor: pointer;
 h2{
     color:black
 }
@@ -192,6 +171,8 @@ align-items: center;
 justify-content: center;
 }
 .animation2{
+    cursor: pointer;
+
     height: 50px;
     width: 200px;
     position: absolute;
@@ -207,7 +188,9 @@ animation-iteration-count: 1 ,infinite;
 z-index: 15;
 background-color: white;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
+&:hover{
+    background-color: #f1f1ff;
+}
 h2{
     color:black
 }
@@ -230,4 +213,59 @@ justify-content: center;
     from{left: 50%;top:50%}
     to{left: 10%;top: 10%;transform:none}
   
+}
+@media only screen and (max-width: 700px){
+    .animation2{width: 130px !important;
+        font-size: 20px;
+        h2{
+            font-size: 100%;
+        }
+    }
+    .animation1{width: 130px !important;
+        font-size: 20px;
+        h2{
+            font-size: 100%;
+        }}
+    @keyframes right{
+        from{left: 50%;top:50%}
+        to{left: 10%;top: 110%;transform:none}
+        
+    }
+    @keyframes left{
+        from{left: 50%;top:50%}
+        to{right: 10% ;top: 110%;transform:none}
+      
+    }
+    .OurProductsQuality{
+        position: relative;
+        height: auto;
+ 
+    }
+    .OurProductsQuality{
+        grid-template-columns: 100% ;
+        grid-auto-rows: 500px;
+    }
+     .whoweare{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Bigbox{
+        right: auto;
+        top: auto;
+    }
+    /****************************/
+    .Extrusion{
+        height: 400px;
+    }
+    .Decoupage{
+        height: 400px;
+    }
+    .whoweareContainer{
+        height: 400px;
+    }
+    .Compression{
+        height: 400px;
+    }
 }
