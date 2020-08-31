@@ -79,7 +79,6 @@ const AdminDashbored = () => {
        formData.append('type',sectionSP)
        /***************FR************* */
        formData.append('name', Titre)
- 
        formData.append('Description', Discription)
        formData.append('bigDescription', discriptionkbiraV)
        /**************ENG**************** */
@@ -149,10 +148,12 @@ const AdminDashbored = () => {
     setTitre(e.target.value)
   }
   function DiscriptioninputEng(e){
-    setTitreEng(e.target.value)
+    setDiscriptionEng(e.target.value)
+
   }
   function TitreInputEng(e){
-    setDiscriptionEng(e.target.value)
+    setTitreEng(e.target.value)
+
   }
   function discriptionkbira(e){
     setdiscriptionkbira(e.target.value)

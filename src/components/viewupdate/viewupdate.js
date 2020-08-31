@@ -23,12 +23,15 @@ const Viewupdate = (props) => {
         const data =  axios.post(`${url}items/searchOneItem`, {
             id: props.idData,
           }).then(res=>{
+            console.log(res.data.data)
             setTitre(res.data.data.name)
-            setdiscriptionkbira(res.data.data.nameEng)
             setDiscription(res.data.data.Description)
-            setTitreEng(res.data.data.DescriptionEng)
-            setDiscriptionEng(res.data.data.bigDescription)
+            setdiscriptionkbira(res.data.data.bigDescription)
+            /*****************************/
+            setTitreEng(res.data.data.nameEng)
+            setDiscriptionEng(res.data.data.DescriptionEng)
             setdiscriptionkbiraEng(res.data.data.bigDescriptionEng)
+            /********************************** */
             setPhoto((e)=>e+res.data.data.url)
               
           });
